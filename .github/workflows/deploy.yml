@@ -40,7 +40,7 @@ jobs:
           personal_token: ${{ secrets.KIDSLAND_PAGES_DEPLOYMENT_SECRET }}
           # Deploy to the phoenixzqy.github.io repo
           external_repository: phoenixzqy/phoenixzqy.github.io
-          publish_branch: main
+          publish_branch: master
           publish_dir: ./dist
           destination_dir: kidsland
           keep_files: false
