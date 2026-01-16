@@ -12,11 +12,73 @@ const defaultTheme = {
   background: '#f8fafc'
 };
 
+/**
+ * Skin style definitions
+ * These define the actual CSS styles for each skin, based on the SVG designs
+ * but without the extra decorations (text, labels, etc.)
+ */
+const SKIN_STYLES: Record<string, {
+  button?: React.CSSProperties;
+  background?: React.CSSProperties;
+  header?: React.CSSProperties;
+}> = {
+  // Rainbow Button - Colorful gradient
+  'skin-btn-rainbow': {
+    button: {
+      background: 'linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff, #ff0080)',
+      border: '2px solid rgba(255,255,255,0.5)',
+      boxShadow: '0 4px 15px rgba(255,100,100,0.4)',
+      color: '#ffffff',
+      textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+    }
+  },
+  // Space Button - Cosmic purple galaxy
+  'skin-btn-space': {
+    button: {
+      background: 'linear-gradient(135deg, #1a0a2e 0%, #4a1a6e 50%, #2a0a4e 100%)',
+      border: '2px solid rgba(155,89,182,0.6)',
+      boxShadow: '0 4px 20px rgba(74,26,110,0.5), inset 0 0 20px rgba(155,89,182,0.2)',
+      color: '#e8daef',
+    }
+  },
+  // Candy Button - Sweet pink
+  'skin-btn-candy': {
+    button: {
+      background: 'linear-gradient(90deg, #ff69b4 0%, #ff8dc7 50%, #ff69b4 100%)',
+      border: '3px solid rgba(255,255,255,0.6)',
+      boxShadow: '0 4px 15px rgba(255,105,180,0.4)',
+      color: '#ffffff',
+    }
+  },
+  // Ocean Background - Calm blue ocean
+  'skin-bg-ocean': {
+    background: {
+      background: 'linear-gradient(180deg, #87ceeb 0%, #4a9fd4 50%, #1a5a8a 100%)',
+    },
+    header: {
+      background: 'linear-gradient(180deg, rgba(135,206,235,0.9) 0%, rgba(74,159,212,0.8) 100%)',
+      backdropFilter: 'blur(10px)',
+    }
+  },
+  // Forest Background - Green forest
+  'skin-bg-forest': {
+    background: {
+      background: 'linear-gradient(180deg, #87ceeb 0%, #a8d8a8 30%, #2d5a30 100%)',
+    },
+    header: {
+      background: 'linear-gradient(180deg, rgba(168,216,168,0.9) 0%, rgba(45,90,48,0.8) 100%)',
+      backdropFilter: 'blur(10px)',
+    }
+  }
+};
+
 interface ThemeContextType {
   equippedSkins: EquippedSkins;
   theme: typeof defaultTheme;
   getSkinStyle: (target: SkinTarget) => React.CSSProperties;
   getSkinForTarget: (target: SkinTarget) => Prize | null;
+  getBackgroundStyle: () => React.CSSProperties;
+  getHeaderStyle: () => React.CSSProperties;
   equipSkin: (prizeId: string, target: SkinTarget) => Promise<void>;
   unequipSkin: (target: SkinTarget) => Promise<void>;
 }
@@ -45,38 +107,44 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [equippedItems]);
 
-  // Get CSS styles for a skin target
+  // Get CSS styles for a skin target (button, card, etc.)
   const getSkinStyle = (target: SkinTarget): React.CSSProperties => {
     const prizeId = equippedSkins[target];
     if (!prizeId) return {};
 
-    const prize = getPrizeById(prizeId);
-    if (!prize) return {};
+    const skinDef = SKIN_STYLES[prizeId];
+    if (!skinDef) return {};
 
-    // Return skin-specific styles based on the skin image/type
-    // For now, we'll use CSS gradients as placeholders
-    const skinStyles: Record<string, React.CSSProperties> = {
-      'skin-rainbow': {
-        background: 'linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3)',
-        border: 'none'
-      },
-      'skin-space': {
-        background: 'linear-gradient(135deg, #667eea, #764ba2)',
-        border: 'none'
-      },
-      'skin-candy': {
-        background: 'linear-gradient(135deg, #f093fb, #f5576c)',
-        border: 'none'
-      },
-      'skin-ocean-bg': {
-        background: 'linear-gradient(180deg, #667eea, #764ba2, #00c6fb)',
-      },
-      'skin-forest-bg': {
-        background: 'linear-gradient(180deg, #56ab2f, #a8e063)',
-      }
-    };
+    // Return the appropriate style based on target
+    if (target === 'button' && skinDef.button) {
+      return skinDef.button;
+    }
+    if (target === 'background' && skinDef.background) {
+      return skinDef.background;
+    }
+    if (target === 'header' && skinDef.header) {
+      return skinDef.header;
+    }
 
-    return skinStyles[prize.image] || {};
+    return {};
+  };
+
+  // Get background style specifically
+  const getBackgroundStyle = (): React.CSSProperties => {
+    const prizeId = equippedSkins['background'];
+    if (!prizeId) return {};
+
+    const skinDef = SKIN_STYLES[prizeId];
+    return skinDef?.background || {};
+  };
+
+  // Get header style specifically
+  const getHeaderStyle = (): React.CSSProperties => {
+    const prizeId = equippedSkins['background'];
+    if (!prizeId) return {};
+
+    const skinDef = SKIN_STYLES[prizeId];
+    return skinDef?.header || {};
   };
 
   // Get the prize for a specific target
@@ -120,6 +188,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     theme: defaultTheme,
     getSkinStyle,
     getSkinForTarget,
+    getBackgroundStyle,
+    getHeaderStyle,
     equipSkin,
     unequipSkin
   };

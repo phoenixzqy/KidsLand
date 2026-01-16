@@ -4,6 +4,7 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { ProgressBar } from '../components/ui/ProgressBar';
 import { StarCounter } from '../components/ui/StarCounter';
+import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { useUser } from '../contexts/UserContext';
 import { getWords } from '../db/sync';
 import type { QuizType } from '../types';
@@ -33,9 +34,9 @@ export function WordListPage() {
   const masteredCount = state.wordProgress.filter(wp => wp.mastered).length;
 
   return (
-    <div className="min-h-screen bg-bg-primary pb-20">
+    <ThemedBackground className="pb-20">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-bg-primary/95 backdrop-blur-sm p-4 border-b border-slate-200">
+      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
         <div className="flex justify-between items-center mb-3">
           <button
             onClick={() => navigate('/')}
@@ -141,13 +142,13 @@ export function WordListPage() {
       </div>
 
       {/* Bottom Action */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-bg-primary/95 backdrop-blur-sm border-t border-slate-200">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-sm border-t border-slate-200">
         <Link to="/quiz">
           <Button variant="primary" fullWidth size="lg">
             🎯 Start Quiz
           </Button>
         </Link>
       </div>
-    </div>
+    </ThemedBackground>
   );
 }

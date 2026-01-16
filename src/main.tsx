@@ -2,6 +2,10 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
+import { initDevTools } from './utils/devTools';
+
+// Initialize dev tools (only in development mode)
+initDevTools();
 
 // Register service worker for PWA
 // vite-plugin-pwa handles this automatically, but we add a manual fallback

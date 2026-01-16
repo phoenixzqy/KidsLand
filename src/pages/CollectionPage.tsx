@@ -4,6 +4,7 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
 import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
+import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { getPrizeById } from '../db/sync';
@@ -86,9 +87,9 @@ export function CollectionPage() {
   ).length;
 
   return (
-    <div className="min-h-screen bg-bg-primary pb-6">
+    <ThemedBackground className="pb-6">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-bg-primary/95 backdrop-blur-sm p-4 border-b border-slate-200">
+      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
         <div className="flex justify-between items-center mb-4">
           <button onClick={() => navigate('/')} className="text-2xl">
             ←
@@ -248,6 +249,6 @@ export function CollectionPage() {
         onClose={() => setSelectedPrize(null)}
         isOwned={true}
       />
-    </div>
+    </ThemedBackground>
   );
 }

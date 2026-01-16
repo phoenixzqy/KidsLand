@@ -8,6 +8,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   icon?: ReactNode;
   iconPosition?: 'left' | 'right';
+  /** If true, skin styles will not be applied to this button */
+  noSkin?: boolean;
 }
 
 export function Button({
@@ -19,13 +21,14 @@ export function Button({
   iconPosition = 'left',
   className = '',
   disabled,
+  noSkin = false,
   ...props
 }: ButtonProps) {
   const { getSkinStyle } = useTheme();
-  const skinStyle = getSkinStyle('button');
+  const skinStyle = noSkin ? {} : getSkinStyle('button');
 
   // Base styles
-  const baseStyles = 'btn-touch font-bold transition-all duration-200 ease-out';
+  const baseStyles = 'btn-touch font-bold transition-all duration-200 ease-out rounded-xl';
 
   // Size variants
   const sizeStyles = {
@@ -49,8 +52,10 @@ export function Button({
   // Width styles
   const widthStyles = fullWidth ? 'w-full' : '';
 
-  // Combine styles
+  // Check if skin is applied
   const hasSkin = Object.keys(skinStyle).length > 0;
+
+  // Combine styles - don't apply variant colors if skin is active
   const combinedClassName = [
     baseStyles,
     sizeStyles[size],
@@ -60,10 +65,15 @@ export function Button({
     className
   ].filter(Boolean).join(' ');
 
+  // Merge skin styles with any inline styles from props
+  const mergedStyle: React.CSSProperties = hasSkin 
+    ? { ...skinStyle, ...props.style }
+    : props.style || {};
+
   return (
     <button
       className={combinedClassName}
-      style={hasSkin ? { ...skinStyle, color: '#fff' } : undefined}
+      style={Object.keys(mergedStyle).length > 0 ? mergedStyle : undefined}
       disabled={disabled}
       {...props}
     >

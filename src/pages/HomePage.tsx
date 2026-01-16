@@ -2,20 +2,21 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { StarCounter } from '../components/ui/StarCounter';
+import { ThemedBackground, ThemedHeader } from '../components/ui/ThemedBackground';
 import { useUser } from '../contexts/UserContext';
 
 export function HomePage() {
   const { stars } = useUser();
 
   return (
-    <div className="min-h-screen bg-bg-primary p-4 safe-area-inset-top safe-area-inset-bottom">
+    <ThemedBackground className="p-4">
       {/* Header */}
-      <header className="flex justify-between items-center mb-8">
+      <ThemedHeader className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-primary-600">
           🎮 KidsLand
         </h1>
         <StarCounter count={stars} size="md" showAnimation />
-      </header>
+      </ThemedHeader>
 
       {/* Welcome Card */}
       <Card className="mb-6 bg-gradient-to-br from-primary-400 to-primary-600 text-white">
@@ -31,7 +32,7 @@ export function HomePage() {
         {/* Learn Words */}
         <Link to="/words">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
             <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-3xl">
@@ -48,7 +49,7 @@ export function HomePage() {
         {/* Quiz */}
         <Link to="/quiz">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
             <div className="w-16 h-16 bg-success/20 rounded-2xl flex items-center justify-center text-3xl">
@@ -65,7 +66,7 @@ export function HomePage() {
         {/* Market */}
         <Link to="/market">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
             <div className="w-16 h-16 bg-star/20 rounded-2xl flex items-center justify-center text-3xl">
@@ -82,7 +83,7 @@ export function HomePage() {
         {/* Collection */}
         <Link to="/collection">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
             <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-3xl">
@@ -124,6 +125,6 @@ export function HomePage() {
           </Button>
         </Link>
       </div>
-    </div>
+    </ThemedBackground>
   );
 }

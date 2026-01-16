@@ -2,6 +2,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
+import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { useUser } from '../contexts/UserContext';
 
 export function QuizSelectPage() {
@@ -33,9 +34,9 @@ export function QuizSelectPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-bg-primary pb-6">
+    <ThemedBackground className="pb-6">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-bg-primary/95 backdrop-blur-sm p-4 border-b border-slate-200">
+      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
         <div className="flex justify-between items-center">
           <button onClick={() => navigate('/')} className="text-2xl">
             ←
@@ -112,6 +113,6 @@ export function QuizSelectPage() {
           </div>
         </Card>
       </div>
-    </div>
+    </ThemedBackground>
   );
 }
