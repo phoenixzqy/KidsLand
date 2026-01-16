@@ -74,10 +74,9 @@ export function StarCounter({
         }}
       />
       <span 
-        className="font-bold text-star"
+        className="font-bold text-emerald-500"
         style={{
-          textShadow: '0 1px 3px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.8)',
-          WebkitTextStroke: '0.5px rgba(0,0,0,0.2)'
+          textShadow: '0 1px 2px rgba(0,0,0,0.3)',
         }}
       >
         {displayCount.toLocaleString()}
