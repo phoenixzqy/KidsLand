@@ -171,13 +171,13 @@ export function MarketPage() {
                 setSelectedCategory(cat.id);
                 setSelectedMobFilter('all');
               }}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 flex-shrink-0 ${
                 selectedCategory === cat.id
                   ? 'bg-primary-500 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              <AppImage src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain" />
+              <AppImage src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain flex-shrink-0" />
               {cat.name}
             </button>
           ))}
@@ -290,9 +290,9 @@ export function MarketPage() {
                         {isPurchasing ? (
                           'Buying...'
                         ) : (
-                          <>
-                            {prize.cost} ⭐
-                          </>
+                          <span className="flex items-center justify-center gap-1">
+                            {prize.cost}<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-4 h-4 inline-block" />
+                          </span>
                         )}
                       </Button>
                     )}
@@ -347,7 +347,7 @@ export function MarketPage() {
         onClose={() => setSelectedPrize(null)}
         isOwned={selectedPrize ? isItemOwned(selectedPrize.id) : false}
         onAction={selectedPrize && !isItemOwned(selectedPrize.id) ? () => handlePurchase(selectedPrize) : undefined}
-        actionLabel={selectedPrize ? `Buy for ${selectedPrize.cost} ⭐` : undefined}
+        actionLabel={selectedPrize ? `Buy for ${selectedPrize.cost}` : undefined}
         actionDisabled={selectedPrize ? stars < selectedPrize.cost || purchasing === selectedPrize.id : false}
       />
     </ThemedBackground>

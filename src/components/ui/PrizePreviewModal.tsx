@@ -60,7 +60,7 @@ export function PrizePreviewModal({
   const getRarityLabel = (rarity?: Rarity): string => {
     switch (rarity) {
       case 'legendary':
-        return '⭐ Legendary';
+        return '💎 Legendary';
       case 'epic':
         return '💎 Epic';
       case 'rare':
@@ -207,7 +207,7 @@ export function PrizePreviewModal({
               onClick={onSell}
               noSkin
             >
-              Sell for ⭐ {sellPrice}
+              <span className="flex items-center justify-center gap-1">Sell for {sellPrice}<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-5 h-5 inline-block" /></span>
             </Button>
           )}
         </div>

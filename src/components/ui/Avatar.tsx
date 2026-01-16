@@ -1,11 +1,27 @@
 import { useTheme } from '../../contexts/ThemeContext';
 import { AppImage } from './AppImage';
+import type { Rarity } from '../../types';
 
 interface AvatarProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   onClick?: () => void;
 }
+
+// Get gradient colors based on rarity
+const getRarityGradient = (rarity?: Rarity): string => {
+  switch (rarity) {
+    case 'legendary':
+      return 'from-yellow-400 to-orange-500';
+    case 'epic':
+      return 'from-purple-400 to-purple-600';
+    case 'rare':
+      return 'from-blue-400 to-blue-600';
+    case 'common':
+    default:
+      return 'from-slate-300 to-slate-400';
+  }
+};
 
 /**
  * Avatar component that displays the equipped card as a profile picture.
@@ -22,38 +38,27 @@ export function Avatar({ size = 'md', className = '', onClick }: AvatarProps) {
     lg: 'w-20 h-20 text-4xl'
   };
 
-  const sizePixels = {
-    sm: 40,
-    md: 56,
-    lg: 80
-  };
-
-  const baseStyles = `
-    rounded-full overflow-hidden 
+  const getBaseStyles = (rarityGradient: string) => `
+    rounded-xl overflow-hidden 
     flex items-center justify-center 
-    bg-gradient-to-br from-primary-300 to-primary-500
+    bg-gradient-to-br ${rarityGradient}
     shadow-lg ring-2 ring-white/50
     transition-transform hover:scale-105
     ${onClick ? 'cursor-pointer' : ''}
   `;
 
   if (avatarCard) {
+    const rarityGradient = getRarityGradient(avatarCard.rarity);
     return (
       <div 
-        className={`${sizeStyles[size]} ${baseStyles} ${className}`}
+        className={`${sizeStyles[size]} ${getBaseStyles(rarityGradient)} ${className}`}
         onClick={onClick}
-        style={{ padding: 0 }}
+        style={{ padding: '4px' }}
       >
         <AppImage 
           src={avatarCard.image} 
           alt={avatarCard.name}
-          className="w-full h-full object-cover"
-          style={{
-            width: sizePixels[size],
-            height: sizePixels[size],
-            objectFit: 'cover',
-            objectPosition: 'center 30%', // Focus on upper part of card (usually the character)
-          }}
+          className="w-full h-full object-contain"
         />
       </div>
     );
@@ -62,7 +67,7 @@ export function Avatar({ size = 'md', className = '', onClick }: AvatarProps) {
   // Default avatar (no card equipped)
   return (
     <div 
-      className={`${sizeStyles[size]} ${baseStyles} ${className}`}
+      className={`${sizeStyles[size]} ${getBaseStyles('from-primary-300 to-primary-500')} ${className}`}
       onClick={onClick}
     >
       <span>👤</span>

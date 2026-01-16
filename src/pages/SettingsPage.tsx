@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
+import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useVoiceSettings } from '../hooks/useVoiceSettings';
@@ -32,8 +33,8 @@ export function SettingsPage() {
           <h2 className="font-bold text-slate-700 mb-3">📊 Your Stats</h2>
           <div className="space-y-2">
             <div className="flex justify-between">
-              <span className="text-slate-600">Total Stars</span>
-              <span className="font-bold text-star">{stars} ⭐</span>
+              <span className="text-slate-600">Total Emeralds</span>
+              <span className="font-bold text-star flex items-center gap-1">{stars}<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-5 h-5 inline-block" /></span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-600">Words Studied</span>

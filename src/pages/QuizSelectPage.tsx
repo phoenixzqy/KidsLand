@@ -85,7 +85,7 @@ export function QuizSelectPage() {
                       <span className="flex items-center gap-2">
                         <span>😊</span>
                         <span>Easy</span>
-                        <span className="text-star">+1⭐</span>
+                        <span className="text-star flex items-center gap-0.5">+1<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-4 h-4 inline-block" /></span>
                       </span>
                     </Button>
                   </Link>
@@ -94,7 +94,7 @@ export function QuizSelectPage() {
                       <span className="flex items-center gap-2">
                         <span>🔥</span>
                         <span>Hard</span>
-                        <span className="text-star-glow">+3⭐</span>
+                        <span className="text-star-glow flex items-center gap-0.5">+3<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-4 h-4 inline-block" /></span>
                       </span>
                     </Button>
                   </Link>

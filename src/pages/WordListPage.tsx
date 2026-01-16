@@ -134,7 +134,7 @@ export function WordListPage() {
           </div>
           <ProgressBar value={learnedCount} max={words.length} color="primary" />
           <div className="flex justify-between mt-2 text-xs text-slate-500">
-            <span>⭐ {masteredCount} mastered</span>
+            <span className="flex items-center gap-1"><AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-4 h-4 inline-block" /> {masteredCount} mastered</span>
             <span>{words.length - learnedCount} remaining</span>
           </div>
         </Card>
@@ -205,7 +205,7 @@ export function WordListPage() {
                     >
                       {/* Mastered badge */}
                       {isMastered && (
-                        <div className="absolute -top-1 -right-1 text-lg">⭐</div>
+                        <div className="absolute -top-1 -right-1"><AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="mastered" className="w-5 h-5" /></div>
                       )}
 
                       <span

@@ -5,6 +5,7 @@ import { Button } from '../components/ui/Button';
 import { Timer } from '../components/ui/Timer';
 import { StarCounter } from '../components/ui/StarCounter';
 import { ProgressBar } from '../components/ui/ProgressBar';
+import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
 import { useTimer } from '../hooks/useTimer';
 import { useSpeech } from '../hooks/useSpeech';
@@ -275,9 +276,9 @@ export function WordQuizPage() {
           </div>
 
           <div className="bg-star/10 rounded-2xl p-6 mb-6">
-            <div className="text-4xl mb-2">⭐</div>
+            <div className="flex justify-center mb-2"><AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-12 h-12 object-contain" /></div>
             <div className="text-3xl font-bold text-star">+{totalStars}</div>
-            <div className="text-sm text-slate-500">Stars earned!</div>
+            <div className="text-sm text-slate-500">Emeralds earned!</div>
           </div>
 
           <div className="space-y-3">
@@ -454,7 +455,7 @@ export function WordQuizPage() {
                 </p>
               )}
               {isCorrect && (
-                <p className="text-star font-bold mt-2">+{starsPerQuestion} ⭐</p>
+                <p className="text-star font-bold mt-2 flex items-center justify-center gap-1">+{starsPerQuestion}<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-5 h-5 inline-block" /></p>
               )}
             </div>
           )}

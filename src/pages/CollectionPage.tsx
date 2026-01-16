@@ -223,13 +223,13 @@ export function CollectionPage() {
                 setSelectedCategory(cat.id);
                 setSelectedMobFilter('all');
               }}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 flex-shrink-0 ${
                 selectedCategory === cat.id
                   ? 'bg-primary-500 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              <AppImage src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain" />
+              <AppImage src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain flex-shrink-0" />
               {cat.name}
             </button>
           ))}
