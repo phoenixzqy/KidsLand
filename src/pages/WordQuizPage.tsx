@@ -88,9 +88,52 @@ export function WordQuizPage() {
   const [quizComplete, setQuizComplete] = useState(false);
   const [newlyMastered, setNewlyMastered] = useState(false);
   const [sentenceWithBlank, setSentenceWithBlank] = useState('');
+  const [multipleChoiceOptions, setMultipleChoiceOptions] = useState<string[]>([]);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   const isHardMode = level === 'hard';
   const starsPerQuestion = isHardMode ? 3 : 1;
+
+  // Generate similar-looking wrong options for multiple choice
+  const generateWrongOptions = useCallback((correctWord: string): string[] => {
+    const wrongOptions: Set<string> = new Set();
+    const word = correctWord.toLowerCase();
+    
+    // Strategy 1: Swap adjacent letters
+    for (let i = 0; i < word.length - 1 && wrongOptions.size < 5; i++) {
+      const swapped = word.slice(0, i) + word[i + 1] + word[i] + word.slice(i + 2);
+      if (swapped !== word) wrongOptions.add(swapped);
+    }
+    
+    // Strategy 2: Replace vowels with other vowels
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    for (let i = 0; i < word.length && wrongOptions.size < 8; i++) {
+      if (vowels.includes(word[i])) {
+        for (const v of vowels) {
+          if (v !== word[i]) {
+            const replaced = word.slice(0, i) + v + word.slice(i + 1);
+            if (replaced !== word) wrongOptions.add(replaced);
+          }
+        }
+      }
+    }
+    
+    // Strategy 3: Double a letter
+    for (let i = 0; i < word.length && wrongOptions.size < 10; i++) {
+      const doubled = word.slice(0, i) + word[i] + word.slice(i);
+      if (doubled !== word) wrongOptions.add(doubled);
+    }
+    
+    // Strategy 4: Remove a letter
+    for (let i = 0; i < word.length && wrongOptions.size < 12; i++) {
+      const removed = word.slice(0, i) + word.slice(i + 1);
+      if (removed !== word && removed.length >= 2) wrongOptions.add(removed);
+    }
+    
+    // Convert to array, shuffle, and take 3
+    const shuffled = Array.from(wrongOptions).sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 3);
+  }, []);
 
   // Timer for hard mode
   const { timeLeft, restart: restartTimer, pause: pauseTimer } = useTimer({
@@ -139,14 +182,22 @@ export function WordQuizPage() {
     loadData();
   }, [wordId, navigate]);
 
-  // Prepare sentence with blank for sentence quiz
+  // Prepare sentence with blank and multiple choice options for sentence quiz
   useEffect(() => {
     if (word && quizState.currentQuizType === 'sentence' && word.sentences.length > 0) {
       const sentence = word.sentences[Math.floor(Math.random() * word.sentences.length)];
       const regex = new RegExp(`\\b${word.word}\\b`, 'gi');
       setSentenceWithBlank(sentence.text.replace(regex, '_____'));
+      
+      // Generate multiple choice options
+      const wrongOptions = generateWrongOptions(word.word);
+      const allOptions = [word.word.toLowerCase(), ...wrongOptions];
+      // Shuffle options
+      const shuffled = allOptions.sort(() => Math.random() - 0.5);
+      setMultipleChoiceOptions(shuffled);
+      setSelectedOption(null);
     }
-  }, [word, quizState.currentQuizType]);
+  }, [word, quizState.currentQuizType, generateWrongOptions]);
 
   // Handle time up for hard mode
   const handleTimeUp = useCallback(() => {
@@ -173,8 +224,10 @@ export function WordQuizPage() {
 
     let correct = false;
 
-    if (quizState.currentQuizType === 'spelling' || quizState.currentQuizType === 'sentence') {
+    if (quizState.currentQuizType === 'spelling') {
       correct = answer.toLowerCase().trim() === word.word.toLowerCase();
+    } else if (quizState.currentQuizType === 'sentence') {
+      correct = selectedOption?.toLowerCase() === word.word.toLowerCase();
     } else if (quizState.currentQuizType === 'pronunciation') {
       const result = compareWords(transcript, word.word);
       correct = result.isMatch;
@@ -206,7 +259,7 @@ export function WordQuizPage() {
         setNewlyMastered(true);
       }
     }
-  }, [word, quizState.currentQuizType, answer, transcript, showResult, pauseTimer, wordId, addStars, starsPerQuestion]);
+  }, [word, quizState.currentQuizType, answer, selectedOption, transcript, showResult, pauseTimer, wordId, addStars, starsPerQuestion]);
 
   // Handle speech recognition result
   useEffect(() => {
@@ -234,6 +287,7 @@ export function WordQuizPage() {
 
       // Reset for next quiz
       setAnswer('');
+      setSelectedOption(null);
       setShowResult(false);
       setIsCorrect(false);
       setHasStarted(false);
@@ -427,8 +481,8 @@ export function WordQuizPage() {
             </h2>
           )}
 
-          {/* Answer Input for spelling and sentence */}
-          {(quizState.currentQuizType === 'spelling' || quizState.currentQuizType === 'sentence') && !showResult && (
+          {/* Answer Input for spelling */}
+          {quizState.currentQuizType === 'spelling' && !showResult && (
             <div className="space-y-4">
               <input
                 type="text"
@@ -447,6 +501,41 @@ export function WordQuizPage() {
                 size="lg"
                 onClick={checkAnswer}
                 disabled={!answer.trim()}
+              >
+                Check Answer
+              </Button>
+            </div>
+          )}
+
+          {/* Multiple choice options for sentence quiz */}
+          {quizState.currentQuizType === 'sentence' && !showResult && (
+            <div className="space-y-3">
+              {multipleChoiceOptions.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setSelectedOption(option);
+                    // Auto-submit on selection
+                    setTimeout(() => {
+                      setSelectedOption(option);
+                    }, 0);
+                  }}
+                  className={`w-full px-4 py-4 rounded-xl text-lg font-bold transition-all
+                    ${selectedOption === option
+                      ? 'bg-primary-500 text-white ring-2 ring-primary-300'
+                      : 'bg-slate-100 text-slate-800 hover:bg-slate-200'
+                    }`}
+                >
+                  {option}
+                </button>
+              ))}
+              <Button
+                variant="primary"
+                fullWidth
+                size="lg"
+                onClick={checkAnswer}
+                disabled={!selectedOption}
+                className="mt-4"
               >
                 Check Answer
               </Button>
