@@ -7,20 +7,26 @@ import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { Avatar } from '../components/ui/Avatar';
 import { AppImage } from '../components/ui/AppImage';
+import {
+  CategoryTabs,
+  MobFilters,
+  PrizeCard,
+  StatusBadge,
+  COLLECTION_CATEGORIES,
+  MOB_FILTERS,
+  type ItemCategory,
+  type MobFilter
+} from '../components/market';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { getPrizeById } from '../db/sync';
-import type { Prize, PrizeType, Rarity, SkinTarget, MobSubcategory } from '../types';
-
-// Collection category types
-type CollectionCategory = 'all' | 'mobs' | 'tools' | 'weapons' | 'skins';
-type MobFilter = 'all' | MobSubcategory;
+import type { Prize, SkinTarget } from '../types';
 
 export function CollectionPage() {
   const navigate = useNavigate();
   const { stars, state, sellItem } = useUser();
   const { equipSkin, unequipSkin, equippedSkins, equipAvatar, unequipAvatar } = useTheme();
-  const [selectedCategory, setSelectedCategory] = useState<CollectionCategory>('all');
+  const [selectedCategory, setSelectedCategory] = useState<ItemCategory>('all');
   const [selectedMobFilter, setSelectedMobFilter] = useState<MobFilter>('all');
   const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
 
@@ -66,10 +72,8 @@ export function CollectionPage() {
     if (!prize || prize.type !== 'skin') return;
 
     if (equippedSkins[target] === prizeId) {
-      // Unequip
       await unequipSkin(target);
     } else {
-      // Equip
       await equipSkin(prizeId, target);
     }
   };
@@ -95,7 +99,6 @@ export function CollectionPage() {
       await unequipAvatar();
     }
 
-    // Sell the item
     const sold = await sellItem(prize.id, sellPrice);
     if (sold) {
       setSelectedPrize(null);
@@ -106,52 +109,10 @@ export function CollectionPage() {
     return Math.floor((prize.cost || 0) * 0.75);
   };
 
-  const handleCardClick = (prize: Prize) => {
-    setSelectedPrize(prize);
+  const handleCategorySelect = (category: ItemCategory) => {
+    setSelectedCategory(category);
+    setSelectedMobFilter('all');
   };
-
-  const getRarityColor = (rarity?: Rarity): string => {
-    switch (rarity) {
-      case 'legendary':
-        return 'from-yellow-400 to-orange-500';
-      case 'epic':
-        return 'from-purple-400 to-purple-600';
-      case 'rare':
-        return 'from-blue-400 to-blue-600';
-      default:
-        return 'from-slate-300 to-slate-400';
-    }
-  };
-
-  const getTypeIcon = (type: PrizeType): string => {
-    switch (type) {
-      case 'card':
-        return '🎴';
-      case 'skin':
-        return '🎨';
-      case 'badge':
-        return '🏅';
-      default:
-        return '🎁';
-    }
-  };
-
-  const categories: { id: CollectionCategory; name: string; icon: string }[] = [
-    { id: 'all', name: 'All', icon: '/images/minecraft-renders/blocks/minecraft-ender-chest.png' },
-    { id: 'mobs', name: 'Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
-    { id: 'tools', name: 'Tools', icon: '/images/minecraft-renders/tools/minecraft-diamond-pickaxe.png' },
-    { id: 'weapons', name: 'Weapons', icon: '/images/minecraft-renders/weapons/minecraft-diamond-sword.png' },
-    { id: 'skins', name: 'Skins', icon: '/images/minecraft-renders/special/minecraft-totem-of-undying.png' }
-  ];
-
-  const mobFilters: { id: MobFilter; name: string; icon: string }[] = [
-    { id: 'all', name: 'All Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
-    { id: 'bosses', name: 'Bosses', icon: '/images/minecraft-renders/mobs/bosses/minecraft-ender-dragon.png' },
-    { id: 'hostile', name: 'Hostile', icon: '/images/minecraft-renders/mobs/hostile/minecraft-skeleton.png' },
-    { id: 'neutral', name: 'Neutral', icon: '/images/minecraft-renders/mobs/neutral/minecraft-wolf.png' },
-    { id: 'passive', name: 'Passive', icon: '/images/minecraft-renders/mobs/passive/minecraft-pig.png' },
-    { id: 'villagers', name: 'Villagers', icon: '/images/minecraft-renders/mobs/villagers/minecraft-villager.png' }
-  ];
 
   // Count items by category
   const getMobCount = () => ownedItems.filter(item => {
@@ -168,6 +129,10 @@ export function CollectionPage() {
     const prize = getPrizeById(item.prizeId);
     return prize?.type === 'card' && prize?.category === 'weapons';
   }).length;
+
+  const getSkinCount = () => ownedItems.filter(item => 
+    getPrizeById(item.prizeId)?.type === 'skin'
+  ).length;
 
   return (
     <ThemedBackground className="pb-6">
@@ -206,53 +171,24 @@ export function CollectionPage() {
           </Card>
           <Card className="text-center py-2" padding="sm">
             <div className="flex justify-center"><AppImage src="/images/minecraft-renders/special/minecraft-totem-of-undying.png" alt="Skins" className="w-6 h-6 object-contain" /></div>
-            <div className="font-bold text-slate-800 text-sm">{ownedItems.filter(item => getPrizeById(item.prizeId)?.type === 'skin').length}</div>
+            <div className="font-bold text-slate-800 text-sm">{getSkinCount()}</div>
             <div className="text-xs text-slate-500">Skins</div>
           </Card>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => {
-                setSelectedCategory(cat.id);
-                setSelectedMobFilter('all');
-              }}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 ${
-                selectedCategory === cat.id
-                  ? 'bg-primary-500 text-white'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              <AppImage src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain shrink-0" />
-              {cat.name}
-            </button>
-          ))}
-        </div>
+        <CategoryTabs
+          categories={COLLECTION_CATEGORIES}
+          selectedCategory={selectedCategory}
+          onSelectCategory={handleCategorySelect}
+        />
 
-        {/* Mob Subcategory Filters */}
         {selectedCategory === 'mobs' && (
-          <div className="flex gap-2 overflow-x-auto pb-2 mt-2 -mx-4 px-4">
-            {mobFilters.map((filter) => (
-              <button
-                key={filter.id}
-                onClick={() => setSelectedMobFilter(filter.id)}
-                style={{ width: 'fit-content', minWidth: 'fit-content' }}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 ${
-                  selectedMobFilter === filter.id
-                    ? 'bg-slate-700 text-white'
-                    : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
-                }`}
-              >
-                <AppImage src={filter.icon} alt={filter.name} className="w-4 h-4 object-contain shrink-0" />
-                {filter.name}
-              </button>
-            ))}
-            {/* Spacer to ensure last item is fully visible when scrolling */}
-            <div className="shrink-0 w-1" />
-          </div>
+          <MobFilters
+            filters={MOB_FILTERS}
+            selectedFilter={selectedMobFilter}
+            onSelectFilter={setSelectedMobFilter}
+            variant="dark"
+          />
         )}
       </header>
 
@@ -271,92 +207,47 @@ export function CollectionPage() {
             const isEquipped = isSkinEquipped || isAvatarEquipped;
 
             return (
-              <Card
+              <PrizeCard
                 key={item.id}
-                className={`relative overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] flex flex-col ${
-                  isEquipped ? 'ring-2 ring-primary-500' : ''
-                }`}
-                padding="none"
-                onClick={() => handleCardClick(prize)}
-              >
-                {/* Rarity Banner */}
-                {prize.rarity && (
-                  <div
-                    className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${getRarityColor(
-                      prize.rarity
-                    )}`}
-                  />
-                )}
-
-                {/* Equipped Badge */}
-                {isEquipped && (
-                  <div className="absolute top-2 right-2 bg-primary-500 text-white px-2 py-0.5 rounded-full text-xs font-bold z-10">
+                prize={prize}
+                onClick={() => setSelectedPrize(prize)}
+                isEquipped={isEquipped}
+                badge={isEquipped ? (
+                  <StatusBadge>
                     {isAvatarEquipped ? 'Avatar' : 'Equipped'}
-                  </div>
-                )}
-
-                {/* Prize Image */}
-                <div
-                  className={`h-32 flex items-center justify-center bg-linear-to-br ${
-                    prize.type === 'card'
-                      ? getRarityColor(prize.rarity)
-                      : prize.type === 'skin'
-                      ? 'from-pink-200 to-purple-200'
-                      : 'from-amber-200 to-orange-200'
-                  }`}
-                >
-                  <AppImage
-                    src={prize.image}
-                    alt={prize.name}
-                    className="w-full h-full object-contain p-1"
-                    fallback={<span className="text-5xl">{getTypeIcon(prize.type)}</span>}
-                  />
-                </div>
-
-                {/* Prize Info - flex-grow to fill remaining space */}
-                <div className="p-3 flex flex-col flex-grow">
-                  <h3 className="font-bold text-sm text-slate-800 truncate">
-                    {prize.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 capitalize h-4">
-                    {prize.rarity || '\u00A0'}
-                  </p>
-
-                  {/* Spacer to push button to bottom */}
-                  <div className="flex-grow" />
-
-                  {/* Equip Button - always shown for skins and cards */}
-                  {isSkin && prize.target && (
-                    <Button
-                      variant={isSkinEquipped ? 'secondary' : 'primary'}
-                      size="sm"
-                      fullWidth
-                      className="mt-2"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleEquip(prize.id, prize.target as SkinTarget);
-                      }}
-                    >
-                      {isSkinEquipped ? 'Unequip' : 'Equip'}
-                    </Button>
-                  )}
-
-                  {isCard && (
-                    <Button
-                      variant={isAvatarEquipped ? 'secondary' : 'primary'}
-                      size="sm"
-                      fullWidth
-                      className="mt-2"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleEquipAvatar(prize.id);
-                      }}
-                    >
-                      {isAvatarEquipped ? 'Remove' : 'Set Avatar'}
-                    </Button>
-                  )}
-                </div>
-              </Card>
+                  </StatusBadge>
+                ) : undefined}
+                actionArea={
+                  <>
+                    {isSkin && prize.target && (
+                      <Button
+                        variant={isSkinEquipped ? 'secondary' : 'primary'}
+                        size="sm"
+                        fullWidth
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleEquip(prize.id, prize.target as SkinTarget);
+                        }}
+                      >
+                        {isSkinEquipped ? 'Unequip' : 'Equip'}
+                      </Button>
+                    )}
+                    {isCard && (
+                      <Button
+                        variant={isAvatarEquipped ? 'secondary' : 'primary'}
+                        size="sm"
+                        fullWidth
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleEquipAvatar(prize.id);
+                        }}
+                      >
+                        {isAvatarEquipped ? 'Remove' : 'Set Avatar'}
+                      </Button>
+                    )}
+                  </>
+                }
+              />
             );
           })}
         </div>

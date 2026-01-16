@@ -117,11 +117,22 @@ export function PrizePreviewModal({
               : 'from-amber-100 to-orange-100'
           }`}
         >
-          <AppImage
-            src={prize.image}
-            alt={prize.name}
-            className="w-full h-full object-contain p-2"
-          />
+          {/* Button skins show as button-shaped preview */}
+          {prize.type === 'skin' && prize.target === 'button' ? (
+            <div className="w-[80%] h-16 rounded-xl overflow-hidden shadow-lg border-4 border-white/50">
+              <AppImage
+                src={prize.image}
+                alt={prize.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            <AppImage
+              src={prize.image}
+              alt={prize.name}
+              className="w-full h-full object-contain p-2"
+            />
+          )}
 
           {/* Owned badge */}
           {isOwned && (
