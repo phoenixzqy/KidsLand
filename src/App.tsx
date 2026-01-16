@@ -16,6 +16,9 @@ import { MarketPage } from './pages/MarketPage';
 import { CollectionPage } from './pages/CollectionPage';
 import { AchievementsPage } from './pages/AchievementsPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { GamesPage } from './pages/GamesPage';
+import { CardGamePage } from './pages/CardGamePage';
+import { DeckBuilderPage } from './pages/DeckBuilderPage';
 
 function App() {
   // Initialize on mount
@@ -51,6 +54,9 @@ function App() {
             <Route path="/collection" element={<CollectionPage />} />
             <Route path="/achievements" element={<AchievementsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/games" element={<GamesPage />} />
+            <Route path="/games/card-battle" element={<CardGamePage />} />
+            <Route path="/games/card-battle/decks" element={<DeckBuilderPage />} />
           </Routes>
         </ThemeProvider>
       </UserProvider>

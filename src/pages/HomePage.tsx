@@ -143,8 +143,8 @@ export function HomePage() {
             variant="elevated"
           >
             <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center p-2 shrink-0">
-              <AppImage 
-                src="/images/minecraft-renders/materials/minecraft-netherite-ingot.png" 
+              <AppImage
+                src="/images/minecraft-renders/materials/minecraft-netherite-ingot.png"
                 alt="Achievements"
                 className="w-full h-full object-contain"
               />
@@ -152,6 +152,27 @@ export function HomePage() {
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-slate-800">Achievements</h3>
               <p className="text-sm text-slate-500">Track your progress & earn badges</p>
+            </div>
+            <div className="text-primary-400 text-2xl shrink-0">→</div>
+          </Card>
+        </Link>
+
+        {/* Games */}
+        <Link to="/games">
+          <Card
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow h-full"
+            variant="elevated"
+          >
+            <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center p-2 shrink-0">
+              <AppImage
+                src="/images/minecraft-renders/weapons/minecraft-diamond-sword.png"
+                alt="Games"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-lg font-bold text-slate-800">Games</h3>
+              <p className="text-sm text-slate-500">Play card battles & more!</p>
             </div>
             <div className="text-primary-400 text-2xl shrink-0">→</div>
           </Card>

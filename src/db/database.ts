@@ -1,5 +1,6 @@
 import Dexie, { type EntityTable } from 'dexie';
 import type { WordProgress, UserProfile, OwnedItem, SyncMeta, QuizType, VoiceSettings, ClaimedAchievement } from '../types';
+import type { Deck, MatchRecord, CardGameStats } from '../types/cardGame';
 
 // All quiz types that need to be passed to master a word
 const ALL_QUIZ_TYPES: QuizType[] = ['spelling', 'pronunciation', 'sentence'];
@@ -12,6 +13,10 @@ export class KidsLandDB extends Dexie {
   syncMeta!: EntityTable<SyncMeta, 'key'>;
   voiceSettings!: EntityTable<VoiceSettings, 'id'>;
   claimedAchievements!: EntityTable<ClaimedAchievement, 'id'>;
+  // Card game tables
+  cardGameDecks!: EntityTable<Deck, 'id'>;
+  cardGameMatches!: EntityTable<MatchRecord, 'id'>;
+  cardGameStats!: EntityTable<CardGameStats, 'id'>;
 
   constructor() {
     super('KidsLandDB');
@@ -40,6 +45,19 @@ export class KidsLandDB extends Dexie {
       syncMeta: 'key',
       voiceSettings: 'id',
       claimedAchievements: 'id, achievementId'
+    });
+
+    // Add card game tables
+    this.version(4).stores({
+      wordProgress: 'wordId',
+      userProfile: 'id',
+      ownedItems: 'id, prizeId',
+      syncMeta: 'key',
+      voiceSettings: 'id',
+      claimedAchievements: 'id, achievementId',
+      cardGameDecks: 'id, name',
+      cardGameMatches: 'id, playedAt, deckId',
+      cardGameStats: 'id'
     });
   }
 }
@@ -319,4 +337,177 @@ export async function isAchievementClaimed(achievementId: string): Promise<boole
 export async function getClaimedAchievements(): Promise<string[]> {
   const claimed = await db.claimedAchievements.toArray();
   return claimed.map(c => c.achievementId);
+}
+
+// ============================================================================
+// Card Game Database Operations
+// ============================================================================
+
+// Default card game stats
+const DEFAULT_CARD_GAME_STATS: CardGameStats = {
+  id: 'default',
+  totalGames: 0,
+  wins: 0,
+  losses: 0,
+  draws: 0,
+  winsByDifficulty: {
+    easy: 0,
+    medium: 0,
+    hard: 0
+  },
+  totalStarsEarned: 0,
+  totalDamageDealt: 0,
+  totalMinionsKilled: 0,
+  longestWinStreak: 0,
+  currentWinStreak: 0
+};
+
+// Deck management
+export async function saveDeck(deck: Deck): Promise<Deck> {
+  const existing = await db.cardGameDecks.get(deck.id);
+  if (existing) {
+    await db.cardGameDecks.update(deck.id, {
+      ...deck,
+      updatedAt: Date.now()
+    });
+  } else {
+    await db.cardGameDecks.add(deck);
+  }
+  return deck;
+}
+
+export async function getDeck(deckId: string): Promise<Deck | undefined> {
+  return db.cardGameDecks.get(deckId);
+}
+
+export async function getAllDecks(): Promise<Deck[]> {
+  return db.cardGameDecks.toArray();
+}
+
+export async function deleteDeck(deckId: string): Promise<boolean> {
+  const existing = await db.cardGameDecks.get(deckId);
+  if (!existing) {
+    return false;
+  }
+  await db.cardGameDecks.delete(deckId);
+  return true;
+}
+
+export async function createDeck(name: string, cardIds: string[]): Promise<Deck> {
+  const deck: Deck = {
+    id: `deck-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
+    name,
+    cardIds,
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  };
+  await db.cardGameDecks.add(deck);
+  return deck;
+}
+
+export async function updateDeck(deckId: string, name: string, cardIds: string[]): Promise<Deck | null> {
+  const existing = await db.cardGameDecks.get(deckId);
+  if (!existing) {
+    return null;
+  }
+  const updatedDeck = {
+    ...existing,
+    name,
+    cardIds,
+    updatedAt: Date.now()
+  };
+  await db.cardGameDecks.update(deckId, updatedDeck);
+  return updatedDeck;
+}
+
+// Match history management
+export async function saveMatchResult(match: Omit<MatchRecord, 'id'>): Promise<MatchRecord> {
+  const fullMatch: MatchRecord = {
+    ...match,
+    id: `match-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`
+  };
+
+  await db.cardGameMatches.add(fullMatch);
+
+  // Keep only the last 20 matches
+  const allMatches = await db.cardGameMatches.orderBy('playedAt').toArray();
+  if (allMatches.length > 20) {
+    const toDelete = allMatches.slice(0, allMatches.length - 20);
+    await db.cardGameMatches.bulkDelete(toDelete.map(m => m.id));
+  }
+
+  // Update stats
+  await updateCardGameStats(fullMatch);
+
+  return fullMatch;
+}
+
+export async function getRecentMatches(limit: number = 20): Promise<MatchRecord[]> {
+  return db.cardGameMatches
+    .orderBy('playedAt')
+    .reverse()
+    .limit(limit)
+    .toArray();
+}
+
+export async function getMatchesByDeck(deckId: string): Promise<MatchRecord[]> {
+  return db.cardGameMatches
+    .where('deckId')
+    .equals(deckId)
+    .reverse()
+    .toArray();
+}
+
+// Card game stats management
+export async function getCardGameStats(): Promise<CardGameStats> {
+  const existing = await db.cardGameStats.get('default');
+  if (existing) {
+    return existing;
+  }
+  // Initialize with defaults
+  await db.cardGameStats.add(DEFAULT_CARD_GAME_STATS);
+  return DEFAULT_CARD_GAME_STATS;
+}
+
+async function updateCardGameStats(match: MatchRecord): Promise<void> {
+  const stats = await getCardGameStats();
+
+  const isWin = match.winner === 'player';
+  const isLoss = match.winner === 'opponent';
+  const isDraw = match.winner === 'draw';
+
+  // Update win streak
+  let currentWinStreak = stats.currentWinStreak;
+  let longestWinStreak = stats.longestWinStreak;
+
+  if (isWin) {
+    currentWinStreak++;
+    longestWinStreak = Math.max(longestWinStreak, currentWinStreak);
+  } else {
+    currentWinStreak = 0;
+  }
+
+  // Update wins by difficulty
+  const winsByDifficulty = { ...stats.winsByDifficulty };
+  if (isWin) {
+    winsByDifficulty[match.opponentDifficulty]++;
+  }
+
+  await db.cardGameStats.update('default', {
+    totalGames: stats.totalGames + 1,
+    wins: stats.wins + (isWin ? 1 : 0),
+    losses: stats.losses + (isLoss ? 1 : 0),
+    draws: stats.draws + (isDraw ? 1 : 0),
+    winsByDifficulty,
+    totalStarsEarned: stats.totalStarsEarned + match.starsEarned,
+    totalDamageDealt: stats.totalDamageDealt + match.damageDealt,
+    totalMinionsKilled: stats.totalMinionsKilled + match.minionsKilled,
+    currentWinStreak,
+    longestWinStreak,
+    lastPlayedAt: match.playedAt
+  });
+}
+
+export async function resetCardGameStats(): Promise<void> {
+  await db.cardGameStats.put(DEFAULT_CARD_GAME_STATS);
 }
