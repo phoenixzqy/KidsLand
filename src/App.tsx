@@ -14,6 +14,7 @@ import { QuizPage } from './pages/QuizPage';
 import { WordQuizPage } from './pages/WordQuizPage';
 import { MarketPage } from './pages/MarketPage';
 import { CollectionPage } from './pages/CollectionPage';
+import { AchievementsPage } from './pages/AchievementsPage';
 import { SettingsPage } from './pages/SettingsPage';
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             <Route path="/word-quiz/:wordId" element={<WordQuizPage />} />
             <Route path="/market" element={<MarketPage />} />
             <Route path="/collection" element={<CollectionPage />} />
+            <Route path="/achievements" element={<AchievementsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </ThemeProvider>

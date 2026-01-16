@@ -133,7 +133,28 @@ export function HomePage() {
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-bold text-slate-800">My Collection</h3>
-              <p className="text-sm text-slate-500">View your cards, badges & skins</p>
+              <p className="text-sm text-slate-500">View your cards & skins</p>
+            </div>
+            <div className="text-primary-400 text-2xl">→</div>
+          </Card>
+        </Link>
+
+        {/* Achievements */}
+        <Link to="/achievements">
+          <Card
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
+            variant="elevated"
+          >
+            <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center p-2">
+              <AppImage 
+                src="/images/minecraft-renders/materials/minecraft-netherite-ingot.png" 
+                alt="Achievements"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-slate-800">Achievements</h3>
+              <p className="text-sm text-slate-500">Track your progress & earn badges</p>
             </div>
             <div className="text-primary-400 text-2xl">→</div>
           </Card>

@@ -26,7 +26,7 @@ interface QuizQuestion {
 export function QuizPage() {
   const { type, level } = useParams<{ type: QuizType; level: DifficultyLevel }>();
   const navigate = useNavigate();
-  const { stars, addStars, ownedItems } = useUser();
+  const { stars, addStars, ownedItems, incrementQuizzesCompleted } = useUser();
   const { speak } = useSpeech();
   const { startListening, stopListening, isListening, transcript } = useSpeechRecognition();
 
@@ -158,6 +158,8 @@ export function QuizPage() {
         // Add stars for current correct answer
         await addStars(starsPerQuestion);
       }
+      // Track quiz completion for achievements
+      await incrementQuizzesCompleted();
       setQuizComplete(true);
     } else {
       // Award stars for correct answer

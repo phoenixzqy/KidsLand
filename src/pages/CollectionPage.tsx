@@ -13,7 +13,7 @@ import { getPrizeById } from '../db/sync';
 import type { Prize, PrizeType, Rarity, SkinTarget, MobSubcategory } from '../types';
 
 // Collection category types
-type CollectionCategory = 'all' | 'mobs' | 'tools' | 'weapons' | 'skins' | 'badges';
+type CollectionCategory = 'all' | 'mobs' | 'tools' | 'weapons' | 'skins';
 type MobFilter = 'all' | MobSubcategory;
 
 export function CollectionPage() {
@@ -34,8 +34,6 @@ export function CollectionPage() {
       return filtered;
     } else if (selectedCategory === 'skins') {
       return filtered.filter(item => getPrizeById(item.prizeId)?.type === 'skin');
-    } else if (selectedCategory === 'badges') {
-      return filtered.filter(item => getPrizeById(item.prizeId)?.type === 'badge');
     } else if (selectedCategory === 'mobs') {
       filtered = filtered.filter(item => {
         const prize = getPrizeById(item.prizeId);
@@ -143,8 +141,7 @@ export function CollectionPage() {
     { id: 'mobs', name: 'Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
     { id: 'tools', name: 'Tools', icon: '/images/minecraft-renders/tools/minecraft-diamond-pickaxe.png' },
     { id: 'weapons', name: 'Weapons', icon: '/images/minecraft-renders/weapons/minecraft-diamond-sword.png' },
-    { id: 'skins', name: 'Skins', icon: '/images/minecraft-renders/special/minecraft-totem-of-undying.png' },
-    { id: 'badges', name: 'Badges', icon: '/images/minecraft-renders/materials/minecraft-diamond.png' }
+    { id: 'skins', name: 'Skins', icon: '/images/minecraft-renders/special/minecraft-totem-of-undying.png' }
   ];
 
   const mobFilters: { id: MobFilter; name: string; icon: string }[] = [

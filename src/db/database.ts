@@ -1,5 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie';
-import type { WordProgress, UserProfile, OwnedItem, SyncMeta, QuizType, VoiceSettings } from '../types';
+import type { WordProgress, UserProfile, OwnedItem, SyncMeta, QuizType, VoiceSettings, ClaimedAchievement } from '../types';
 
 // All quiz types that need to be passed to master a word
 const ALL_QUIZ_TYPES: QuizType[] = ['spelling', 'pronunciation', 'sentence'];
@@ -11,6 +11,7 @@ export class KidsLandDB extends Dexie {
   ownedItems!: EntityTable<OwnedItem, 'id'>;
   syncMeta!: EntityTable<SyncMeta, 'key'>;
   voiceSettings!: EntityTable<VoiceSettings, 'id'>;
+  claimedAchievements!: EntityTable<ClaimedAchievement, 'id'>;
 
   constructor() {
     super('KidsLandDB');
@@ -30,6 +31,16 @@ export class KidsLandDB extends Dexie {
       syncMeta: 'key',
       voiceSettings: 'id'
     });
+
+    // Add claimed achievements table
+    this.version(3).stores({
+      wordProgress: 'wordId',
+      userProfile: 'id',
+      ownedItems: 'id, prizeId',
+      syncMeta: 'key',
+      voiceSettings: 'id',
+      claimedAchievements: 'id, achievementId'
+    });
   }
 }
 
@@ -48,6 +59,11 @@ export const db = new KidsLandDB();
 export async function initializeUser(): Promise<UserProfile> {
   const existing = await db.userProfile.get('default');
   if (existing) {
+    // Migrate existing profile to include quizzesCompleted if missing
+    if (existing.quizzesCompleted === undefined) {
+      await db.userProfile.update('default', { quizzesCompleted: 0 });
+      return { ...existing, quizzesCompleted: 0 };
+    }
     return existing;
   }
 
@@ -55,6 +71,7 @@ export async function initializeUser(): Promise<UserProfile> {
     id: 'default',
     stars: 0,
     totalStarsEarned: 0,
+    quizzesCompleted: 0,
     createdAt: new Date()
   };
 
@@ -256,4 +273,50 @@ export async function sellItem(prizeId: string): Promise<boolean> {
   // Delete the item from owned items
   await db.ownedItems.delete(item.id);
   return true;
+}
+
+// Quiz completion tracking
+export async function incrementQuizzesCompleted(): Promise<number> {
+  const profile = await db.userProfile.get('default');
+  if (!profile) {
+    throw new Error('User profile not found');
+  }
+
+  const newCount = (profile.quizzesCompleted || 0) + 1;
+  await db.userProfile.update('default', { quizzesCompleted: newCount });
+  return newCount;
+}
+
+// Get count of mastered words
+export async function getMasteredWordsCount(): Promise<number> {
+  const allProgress = await db.wordProgress.toArray();
+  return allProgress.filter(wp => wp.mastered).length;
+}
+
+// Achievement management
+export async function claimAchievement(achievementId: string): Promise<boolean> {
+  // Check if already claimed
+  const existing = await db.claimedAchievements.where('achievementId').equals(achievementId).first();
+  if (existing) {
+    return false; // Already claimed
+  }
+
+  const claimed = {
+    id: `achievement-${achievementId}-${Date.now()}`,
+    achievementId,
+    claimedAt: new Date()
+  };
+
+  await db.claimedAchievements.add(claimed);
+  return true;
+}
+
+export async function isAchievementClaimed(achievementId: string): Promise<boolean> {
+  const existing = await db.claimedAchievements.where('achievementId').equals(achievementId).first();
+  return !!existing;
+}
+
+export async function getClaimedAchievements(): Promise<string[]> {
+  const claimed = await db.claimedAchievements.toArray();
+  return claimed.map(c => c.achievementId);
 }

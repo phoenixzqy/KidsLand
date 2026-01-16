@@ -26,7 +26,15 @@ export interface UserProfile {
   id: 'default';
   stars: number;
   totalStarsEarned: number;
+  quizzesCompleted: number; // Track total quizzes completed for achievements
   createdAt: Date;
+}
+
+// Achievement tracking
+export interface ClaimedAchievement {
+  id: string;
+  achievementId: string;
+  claimedAt: Date;
 }
 
 // Prize/Market types

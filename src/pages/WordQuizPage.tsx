@@ -47,7 +47,7 @@ export function WordQuizPage() {
   const [searchParams] = useSearchParams();
   const level = (searchParams.get('level') || 'easy') as DifficultyLevel;
   const navigate = useNavigate();
-  const { stars, addStars, refreshData, ownedItems } = useUser();
+  const { stars, addStars, refreshData, ownedItems, incrementQuizzesCompleted } = useUser();
 
   // Fun animations for celebration
   const celebrationAnimations = [
@@ -271,6 +271,9 @@ export function WordQuizPage() {
 
   // Move to next quiz type or complete
   const nextQuiz = async () => {
+    // Track each completed quiz type for achievements
+    await incrementQuizzesCompleted();
+    
     if (quizState.remainingTypes.length === 0) {
       // All quizzes complete
       setQuizComplete(true);
