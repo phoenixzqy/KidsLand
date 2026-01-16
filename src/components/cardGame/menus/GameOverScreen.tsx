@@ -43,7 +43,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
   return (
     <div className={`fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-50 ${className}`}>
       {/* Victory/Defeat animation background */}
-      <div className={`absolute inset-0 ${isVictory ? 'bg-gradient-to-b from-yellow-900/30 to-green-900/30' : isDraw ? 'bg-gradient-to-b from-slate-800/50 to-slate-900/50' : 'bg-gradient-to-b from-red-900/30 to-slate-900/50'}`} />
+      <div className={`absolute inset-0 ${isVictory ? 'bg-linear-to-b from-yellow-900/30 to-green-900/30' : isDraw ? 'bg-linear-to-b from-slate-800/50 to-slate-900/50' : 'bg-linear-to-b from-red-900/30 to-slate-900/50'}`} />
 
       {/* Content */}
       <div className="relative z-10 bg-slate-800/90 rounded-2xl p-8 w-full max-w-lg mx-4 shadow-2xl border border-slate-700">
@@ -134,7 +134,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
         <div className="flex gap-4">
           <button
             onClick={onPlayAgain}
-            className="flex-1 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
+            className="flex-1 py-4 bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
           >
             🔄 Play Again
           </button>

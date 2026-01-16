@@ -30,7 +30,7 @@ export const DeckSelector: React.FC<DeckSelectorProps> = ({
   const analysis = selectedDeck ? analyzeDeck(selectedDeck, cardDefinitions) : null;
 
   return (
-    <div className={`flex flex-col items-center min-h-screen bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 p-4 pb-8 overflow-y-auto ${className}`}>
+    <div className={`flex flex-col items-center min-h-screen bg-linear-to-b from-slate-900 via-indigo-900 to-slate-900 p-4 pb-8 overflow-y-auto ${className}`}>
       {/* Title */}
       <div className="text-center mb-6 pt-4">
         <h2 className="text-3xl font-bold text-white mb-2">Choose Your Deck</h2>
@@ -171,7 +171,7 @@ export const DeckSelector: React.FC<DeckSelectorProps> = ({
               className={`
                 w-full py-4 font-bold text-lg rounded-xl transition-all duration-200
                 ${analysis.isValid
-                  ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95'
+                  ? 'bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95'
                   : 'bg-gray-600 text-gray-400 cursor-not-allowed'
                 }
               `}

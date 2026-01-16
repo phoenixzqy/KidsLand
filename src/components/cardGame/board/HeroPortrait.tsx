@@ -48,7 +48,7 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
       {/* Hero avatar */}
       <div className={`
         relative w-14 h-14 rounded-lg flex items-center justify-center
-        ${side === 'player' ? 'bg-gradient-to-br from-blue-500 to-blue-700' : 'bg-gradient-to-br from-red-500 to-red-700'}
+        ${side === 'player' ? 'bg-linear-to-br from-blue-500 to-blue-700' : 'bg-linear-to-br from-red-500 to-red-700'}
         border-2 ${isActive ? 'border-yellow-400' : 'border-white/30'}
         shadow-lg
       `}>
@@ -74,9 +74,9 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
           <div
             className={`
               h-full transition-all duration-300
-              ${isCriticalHealth ? 'bg-gradient-to-r from-red-700 to-red-500 animate-pulse' :
-                isLowHealth ? 'bg-gradient-to-r from-orange-600 to-orange-400' :
-                'bg-gradient-to-r from-green-600 to-green-400'}
+              ${isCriticalHealth ? 'bg-linear-to-r from-red-700 to-red-500 animate-pulse' :
+                isLowHealth ? 'bg-linear-to-r from-orange-600 to-orange-400' :
+                'bg-linear-to-r from-green-600 to-green-400'}
             `}
             style={{ width: `${healthPercentage}%` }}
           />

@@ -25,10 +25,10 @@ export const MainMenu: React.FC<MainMenuProps> = ({
   const rewardRange = getStarRewardRange(difficulty);
 
   return (
-    <div className={`flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 p-4 ${className}`}>
+    <div className={`flex flex-col items-center justify-center min-h-screen bg-linear-to-b from-slate-900 via-purple-900 to-slate-900 p-4 ${className}`}>
       {/* Title */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 mb-2">
+        <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-yellow-400 via-orange-500 to-red-500 mb-2">
           ⚔️ Card Battle
         </h1>
         <p className="text-slate-400 text-lg">Minecraft Edition</p>
@@ -36,13 +36,13 @@ export const MainMenu: React.FC<MainMenuProps> = ({
 
       {/* Card preview decoration */}
       <div className="flex gap-4 mb-8 opacity-80">
-        <div className="w-16 h-24 rounded-lg bg-gradient-to-br from-yellow-400 to-orange-500 shadow-lg transform -rotate-12 animate-bounce" style={{ animationDelay: '0s' }}>
+        <div className="w-16 h-24 rounded-lg bg-linear-to-br from-yellow-400 to-orange-500 shadow-lg transform -rotate-12 animate-bounce" style={{ animationDelay: '0s' }}>
           <div className="w-full h-full flex items-center justify-center text-3xl">🐉</div>
         </div>
-        <div className="w-16 h-24 rounded-lg bg-gradient-to-br from-purple-400 to-purple-600 shadow-lg transform rotate-0" style={{ animationDelay: '0.2s' }}>
+        <div className="w-16 h-24 rounded-lg bg-linear-to-br from-purple-400 to-purple-600 shadow-lg transform rotate-0" style={{ animationDelay: '0.2s' }}>
           <div className="w-full h-full flex items-center justify-center text-3xl">🗡️</div>
         </div>
-        <div className="w-16 h-24 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 shadow-lg transform rotate-12 animate-bounce" style={{ animationDelay: '0.4s' }}>
+        <div className="w-16 h-24 rounded-lg bg-linear-to-br from-blue-400 to-blue-600 shadow-lg transform rotate-12 animate-bounce" style={{ animationDelay: '0.4s' }}>
           <div className="w-full h-full flex items-center justify-center text-3xl">🛡️</div>
         </div>
       </div>
@@ -86,7 +86,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({
         {/* Play button */}
         <button
           onClick={onPlay}
-          className="w-full py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold text-xl rounded-xl shadow-lg shadow-green-500/30 transition-all duration-200 hover:scale-105 active:scale-95 mb-4"
+          className="w-full py-4 bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold text-xl rounded-xl shadow-lg shadow-green-500/30 transition-all duration-200 hover:scale-105 active:scale-95 mb-4"
         >
           ⚔️ Play Now!
         </button>

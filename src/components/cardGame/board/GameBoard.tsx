@@ -210,7 +210,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
   };
 
   return (
-    <div className={`relative w-full h-[100dvh] bg-gradient-to-b from-amber-900 to-amber-800 overflow-hidden ${className}`}>
+    <div className={`relative w-full h-[100dvh] bg-linear-to-b from-amber-900 to-amber-800 overflow-hidden ${className}`}>
       {/* Minecraft wood texture overlay */}
       <div
         className="absolute inset-0 opacity-20 h-full"
@@ -287,7 +287,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
 
           {/* Center divider - Crafting table style */}
           <div className="relative h-8 flex items-center justify-center">
-            <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-600 to-transparent" />
+            <div className="absolute inset-x-0 h-1 bg-linear-to-r from-transparent via-amber-600 to-transparent" />
             <div className="relative bg-amber-700 px-4 py-1 rounded-full border-2 border-amber-500 flex items-center gap-2">
               <span className="text-amber-200 text-sm font-bold">
                 Turn {gameState.turnNumber}
@@ -359,7 +359,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                 px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold text-white text-sm md:text-base
                 transition-all duration-200
                 ${isPlayerTurn
-                  ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 active:scale-95 shadow-lg shadow-green-500/30'
+                  ? 'bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 active:scale-95 shadow-lg shadow-green-500/30'
                   : 'bg-gray-600 cursor-not-allowed opacity-50'
                 }
               `}

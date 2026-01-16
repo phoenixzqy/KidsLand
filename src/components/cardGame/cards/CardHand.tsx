@@ -178,10 +178,10 @@ export const OpponentHand: React.FC<OpponentHandProps> = ({
             style={getCardStyle(index, cardCount)}
           >
             {/* Card back */}
-            <div className="w-full h-full bg-gradient-to-br from-indigo-900 to-purple-900 rounded-lg border-2 border-indigo-600 shadow-lg">
+            <div className="w-full h-full bg-linear-to-br from-indigo-900 to-purple-900 rounded-lg border-2 border-indigo-600 shadow-lg">
               {/* Card back pattern */}
               <div className="w-full h-full flex items-center justify-center">
-                <div className="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full opacity-80 flex items-center justify-center">
+                <div className="w-10 h-10 bg-linear-to-br from-yellow-500 to-orange-500 rounded-full opacity-80 flex items-center justify-center">
                   <span className="text-2xl">⚔️</span>
                 </div>
               </div>

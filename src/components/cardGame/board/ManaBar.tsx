@@ -45,7 +45,7 @@ export const ManaBar: React.FC<ManaBarProps> = ({
             className={`
               w-3 h-3 rounded-sm transition-all duration-300
               ${state === 'full'
-                ? 'bg-gradient-to-br from-blue-400 to-blue-600 shadow-lg shadow-blue-500/50'
+                ? 'bg-linear-to-br from-blue-400 to-blue-600 shadow-lg shadow-blue-500/50'
                 : state === 'empty'
                   ? 'bg-blue-900/50 border border-blue-700'
                   : 'bg-gray-800/50 border border-gray-700/30'

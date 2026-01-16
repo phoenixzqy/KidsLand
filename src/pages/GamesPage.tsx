@@ -113,7 +113,7 @@ export function GamesPage() {
         </ThemedHeader>
 
         {/* Welcome card */}
-        <Card className="mb-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+        <Card className="mb-6 bg-linear-to-r from-purple-600 to-pink-600 text-white">
           <div className="flex items-center gap-4">
             <span className="text-5xl">🎮</span>
             <div>
@@ -135,7 +135,7 @@ export function GamesPage() {
           </div>
           <div className="relative h-4 bg-slate-200 rounded-full overflow-hidden">
             <div
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-green-500 to-green-400 rounded-full transition-all duration-500"
+              className="absolute inset-y-0 left-0 bg-linear-to-r from-green-500 to-green-400 rounded-full transition-all duration-500"
               style={{ width: `${Math.min(100, cardBattleProgress.percentage)}%` }}
             />
           </div>
@@ -163,7 +163,7 @@ export function GamesPage() {
                 onClick={() => handleGameClick(game)}
               >
                 {/* Background gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${
+                <div className={`absolute inset-0 bg-linear-to-br ${
                   isUnlocked && !game.comingSoon
                     ? 'from-green-500/10 to-blue-500/10'
                     : 'from-slate-500/10 to-slate-600/10'
@@ -175,7 +175,7 @@ export function GamesPage() {
                   <div className={`
                     w-20 h-20 rounded-xl flex items-center justify-center shrink-0
                     ${isUnlocked && !game.comingSoon
-                      ? 'bg-gradient-to-br from-purple-500 to-pink-500'
+                      ? 'bg-linear-to-br from-purple-500 to-pink-500'
                       : 'bg-slate-600'
                     }
                   `}>
@@ -211,7 +211,7 @@ export function GamesPage() {
                       <div className="mt-2">
                         <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-500"
+                            className="h-full bg-linear-to-r from-amber-500 to-amber-400 transition-all duration-500"
                             style={{ width: `${progress}%` }}
                           />
                         </div>
@@ -252,7 +252,7 @@ export function GamesPage() {
 
         {/* Market link */}
         {!cardBattleProgress.isUnlocked && (
-          <Card className="mt-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+          <Card className="mt-6 bg-linear-to-r from-amber-500 to-orange-500 text-white">
             <Link to="/market" className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="text-3xl">🛒</span>

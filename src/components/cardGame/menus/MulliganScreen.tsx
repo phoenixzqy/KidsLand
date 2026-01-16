@@ -37,7 +37,7 @@ export const MulliganScreen: React.FC<MulliganScreenProps> = ({
   };
 
   return (
-    <div className={`fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 z-50 ${className}`}>
+    <div className={`fixed inset-0 flex flex-col items-center justify-center bg-linear-to-b from-slate-900 via-indigo-900 to-slate-900 z-50 ${className}`}>
       {/* Title */}
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-white mb-2">Choose Cards to Replace</h2>
@@ -100,7 +100,7 @@ export const MulliganScreen: React.FC<MulliganScreenProps> = ({
       <div className="flex gap-4">
         <button
           onClick={() => handleConfirm()}
-          className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold text-lg rounded-xl shadow-lg shadow-green-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
+          className="px-8 py-4 bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold text-lg rounded-xl shadow-lg shadow-green-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
         >
           {selectedCards.size > 0
             ? `Replace ${selectedCards.size} Card${selectedCards.size > 1 ? 's' : ''}`

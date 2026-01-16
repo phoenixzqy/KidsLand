@@ -248,7 +248,7 @@ export function DeckBuilderPage() {
       </ThemedHeader>
 
       {/* Info card */}
-      <Card className="mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+      <Card className="mb-6 bg-linear-to-r from-indigo-600 to-purple-600 text-white">
         <div className="flex items-center gap-4">
           <span className="text-4xl">🃏</span>
           <div>
@@ -310,7 +310,7 @@ export function DeckBuilderPage() {
       {/* Create new deck button */}
       <button
         onClick={startNewDeck}
-        className="w-full py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold text-lg rounded-xl shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+        className="w-full py-4 bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold text-lg rounded-xl shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
       >
         + Create New Deck
       </button>

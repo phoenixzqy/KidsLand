@@ -135,7 +135,7 @@ export const BattleCard: React.FC<BattleCardProps> = ({
       onMouseLeave={() => onHover?.(null)}
     >
       {/* Gradient border overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGradient(card.rarity)} rounded-lg`} />
+      <div className={`absolute inset-0 bg-linear-to-br ${getRarityGradient(card.rarity)} rounded-lg`} />
       {/* Card background */}
       <div className="absolute inset-0.5 bg-slate-900 rounded-md">
         {/* Card image */}
