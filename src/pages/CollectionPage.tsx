@@ -7,6 +7,7 @@ import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { Avatar } from '../components/ui/Avatar';
 import { AppImage } from '../components/ui/AppImage';
+import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import {
   CategoryTabs,
   MobFilters,
@@ -138,63 +139,65 @@ export function CollectionPage() {
     <ThemedBackground className="pb-6">
       {/* Header */}
       <header className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
-        <div className="flex justify-between items-center mb-4">
-          <button onClick={() => navigate('/')} className="text-2xl">
-            ←
-          </button>
-          <div className="flex items-center gap-3">
-            <Avatar size="sm" />
-            <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-              <AppImage src="/images/minecraft-renders/blocks/minecraft-ender-chest.png" alt="Collection" className="w-6 h-6 object-contain" />
-              My Collection
-            </h1>
+        <HeaderContainer>
+          <div className="flex justify-between items-center mb-4">
+            <button onClick={() => navigate('/')} className="text-2xl">
+              ←
+            </button>
+            <div className="flex items-center gap-3">
+              <Avatar size="sm" />
+              <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <AppImage src="/images/minecraft-renders/blocks/minecraft-ender-chest.png" alt="Collection" className="w-6 h-6 object-contain" />
+                My Collection
+              </h1>
+            </div>
+            <StarCounter count={stars} size="sm" />
           </div>
-          <StarCounter count={stars} size="sm" />
-        </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-4 gap-2 mb-4">
-          <Card className="text-center py-2" padding="sm">
-            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/mobs/hostile/minecraft-creeper.png" alt="Mobs" className="w-6 h-6 object-contain" /></div>
-            <div className="font-bold text-slate-800 text-sm">{getMobCount()}</div>
-            <div className="text-xs text-slate-500">Mobs</div>
-          </Card>
-          <Card className="text-center py-2" padding="sm">
-            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/tools/minecraft-diamond-pickaxe.png" alt="Tools" className="w-6 h-6 object-contain" /></div>
-            <div className="font-bold text-slate-800 text-sm">{getToolCount()}</div>
-            <div className="text-xs text-slate-500">Tools</div>
-          </Card>
-          <Card className="text-center py-2" padding="sm">
-            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/weapons/minecraft-diamond-sword.png" alt="Weapons" className="w-6 h-6 object-contain" /></div>
-            <div className="font-bold text-slate-800 text-sm">{getWeaponCount()}</div>
-            <div className="text-xs text-slate-500">Weapons</div>
-          </Card>
-          <Card className="text-center py-2" padding="sm">
-            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/special/minecraft-totem-of-undying.png" alt="Skins" className="w-6 h-6 object-contain" /></div>
-            <div className="font-bold text-slate-800 text-sm">{getSkinCount()}</div>
-            <div className="text-xs text-slate-500">Skins</div>
-          </Card>
-        </div>
+          {/* Stats - responsive grid */}
+          <div className="grid grid-cols-4 gap-2 mb-4">
+            <Card className="text-center py-2" padding="sm">
+              <div className="flex justify-center"><AppImage src="/images/minecraft-renders/mobs/hostile/minecraft-creeper.png" alt="Mobs" className="w-6 h-6 object-contain" /></div>
+              <div className="font-bold text-slate-800 text-sm">{getMobCount()}</div>
+              <div className="text-xs text-slate-500">Mobs</div>
+            </Card>
+            <Card className="text-center py-2" padding="sm">
+              <div className="flex justify-center"><AppImage src="/images/minecraft-renders/tools/minecraft-diamond-pickaxe.png" alt="Tools" className="w-6 h-6 object-contain" /></div>
+              <div className="font-bold text-slate-800 text-sm">{getToolCount()}</div>
+              <div className="text-xs text-slate-500">Tools</div>
+            </Card>
+            <Card className="text-center py-2" padding="sm">
+              <div className="flex justify-center"><AppImage src="/images/minecraft-renders/weapons/minecraft-diamond-sword.png" alt="Weapons" className="w-6 h-6 object-contain" /></div>
+              <div className="font-bold text-slate-800 text-sm">{getWeaponCount()}</div>
+              <div className="text-xs text-slate-500">Weapons</div>
+            </Card>
+            <Card className="text-center py-2" padding="sm">
+              <div className="flex justify-center"><AppImage src="/images/minecraft-renders/special/minecraft-totem-of-undying.png" alt="Skins" className="w-6 h-6 object-contain" /></div>
+              <div className="font-bold text-slate-800 text-sm">{getSkinCount()}</div>
+              <div className="text-xs text-slate-500">Skins</div>
+            </Card>
+          </div>
 
-        <CategoryTabs
-          categories={COLLECTION_CATEGORIES}
-          selectedCategory={selectedCategory}
-          onSelectCategory={handleCategorySelect}
-        />
-
-        {selectedCategory === 'mobs' && (
-          <MobFilters
-            filters={MOB_FILTERS}
-            selectedFilter={selectedMobFilter}
-            onSelectFilter={setSelectedMobFilter}
-            variant="dark"
+          <CategoryTabs
+            categories={COLLECTION_CATEGORIES}
+            selectedCategory={selectedCategory}
+            onSelectCategory={handleCategorySelect}
           />
-        )}
+
+          {selectedCategory === 'mobs' && (
+            <MobFilters
+              filters={MOB_FILTERS}
+              selectedFilter={selectedMobFilter}
+              onSelectFilter={setSelectedMobFilter}
+              variant="dark"
+            />
+          )}
+        </HeaderContainer>
       </header>
 
-      <div className="p-4">
-        {/* Item Grid */}
-        <div className="grid grid-cols-2 gap-4">
+      <PageContainer className="p-4">
+        {/* Item Grid - responsive columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredItems.map((item) => {
             const prize = getPrizeById(item.prizeId);
             if (!prize) return null;
@@ -266,7 +269,7 @@ export function CollectionPage() {
             </Button>
           </div>
         )}
-      </div>
+      </PageContainer>
 
       {/* Prize Preview Modal */}
       <PrizePreviewModal

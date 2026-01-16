@@ -6,6 +6,7 @@ import { Avatar } from '../components/ui/Avatar';
 import { ThemedBackground, ThemedHeader } from '../components/ui/ThemedBackground';
 import { AppImage } from '../components/ui/AppImage';
 import { HeroCard } from '../components/ui/HeroCard';
+import { PageContainer } from '../components/ui/PageContainer';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/useTheme';
 
@@ -16,142 +17,143 @@ export function HomePage() {
 
   return (
     <ThemedBackground className="p-4">
-      {/* Header */}
-      <ThemedHeader className="flex justify-between items-center mb-6">
-        <div className="flex items-center gap-3">
-          <Link to="/collection">
-            <Avatar size="md" />
-          </Link>
-          <div className="flex items-center gap-2">
-            <AppImage 
-              src="/images/minecraft-renders/blocks/minecraft-crafting-table.png" 
-              alt="KidsLand"
-              className="w-6 h-6 object-contain"
-            />
-            <h1 className="text-xl font-bold text-primary-600">
-              KidsLand
-            </h1>
-            {avatar && (
-              <p className="text-xs text-slate-900">{avatar.name} equipped</p>
-            )}
+      <PageContainer>
+        {/* Header */}
+        <ThemedHeader className="flex justify-between items-center mb-6">
+          <div className="flex items-center gap-3">
+            <Link to="/collection">
+              <Avatar size="md" />
+            </Link>
+            <div className="flex items-center gap-2">
+              <AppImage 
+                src="/images/minecraft-renders/blocks/minecraft-crafting-table.png" 
+                alt="KidsLand"
+                className="w-6 h-6 object-contain"
+              />
+              <h1 className="text-xl font-bold text-primary-600">
+                KidsLand
+              </h1>
+              {avatar && (
+                <p className="text-xs text-slate-900">{avatar.name} equipped</p>
+              )}
+            </div>
           </div>
-        </div>
-        <StarCounter count={stars} size="md" showAnimation />
-      </ThemedHeader>
+          <StarCounter count={stars} size="md" showAnimation />
+        </ThemedHeader>
 
-      {/* Welcome Card */}
-      <HeroCard
-        iconSrc="/images/minecraft-renders/blocks/minecraft-grass-block.png"
-        iconAlt="Welcome"
-        title="Welcome, Learner!"
-        subtitle="Ready to learn some words today?"
-        className="mb-6"
-      />
+        {/* Welcome Card */}
+        <HeroCard
+          iconSrc="/images/minecraft-renders/blocks/minecraft-grass-block.png"
+          iconAlt="Welcome"
+          title="Welcome, Learner!"
+          subtitle="Ready to learn some words today?"
+          className="mb-6"
+        />
 
-      {/* Main Menu */}
-      <div className="space-y-4">
+        {/* Main Menu - responsive grid on larger screens */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Learn Words */}
         <Link to="/words">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow h-full"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center p-2">
+            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center p-2 shrink-0">
               <AppImage 
                 src="/images/minecraft-renders/special/minecraft-enchanted-book.png" 
                 alt="Learn Words"
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-slate-800">Learn Words</h3>
               <p className="text-sm text-slate-500">Study new words and sentences</p>
             </div>
-            <div className="text-primary-400 text-2xl">→</div>
+            <div className="text-primary-400 text-2xl shrink-0">→</div>
           </Card>
         </Link>
 
         {/* Quiz */}
         <Link to="/quiz">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow h-full"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-success/20 rounded-2xl flex items-center justify-center p-2">
+            <div className="w-16 h-16 bg-success/20 rounded-2xl flex items-center justify-center p-2 shrink-0">
               <AppImage 
                 src="/images/minecraft-renders/materials/minecraft-eye-of-ender.png" 
                 alt="Take a Quiz"
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-slate-800">Take a Quiz</h3>
               <p className="text-sm text-slate-500">Test your knowledge and earn stars</p>
             </div>
-            <div className="text-primary-400 text-2xl">→</div>
+            <div className="text-primary-400 text-2xl shrink-0">→</div>
           </Card>
         </Link>
 
         {/* Market */}
         <Link to="/market">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow h-full"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-star/20 rounded-2xl flex items-center justify-center p-2">
+            <div className="w-16 h-16 bg-star/20 rounded-2xl flex items-center justify-center p-2 shrink-0">
               <AppImage 
                 src="/images/minecraft-renders/blocks/minecraft-chest.png" 
                 alt="Market"
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-slate-800">Market</h3>
               <p className="text-sm text-slate-500">Spend stars on cool rewards</p>
             </div>
-            <div className="text-primary-400 text-2xl">→</div>
+            <div className="text-primary-400 text-2xl shrink-0">→</div>
           </Card>
         </Link>
 
         {/* Collection */}
         <Link to="/collection">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow h-full"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center p-2">
+            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center p-2 shrink-0">
               <AppImage 
                 src="/images/minecraft-renders/blocks/minecraft-ender-chest.png" 
                 alt="My Collection"
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-slate-800">My Collection</h3>
               <p className="text-sm text-slate-500">View your cards & skins</p>
             </div>
-            <div className="text-primary-400 text-2xl">→</div>
+            <div className="text-primary-400 text-2xl shrink-0">→</div>
           </Card>
         </Link>
 
         {/* Achievements */}
         <Link to="/achievements">
           <Card
-            className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
+            className="flex items-center gap-4 hover:shadow-xl transition-shadow h-full"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center p-2">
+            <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center p-2 shrink-0">
               <AppImage 
                 src="/images/minecraft-renders/materials/minecraft-netherite-ingot.png" 
                 alt="Achievements"
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-slate-800">Achievements</h3>
               <p className="text-sm text-slate-500">Track your progress & earn badges</p>
             </div>
-            <div className="text-primary-400 text-2xl">→</div>
+            <div className="text-primary-400 text-2xl shrink-0">→</div>
           </Card>
         </Link>
       </div>
@@ -188,6 +190,7 @@ export function HomePage() {
           </Button>
         </Link>
       </div>
+      </PageContainer>
     </ThemedBackground>
   );
 }

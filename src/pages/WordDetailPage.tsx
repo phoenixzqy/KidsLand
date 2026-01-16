@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
+import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import { useUser } from '../contexts/UserContext';
 import { useSpeech } from '../hooks/useSpeech';
 import { getWordById, getWords } from '../db/sync';
@@ -88,19 +89,21 @@ export function WordDetailPage() {
     <div className="min-h-screen bg-bg-primary pb-24">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-bg-primary/95 backdrop-blur-sm p-4 border-b border-slate-200">
-        <div className="flex justify-between items-center">
-          <button
-            onClick={() => navigate('/words')}
-            className="text-2xl"
-          >
-            ←
-          </button>
-          <h1 className="text-lg font-bold text-slate-800">Word Detail</h1>
-          <StarCounter count={stars} size="sm" />
-        </div>
+        <HeaderContainer>
+          <div className="flex justify-between items-center">
+            <button
+              onClick={() => navigate('/words')}
+              className="text-2xl"
+            >
+              ←
+            </button>
+            <h1 className="text-lg font-bold text-slate-800">Word Detail</h1>
+            <StarCounter count={stars} size="sm" />
+          </div>
+        </HeaderContainer>
       </header>
 
-      <div className="p-4">
+      <PageContainer className="p-4">
         {/* Main Word Card */}
         <Card className="text-center py-8 mb-6 bg-linear-to-br from-primary-50 to-primary-100">
           {/* Mastery status */}
@@ -208,36 +211,38 @@ export function WordDetailPage() {
             <div className="flex-1" />
           )}
         </div>
-      </div>
+      </PageContainer>
 
       {/* Bottom Actions */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-bg-primary/95 backdrop-blur-sm border-t border-slate-200">
-        <div className="flex gap-3">
-          <Link to="/words" className="flex-1">
-            <Button variant="ghost" fullWidth>
-              📚 All Words
-            </Button>
-          </Link>
-          {progress?.mastered ? (
-            <Link to={`/word-quiz/${wordId}?level=easy`} className="flex-1">
-              <Button variant="secondary" fullWidth>
-                🔄 Practice Again
+      <div className="fixed bottom-0 left-0 right-0 bg-bg-primary/95 backdrop-blur-sm border-t border-slate-200">
+        <PageContainer className="p-4">
+          <div className="flex gap-3">
+            <Link to="/words" className="flex-1">
+              <Button variant="ghost" fullWidth>
+                📚 All Words
               </Button>
             </Link>
-          ) : remainingQuizTypes.length === 0 ? (
-            <Link to={`/word-quiz/${wordId}?level=easy`} className="flex-1">
-              <Button variant="primary" fullWidth>
-                🎯 Start Quiz
-              </Button>
-            </Link>
-          ) : (
-            <Link to={`/word-quiz/${wordId}?level=easy`} className="flex-1">
-              <Button variant="primary" fullWidth>
-                🎯 Quiz ({remainingQuizTypes.length} left)
-              </Button>
-            </Link>
-          )}
-        </div>
+            {progress?.mastered ? (
+              <Link to={`/word-quiz/${wordId}?level=easy`} className="flex-1">
+                <Button variant="secondary" fullWidth>
+                  🔄 Practice Again
+                </Button>
+              </Link>
+            ) : remainingQuizTypes.length === 0 ? (
+              <Link to={`/word-quiz/${wordId}?level=easy`} className="flex-1">
+                <Button variant="primary" fullWidth>
+                  🎯 Start Quiz
+                </Button>
+              </Link>
+            ) : (
+              <Link to={`/word-quiz/${wordId}?level=easy`} className="flex-1">
+                <Button variant="primary" fullWidth>
+                  🎯 Quiz ({remainingQuizTypes.length} left)
+                </Button>
+              </Link>
+            )}
+          </div>
+        </PageContainer>
       </div>
     </div>
   );

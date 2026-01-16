@@ -6,6 +6,7 @@ import { Timer } from '../components/ui/Timer';
 import { StarCounter } from '../components/ui/StarCounter';
 import { ProgressBar } from '../components/ui/ProgressBar';
 import { AppImage } from '../components/ui/AppImage';
+import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import { useUser } from '../contexts/UserContext';
 import { useTimer } from '../hooks/useTimer';
 import { useSpeech } from '../hooks/useSpeech';
@@ -437,19 +438,21 @@ export function WordQuizPage() {
     <div className="min-h-screen bg-bg-primary pb-24">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-bg-primary/95 backdrop-blur-sm p-4 border-b border-slate-200">
-        <div className="flex justify-between items-center mb-2">
-          <button onClick={() => navigate(`/words/${wordId}`)} className="text-xl">
-            ✕
-          </button>
-          <span className="text-sm font-medium text-slate-600">
-            {currentQuizInfo.icon} {currentQuizInfo.name} ({currentQuizNumber}/{totalQuizTypes})
-          </span>
-          <StarCounter count={stars} size="sm" />
-        </div>
-        <ProgressBar value={currentQuizNumber} max={totalQuizTypes} color="primary" />
+        <HeaderContainer>
+          <div className="flex justify-between items-center mb-2">
+            <button onClick={() => navigate(`/words/${wordId}`)} className="text-xl">
+              ✕
+            </button>
+            <span className="text-sm font-medium text-slate-600">
+              {currentQuizInfo.icon} {currentQuizInfo.name} ({currentQuizNumber}/{totalQuizTypes})
+            </span>
+            <StarCounter count={stars} size="sm" />
+          </div>
+          <ProgressBar value={currentQuizNumber} max={totalQuizTypes} color="primary" />
+        </HeaderContainer>
       </header>
 
-      <div className="p-4">
+      <PageContainer className="p-4">
         {/* Timer (hard mode) */}
         {isHardMode && !showResult && (
           <div className="flex justify-center mb-4">
@@ -599,14 +602,16 @@ export function WordQuizPage() {
             </div>
           )}
         </Card>
-      </div>
+      </PageContainer>
 
       {/* Next Button */}
       {showResult && (
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-bg-primary/95 backdrop-blur-sm border-t border-slate-200">
-          <Button variant="primary" fullWidth size="lg" onClick={nextQuiz}>
-            {quizState.remainingTypes.length === 0 ? 'See Results' : 'Next Quiz'} →
-          </Button>
+        <div className="fixed bottom-0 left-0 right-0 bg-bg-primary/95 backdrop-blur-sm border-t border-slate-200">
+          <PageContainer className="p-4">
+            <Button variant="primary" fullWidth size="lg" onClick={nextQuiz}>
+              {quizState.remainingTypes.length === 0 ? 'See Results' : 'Next Quiz'} →
+            </Button>
+          </PageContainer>
         </div>
       )}
     </div>

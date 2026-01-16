@@ -6,6 +6,7 @@ import { ProgressBar } from '../components/ui/ProgressBar';
 import { StarCounter } from '../components/ui/StarCounter';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { AppImage } from '../components/ui/AppImage';
+import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import { useUser } from '../contexts/UserContext';
 import { getWords } from '../db/sync';
 import type { QuizType, Word } from '../types';
@@ -99,34 +100,36 @@ export function WordListPage() {
     <ThemedBackground className="pb-20">
       {/* Header */}
       <header className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
-        <div className="flex justify-between items-center mb-3">
-          <button
-            onClick={() => navigate('/')}
-            className="text-2xl"
-          >
-            ←
-          </button>
-          <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-            <AppImage src="/images/minecraft-renders/special/minecraft-enchanted-book.png" alt="Words" className="w-6 h-6 object-contain" />
-            Words
-          </h1>
-          <StarCounter count={stars} size="sm" />
-        </div>
+        <HeaderContainer>
+          <div className="flex justify-between items-center mb-3">
+            <button
+              onClick={() => navigate('/')}
+              className="text-2xl"
+            >
+              ←
+            </button>
+            <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+              <AppImage src="/images/minecraft-renders/special/minecraft-enchanted-book.png" alt="Words" className="w-6 h-6 object-contain" />
+              Words
+            </h1>
+            <StarCounter count={stars} size="sm" />
+          </div>
 
-        {/* Search Bar */}
-        <input
-          type="text"
-          placeholder="🔍 Search words..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200
-                     focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent
-                     text-base"
-        />
+          {/* Search Bar */}
+          <input
+            type="text"
+            placeholder="🔍 Search words..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200
+                       focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent
+                       text-base"
+          />
+        </HeaderContainer>
       </header>
 
       {/* Progress Overview */}
-      <div className="p-4">
+      <PageContainer className="p-4">
         <Card className="mb-4">
           <div className="flex justify-between items-center mb-2">
             <span className="text-sm font-medium text-slate-600">Overall Progress</span>
@@ -184,8 +187,8 @@ export function WordListPage() {
               <span className="text-sm ml-2 opacity-80">({groupedWords[letter].length} words)</span>
             </div>
             
-            {/* Word Grid */}
-            <div className="grid grid-cols-3 gap-3">
+            {/* Word Grid - responsive columns */}
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
               {groupedWords[letter].map((word) => {
                 const progress = getWordProgress(word.id);
                 const isStudied = progress && progress.timesStudied > 0;
@@ -264,15 +267,17 @@ export function WordListPage() {
             </button>
           </div>
         )}
-      </div>
+      </PageContainer>
 
       {/* Bottom Action */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 z-20 bg-white/90 backdrop-blur-sm border-t border-slate-200">
-        <Link to="/quiz">
-          <Button variant="primary" fullWidth size="lg">
-            🎯 Start Quiz
-          </Button>
-        </Link>
+      <div className="fixed bottom-0 left-0 right-0 z-20 bg-white/90 backdrop-blur-sm border-t border-slate-200">
+        <PageContainer className="p-4">
+          <Link to="/quiz">
+            <Button variant="primary" fullWidth size="lg">
+              🎯 Start Quiz
+            </Button>
+          </Link>
+        </PageContainer>
       </div>
     </ThemedBackground>
   );

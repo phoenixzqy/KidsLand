@@ -6,6 +6,7 @@ import { StarCounter } from '../components/ui/StarCounter';
 import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { AppImage } from '../components/ui/AppImage';
+import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import {
   CategoryTabs,
   MobFilters,
@@ -115,37 +116,39 @@ export function MarketPage() {
     <ThemedBackground className="pb-6">
       {/* Header */}
       <header className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
-        <div className="flex justify-between items-center mb-4">
-          <button onClick={() => navigate('/')} className="text-2xl">
-            ←
-          </button>
-          <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-            <AppImage src="/images/minecraft-renders/blocks/minecraft-chest.png" alt="Market" className="w-6 h-6 object-contain" />
-            Market
-          </h1>
-          <StarCounter count={stars} size="md" showAnimation />
-        </div>
+        <HeaderContainer>
+          <div className="flex justify-between items-center mb-4">
+            <button onClick={() => navigate('/')} className="text-2xl">
+              ←
+            </button>
+            <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+              <AppImage src="/images/minecraft-renders/blocks/minecraft-chest.png" alt="Market" className="w-6 h-6 object-contain" />
+              Market
+            </h1>
+            <StarCounter count={stars} size="md" showAnimation />
+          </div>
 
-        <CategoryTabs
-          categories={MARKET_CATEGORIES}
-          selectedCategory={selectedCategory}
-          onSelectCategory={handleCategorySelect}
-        />
-
-        {selectedCategory === 'mobs' && (
-          <MobFilters
-            filters={MOB_FILTERS}
-            selectedFilter={selectedMobFilter}
-            onSelectFilter={setSelectedMobFilter}
-            variant="light"
+          <CategoryTabs
+            categories={MARKET_CATEGORIES}
+            selectedCategory={selectedCategory}
+            onSelectCategory={handleCategorySelect}
           />
-        )}
+
+          {selectedCategory === 'mobs' && (
+            <MobFilters
+              filters={MOB_FILTERS}
+              selectedFilter={selectedMobFilter}
+              onSelectFilter={setSelectedMobFilter}
+              variant="light"
+            />
+          )}
+        </HeaderContainer>
       </header>
 
       {/* Purchase Message */}
       {purchaseMessage && (
         <div
-          className={`fixed top-20 left-4 right-4 p-4 rounded-xl z-50 text-center font-bold shadow-lg ${
+          className={`fixed top-20 left-1/2 -translate-x-1/2 max-w-md w-[calc(100%-2rem)] p-4 rounded-xl z-50 text-center font-bold shadow-lg ${
             purchaseMessage.type === 'success'
               ? 'bg-success text-white'
               : 'bg-error text-white'
@@ -155,9 +158,9 @@ export function MarketPage() {
         </div>
       )}
 
-      <div className="p-4">
-        {/* Prize Grid */}
-        <div className="grid grid-cols-2 gap-4">
+      <PageContainer className="p-4">
+        {/* Prize Grid - responsive columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredPrizes.map((prize) => {
             const owned = isItemOwned(prize.id);
             const canAfford = stars >= prize.cost;
@@ -227,7 +230,7 @@ export function MarketPage() {
             </div>
           </Card>
         )}
-      </div>
+      </PageContainer>
 
       {/* Prize Preview Modal */}
       <PrizePreviewModal

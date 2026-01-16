@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { AppImage } from '../components/ui/AppImage';
+import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/useTheme';
 import { useVoiceSettings } from '../hooks/useVoiceSettings';
@@ -18,16 +19,18 @@ export function SettingsPage() {
     <div className="min-h-screen bg-bg-primary pb-6">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-bg-primary/95 backdrop-blur-sm p-4 border-b border-slate-200">
-        <div className="flex justify-between items-center">
-          <button onClick={() => navigate('/')} className="text-2xl">
-            ←
-          </button>
-          <h1 className="text-xl font-bold text-slate-800">⚙️ Settings</h1>
-          <div className="w-8" />
-        </div>
+        <HeaderContainer>
+          <div className="flex justify-between items-center">
+            <button onClick={() => navigate('/')} className="text-2xl">
+              ←
+            </button>
+            <h1 className="text-xl font-bold text-slate-800">⚙️ Settings</h1>
+            <div className="w-8" />
+          </div>
+        </HeaderContainer>
       </header>
 
-      <div className="p-4 space-y-4">
+      <PageContainer className="p-4 space-y-4">
         {/* Profile Section */}
         <Card>
           <h2 className="font-bold text-slate-700 mb-3">📊 Your Stats</h2>
@@ -189,7 +192,7 @@ export function SettingsPage() {
             🏠 Back to Home
           </Button>
         </div>
-      </div>
+      </PageContainer>
     </div>
   );
 }
