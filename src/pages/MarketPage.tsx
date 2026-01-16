@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
+import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { useUser } from '../contexts/UserContext';
 import { getPrizes, getPrizesByType } from '../db/sync';
 import { purchaseItem } from '../db/database';
@@ -13,6 +14,7 @@ export function MarketPage() {
   const { stars, spendStars, isItemOwned, refreshData } = useUser();
   const [selectedCategory, setSelectedCategory] = useState<PrizeType | 'all'>('all');
   const [purchasing, setPurchasing] = useState<string | null>(null);
+  const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
   const [purchaseMessage, setPurchaseMessage] = useState<{
     type: 'success' | 'error';
     text: string;
@@ -38,6 +40,7 @@ export function MarketPage() {
       if (success) {
         await purchaseItem(prize.id);
         refreshData();
+        setSelectedPrize(null); // Close modal on success
         setPurchaseMessage({
           type: 'success',
           text: `You got ${prize.name}! 🎉`
@@ -57,6 +60,10 @@ export function MarketPage() {
       setPurchasing(null);
       setTimeout(() => setPurchaseMessage(null), 3000);
     }
+  };
+
+  const handleCardClick = (prize: Prize) => {
+    setSelectedPrize(prize);
   };
 
   const getRarityColor = (rarity?: Rarity): string => {
@@ -145,8 +152,9 @@ export function MarketPage() {
             return (
               <Card
                 key={prize.id}
-                className={`relative overflow-hidden ${owned ? 'opacity-75' : ''}`}
+                className={`relative overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] ${owned ? 'opacity-75' : ''}`}
                 padding="none"
+                onClick={() => handleCardClick(prize)}
               >
                 {/* Rarity Banner */}
                 {prize.rarity && (
@@ -157,9 +165,9 @@ export function MarketPage() {
                   />
                 )}
 
-                {/* Prize Image/Placeholder */}
+                {/* Prize Image */}
                 <div
-                  className={`h-28 flex items-center justify-center text-5xl bg-gradient-to-br ${
+                  className={`h-32 flex items-center justify-center bg-gradient-to-br ${
                     prize.type === 'card'
                       ? getRarityColor(prize.rarity)
                       : prize.type === 'skin'
@@ -167,7 +175,17 @@ export function MarketPage() {
                       : 'from-amber-200 to-orange-200'
                   }`}
                 >
-                  {getTypeIcon(prize.type)}
+                  <img
+                    src={`${import.meta.env.BASE_URL}${prize.image.startsWith('/') ? prize.image.slice(1) : prize.image}`}
+                    alt={prize.name}
+                    className="w-full h-full object-contain p-1"
+                    onError={(e) => {
+                      // Fallback to icon if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = `<span class="text-5xl">${getTypeIcon(prize.type)}</span>`;
+                    }}
+                  />
                 </div>
 
                 {/* Prize Info */}
@@ -192,7 +210,10 @@ export function MarketPage() {
                         variant={canAfford ? 'primary' : 'secondary'}
                         size="sm"
                         fullWidth
-                        onClick={() => handlePurchase(prize)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handlePurchase(prize);
+                        }}
                         disabled={!canAfford || isPurchasing}
                       >
                         {isPurchasing ? (
@@ -247,6 +268,17 @@ export function MarketPage() {
           </Card>
         )}
       </div>
+
+      {/* Prize Preview Modal */}
+      <PrizePreviewModal
+        prize={selectedPrize}
+        isOpen={!!selectedPrize}
+        onClose={() => setSelectedPrize(null)}
+        isOwned={selectedPrize ? isItemOwned(selectedPrize.id) : false}
+        onAction={selectedPrize && !isItemOwned(selectedPrize.id) ? () => handlePurchase(selectedPrize) : undefined}
+        actionLabel={selectedPrize ? `Buy for ${selectedPrize.cost} ⭐` : undefined}
+        actionDisabled={selectedPrize ? stars < selectedPrize.cost || purchasing === selectedPrize.id : false}
+      />
     </div>
   );
 }

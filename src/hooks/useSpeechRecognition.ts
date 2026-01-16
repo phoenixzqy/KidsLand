@@ -11,6 +11,7 @@ interface UseSpeechRecognitionOptions {
 interface UseSpeechRecognitionReturn {
   startListening: () => void;
   stopListening: () => void;
+  resetTranscript: () => void;
   isListening: boolean;
   transcript: string;
   isSupported: boolean;
@@ -153,9 +154,15 @@ export function useSpeechRecognition(
     }
   }, []);
 
+  const resetTranscript = useCallback(() => {
+    setTranscript('');
+    setError(null);
+  }, []);
+
   return {
     startListening,
     stopListening,
+    resetTranscript,
     isListening,
     transcript,
     isSupported,

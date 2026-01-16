@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# 🎮 KidsLand
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun, mobile-first Progressive Web App for kids to learn English high-frequency words through interactive learning and quizzes.
 
-Currently, two official plugins are available:
+**Live App:** [https://phoenixzqy.github.io/kidsland](https://phoenixzqy.github.io/kidsland)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 📚 **120 High-Frequency Words** - Essential vocabulary with example sentences
+- 🔊 **Text-to-Speech** - Native browser speech for word pronunciation
+- 🎯 **3 Quiz Types** - Spelling, Pronunciation (with mic), Sentence Fill-in
+- ⭐ **Reward System** - Earn stars from quizzes (Easy: 1 star, Hard: 3 stars)
+- 🛒 **Market** - Spend stars on cards, UI skins, and badges
+- 🎨 **Customizable Themes** - Skinnable UI components
+- 📱 **Mobile-First PWA** - Installable, works offline, fullscreen mode
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Quick Start
 
-## Expanding the ESLint configuration
+```bash
+# Install dependencies
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Start development server
+npm run dev
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📖 Documentation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Document | Description |
+|----------|-------------|
+| [Running the App](./docs/RUNNING.md) | Development and production setup |
+| [Managing Market Items](./docs/MARKET_ITEMS.md) | Add, update, delete prizes |
+| [Managing Words](./docs/WORDS.md) | Add or modify word content |
+| [Deployment](./docs/DEPLOYMENT.md) | GitHub Pages deployment guide |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠 Tech Stack
+
+- **React 18** + TypeScript
+- **Vite 7** - Fast build tool
+- **Tailwind CSS v4** - Utility-first styling
+- **Dexie.js** - IndexedDB wrapper
+- **Web Speech API** - Text-to-speech & speech recognition
+- **vite-plugin-pwa** - PWA support with Workbox
+
+## 📂 Project Structure
+
 ```
+KidsLand/
+├── src/
+│   ├── data/         # Static JSON (words, prizes)
+│   ├── db/           # IndexedDB setup
+│   ├── contexts/     # React Context providers
+│   ├── hooks/        # Custom React hooks
+│   ├── components/   # Reusable UI components
+│   ├── pages/        # Route pages
+│   └── types/        # TypeScript types
+├── docs/             # Documentation
+├── public/           # Static assets
+└── dist/             # Production build
+```
+
+## 🚢 Deployment
+
+The app automatically deploys to GitHub Pages when pushing to the `main` branch.
+
+- **URL:** https://phoenixzqy.github.io/kidsland
+- **PWA:** Fullscreen, installable on mobile devices
+
+## 📄 License
+
+MIT License - See [LICENSE](./LICENSE) file

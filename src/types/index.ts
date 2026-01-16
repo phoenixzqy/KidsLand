@@ -16,7 +16,9 @@ export interface WordProgress {
   timesStudied: number;
   lastStudied: Date;
   quizzesPassed: number;
-  mastered: boolean;
+  // Track which quiz types have been passed for this word
+  passedQuizTypes: QuizType[];
+  mastered: boolean; // True when all 3 quiz types passed
 }
 
 // User profile
@@ -31,7 +33,7 @@ export interface UserProfile {
 export type PrizeType = 'card' | 'skin' | 'badge';
 export type SkinTarget = 'button' | 'card' | 'background' | 'header';
 export type Rarity = 'common' | 'rare' | 'epic' | 'legendary';
-export type CardCollection = 'ultraman' | 'minecraft' | 'pokemon';
+export type CardCollection = 'minecraft' | 'princess';
 
 export interface Prize {
   id: string;

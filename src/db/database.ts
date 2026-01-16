@@ -1,5 +1,8 @@
 import Dexie, { type EntityTable } from 'dexie';
-import type { WordProgress, UserProfile, OwnedItem, SyncMeta } from '../types';
+import type { WordProgress, UserProfile, OwnedItem, SyncMeta, QuizType } from '../types';
+
+// All quiz types that need to be passed to master a word
+const ALL_QUIZ_TYPES: QuizType[] = ['spelling', 'pronunciation', 'sentence'];
 
 // Define the database
 export class KidsLandDB extends Dexie {
@@ -72,7 +75,7 @@ export async function spendStars(amount: number): Promise<boolean> {
   return true;
 }
 
-// Word progress management
+// Word progress management - legacy function for general quizzes
 export async function updateWordProgress(wordId: string, passed: boolean): Promise<void> {
   const existing = await db.wordProgress.get(wordId);
 
@@ -81,7 +84,7 @@ export async function updateWordProgress(wordId: string, passed: boolean): Promi
       timesStudied: existing.timesStudied + 1,
       lastStudied: new Date(),
       quizzesPassed: passed ? existing.quizzesPassed + 1 : existing.quizzesPassed,
-      mastered: passed && existing.quizzesPassed >= 2 // Master after 3 correct quizzes
+      mastered: existing.mastered // Don't change mastery status here
     });
   } else {
     await db.wordProgress.add({
@@ -89,9 +92,78 @@ export async function updateWordProgress(wordId: string, passed: boolean): Promi
       timesStudied: 1,
       lastStudied: new Date(),
       quizzesPassed: passed ? 1 : 0,
+      passedQuizTypes: [],
       mastered: false
     });
   }
+}
+
+// Update word progress for a specific quiz type - used in word-specific quiz flow
+export async function updateWordQuizProgress(
+  wordId: string,
+  quizType: QuizType,
+  passed: boolean
+): Promise<{ mastered: boolean; newlyMastered: boolean }> {
+  const existing = await db.wordProgress.get(wordId);
+
+  if (existing) {
+    const passedQuizTypes = [...(existing.passedQuizTypes || [])];
+
+    // Add quiz type to passed list if passed and not already there
+    if (passed && !passedQuizTypes.includes(quizType)) {
+      passedQuizTypes.push(quizType);
+    }
+
+    // Check if all quiz types are now passed
+    const allPassed = ALL_QUIZ_TYPES.every(type => passedQuizTypes.includes(type));
+    const newlyMastered = allPassed && !existing.mastered;
+
+    await db.wordProgress.update(wordId, {
+      timesStudied: existing.timesStudied + 1,
+      lastStudied: new Date(),
+      quizzesPassed: passed ? existing.quizzesPassed + 1 : existing.quizzesPassed,
+      passedQuizTypes,
+      mastered: allPassed
+    });
+
+    return { mastered: allPassed, newlyMastered };
+  } else {
+    const passedQuizTypes = passed ? [quizType] : [];
+    const mastered = passedQuizTypes.length === ALL_QUIZ_TYPES.length; // Only if single type is all types
+
+    await db.wordProgress.add({
+      wordId,
+      timesStudied: 1,
+      lastStudied: new Date(),
+      quizzesPassed: passed ? 1 : 0,
+      passedQuizTypes,
+      mastered
+    });
+
+    return { mastered, newlyMastered: mastered };
+  }
+}
+
+// Get the next quiz type that hasn't been passed for a word
+export async function getNextQuizTypeForWord(wordId: string): Promise<QuizType | null> {
+  const existing = await db.wordProgress.get(wordId);
+  const passedTypes = existing?.passedQuizTypes || [];
+
+  for (const type of ALL_QUIZ_TYPES) {
+    if (!passedTypes.includes(type)) {
+      return type;
+    }
+  }
+
+  return null; // All quiz types passed
+}
+
+// Get remaining quiz types for a word
+export async function getRemainingQuizTypesForWord(wordId: string): Promise<QuizType[]> {
+  const existing = await db.wordProgress.get(wordId);
+  const passedTypes = existing?.passedQuizTypes || [];
+
+  return ALL_QUIZ_TYPES.filter(type => !passedTypes.includes(type));
 }
 
 // Owned items management

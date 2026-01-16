@@ -11,6 +11,7 @@ import { WordListPage } from './pages/WordListPage';
 import { WordDetailPage } from './pages/WordDetailPage';
 import { QuizSelectPage } from './pages/QuizSelectPage';
 import { QuizPage } from './pages/QuizPage';
+import { WordQuizPage } from './pages/WordQuizPage';
 import { MarketPage } from './pages/MarketPage';
 import { CollectionPage } from './pages/CollectionPage';
 import { SettingsPage } from './pages/SettingsPage';
@@ -35,7 +36,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/kidsland">
       <UserProvider>
         <ThemeProvider>
           <Routes>
@@ -44,6 +45,7 @@ function App() {
             <Route path="/words/:wordId" element={<WordDetailPage />} />
             <Route path="/quiz" element={<QuizSelectPage />} />
             <Route path="/quiz/:type/:level" element={<QuizPage />} />
+            <Route path="/word-quiz/:wordId" element={<WordQuizPage />} />
             <Route path="/market" element={<MarketPage />} />
             <Route path="/collection" element={<CollectionPage />} />
             <Route path="/settings" element={<SettingsPage />} />

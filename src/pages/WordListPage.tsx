@@ -6,6 +6,16 @@ import { ProgressBar } from '../components/ui/ProgressBar';
 import { StarCounter } from '../components/ui/StarCounter';
 import { useUser } from '../contexts/UserContext';
 import { getWords } from '../db/sync';
+import type { QuizType } from '../types';
+
+// Quiz type icons for progress display
+const QUIZ_TYPE_ICONS: Record<QuizType, string> = {
+  spelling: '✏️',
+  pronunciation: '🎤',
+  sentence: '📝'
+};
+
+const ALL_QUIZ_TYPES: QuizType[] = ['spelling', 'pronunciation', 'sentence'];
 
 export function WordListPage() {
   const navigate = useNavigate();
@@ -99,19 +109,20 @@ export function WordListPage() {
                     {word.word}
                   </span>
 
-                  {/* Progress indicator */}
+                  {/* Progress indicator - show quiz type icons */}
                   {isStudied && !isMastered && (
-                    <div className="mt-1 flex justify-center gap-1">
-                      {[...Array(3)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`w-2 h-2 rounded-full ${
-                            i < (progress?.quizzesPassed || 0)
-                              ? 'bg-primary-500'
-                              : 'bg-slate-200'
-                          }`}
-                        />
-                      ))}
+                    <div className="mt-1 flex justify-center gap-0.5 text-xs">
+                      {ALL_QUIZ_TYPES.map((type) => {
+                        const passed = progress?.passedQuizTypes?.includes(type);
+                        return (
+                          <span
+                            key={type}
+                            className={passed ? 'opacity-100' : 'opacity-30 grayscale'}
+                          >
+                            {QUIZ_TYPE_ICONS[type]}
+                          </span>
+                        );
+                      })}
                     </div>
                   )}
                 </Card>

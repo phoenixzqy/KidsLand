@@ -3,16 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
+import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { getPrizeById } from '../db/sync';
-import type { PrizeType, Rarity, SkinTarget } from '../types';
+import type { Prize, PrizeType, Rarity, SkinTarget } from '../types';
 
 export function CollectionPage() {
   const navigate = useNavigate();
   const { stars, state } = useUser();
   const { equipSkin, unequipSkin, equippedSkins } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState<PrizeType | 'all'>('all');
+  const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
 
   const ownedItems = state.ownedItems;
 
@@ -33,6 +35,10 @@ export function CollectionPage() {
       // Equip
       await equipSkin(prizeId, target);
     }
+  };
+
+  const handleCardClick = (prize: Prize) => {
+    setSelectedPrize(prize);
   };
 
   const getRarityColor = (rarity?: Rarity): string => {
@@ -142,10 +148,11 @@ export function CollectionPage() {
             return (
               <Card
                 key={item.id}
-                className={`relative overflow-hidden ${
+                className={`relative overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] ${
                   isEquipped ? 'ring-2 ring-primary-500' : ''
                 }`}
                 padding="none"
+                onClick={() => handleCardClick(prize)}
               >
                 {/* Rarity Banner */}
                 {prize.rarity && (
@@ -163,9 +170,9 @@ export function CollectionPage() {
                   </div>
                 )}
 
-                {/* Prize Image/Placeholder */}
+                {/* Prize Image */}
                 <div
-                  className={`h-28 flex items-center justify-center text-5xl bg-gradient-to-br ${
+                  className={`h-32 flex items-center justify-center bg-gradient-to-br ${
                     prize.type === 'card'
                       ? getRarityColor(prize.rarity)
                       : prize.type === 'skin'
@@ -173,7 +180,17 @@ export function CollectionPage() {
                       : 'from-amber-200 to-orange-200'
                   }`}
                 >
-                  {getTypeIcon(prize.type)}
+                  <img
+                    src={`${import.meta.env.BASE_URL}${prize.image.startsWith('/') ? prize.image.slice(1) : prize.image}`}
+                    alt={prize.name}
+                    className="w-full h-full object-contain p-1"
+                    onError={(e) => {
+                      // Fallback to icon if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = `<span class="text-5xl">${getTypeIcon(prize.type)}</span>`;
+                    }}
+                  />
                 </div>
 
                 {/* Prize Info */}
@@ -194,7 +211,10 @@ export function CollectionPage() {
                       size="sm"
                       fullWidth
                       className="mt-2"
-                      onClick={() => handleEquip(prize.id, prize.target as SkinTarget)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleEquip(prize.id, prize.target as SkinTarget);
+                      }}
                     >
                       {isEquipped ? 'Unequip' : 'Equip'}
                     </Button>
@@ -220,6 +240,14 @@ export function CollectionPage() {
           </div>
         )}
       </div>
+
+      {/* Prize Preview Modal */}
+      <PrizePreviewModal
+        prize={selectedPrize}
+        isOpen={!!selectedPrize}
+        onClose={() => setSelectedPrize(null)}
+        isOwned={true}
+      />
     </div>
   );
 }
