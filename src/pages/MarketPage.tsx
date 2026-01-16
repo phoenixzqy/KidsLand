@@ -142,7 +142,7 @@ export function MarketPage() {
     { id: 'all', name: 'All Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
     { id: 'bosses', name: 'Bosses', icon: '/images/minecraft-renders/mobs/bosses/minecraft-ender-dragon.png' },
     { id: 'hostile', name: 'Hostile', icon: '/images/minecraft-renders/mobs/hostile/minecraft-skeleton.png' },
-    { id: 'neutral', name: 'Neutral', icon: '/images/minecraft-renders/mobs/neutral/minecraft-enderman.png' },
+    { id: 'neutral', name: 'Neutral', icon: '/images/minecraft-renders/mobs/neutral/minecraft-wolf.png' },
     { id: 'passive', name: 'Passive', icon: '/images/minecraft-renders/mobs/passive/minecraft-pig.png' },
     { id: 'villagers', name: 'Villagers', icon: '/images/minecraft-renders/mobs/villagers/minecraft-villager.png' }
   ];
@@ -185,21 +185,23 @@ export function MarketPage() {
 
         {/* Mob Subcategory Filters */}
         {selectedCategory === 'mobs' && (
-          <div className="flex gap-2 overflow-x-auto pb-2 mt-2">
+          <div className="flex gap-2 overflow-x-auto pb-2 mt-2 -mx-4 px-4">
             {mobFilters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setSelectedMobFilter(filter.id)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1 ${
+                style={{ width: 'fit-content', minWidth: 'fit-content' }}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 ${
                   selectedMobFilter === filter.id
                     ? 'bg-slate-700 text-white'
                     : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
                 }`}
               >
-                <AppImage src={filter.icon} alt={filter.name} className="w-4 h-4 object-contain" />
+                <AppImage src={filter.icon} alt={filter.name} className="w-4 h-4 object-contain shrink-0" />
                 {filter.name}
               </button>
             ))}
+            <div className="shrink-0 w-1" />
           </div>
         )}
       </header>
@@ -330,7 +332,7 @@ export function MarketPage() {
               <Button
                 variant="primary"
                 size="sm"
-                className="mt-2"
+                className="mt-2 mx-auto"
                 onClick={() => navigate('/quiz')}
               >
                 Go to Quiz
