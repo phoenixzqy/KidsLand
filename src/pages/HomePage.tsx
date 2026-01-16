@@ -162,7 +162,7 @@ export function HomePage() {
       {/* Settings Button */}
       <div className="mt-6 text-center">
         <Link to="/settings">
-          <Button variant="ghost" size="sm" className="flex items-center gap-2 mx-auto">
+          <Button variant="ghost" size="sm" className="flex items-center gap-2 mx-auto bg-white/80 backdrop-blur-sm hover:bg-white/90">
             <AppImage 
               src="/images/minecraft-renders/blocks/minecraft-crafting-table.png" 
               alt="Settings"
