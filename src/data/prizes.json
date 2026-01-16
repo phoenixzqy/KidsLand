@@ -7,7 +7,7 @@
       "name": "Steve",
       "description": "The iconic miner",
       "image": "/images/cards/minecraft-steve.svg",
-      "cost": 50,
+      "cost": 25,
       "rarity": "common"
     },
     {
@@ -17,7 +17,7 @@
       "name": "Alex",
       "description": "The adventurer",
       "image": "/images/cards/minecraft-alex.svg",
-      "cost": 50,
+      "cost": 25,
       "rarity": "common"
     },
     {
@@ -27,7 +27,7 @@
       "name": "Creeper",
       "description": "Sssssss... BOOM!",
       "image": "/images/cards/minecraft-creeper.svg",
-      "cost": 75,
+      "cost": 38,
       "rarity": "rare"
     },
     {
@@ -37,7 +37,7 @@
       "name": "Zombie",
       "description": "Uuugh... Brains!",
       "image": "/images/cards/minecraft-zombie.svg",
-      "cost": 60,
+      "cost": 30,
       "rarity": "common"
     },
     {
@@ -47,7 +47,7 @@
       "name": "Diamond Sword",
       "description": "The best weapon",
       "image": "/images/cards/minecraft-diamond-sword.svg",
-      "cost": 80,
+      "cost": 40,
       "rarity": "rare"
     },
     {
@@ -57,8 +57,98 @@
       "name": "Ender Dragon",
       "description": "The final boss",
       "image": "/images/cards/minecraft-ender-dragon.svg",
-      "cost": 150,
+      "cost": 75,
       "rarity": "legendary"
+    },
+    {
+      "id": "card-minecraft-07",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Spider",
+      "description": "Creepy crawler of the night",
+      "image": "/images/cards/minecraft-spider.svg",
+      "cost": 33,
+      "rarity": "common"
+    },
+    {
+      "id": "card-minecraft-08",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Bee",
+      "description": "Busy buzzing friend",
+      "image": "/images/cards/minecraft-bee.svg",
+      "cost": 35,
+      "rarity": "common"
+    },
+    {
+      "id": "card-minecraft-09",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Iron Golem",
+      "description": "Village protector",
+      "image": "/images/cards/minecraft-iron-golem.svg",
+      "cost": 50,
+      "rarity": "epic"
+    },
+    {
+      "id": "card-minecraft-11",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Wolf",
+      "description": "Man's best friend",
+      "image": "/images/cards/minecraft-wolf.svg",
+      "cost": 38,
+      "rarity": "rare"
+    },
+    {
+      "id": "card-minecraft-12",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Skeleton",
+      "description": "Arrow-shooting menace",
+      "image": "/images/cards/minecraft-skeleton.svg",
+      "cost": 33,
+      "rarity": "common"
+    },
+    {
+      "id": "card-minecraft-13",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Enderman",
+      "description": "Don't look into its eyes!",
+      "image": "/images/cards/minecraft-enderman.svg",
+      "cost": 43,
+      "rarity": "rare"
+    },
+    {
+      "id": "card-minecraft-14",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Pig",
+      "description": "Oink oink!",
+      "image": "/images/cards/minecraft-pig.svg",
+      "cost": 28,
+      "rarity": "common"
+    },
+    {
+      "id": "card-minecraft-15",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Chest",
+      "description": "Full of treasures",
+      "image": "/images/cards/minecraft-chest.svg",
+      "cost": 35,
+      "rarity": "common"
+    },
+    {
+      "id": "card-minecraft-16",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "TNT",
+      "description": "BOOM! Handle with care",
+      "image": "/images/cards/minecraft-tnt.svg",
+      "cost": 40,
+      "rarity": "rare"
     },
     {
       "id": "card-princess-01",
@@ -67,7 +157,7 @@
       "name": "Ice Queen",
       "description": "Let it go!",
       "image": "/images/cards/princess-ice-queen.svg",
-      "cost": 75,
+      "cost": 38,
       "rarity": "rare"
     },
     {
@@ -77,7 +167,7 @@
       "name": "Mermaid",
       "description": "Princess of the Sea",
       "image": "/images/cards/princess-mermaid.svg",
-      "cost": 75,
+      "cost": 38,
       "rarity": "rare"
     },
     {
@@ -87,7 +177,7 @@
       "name": "Belle",
       "description": "Beauty and Kindness",
       "image": "/images/cards/princess-belle.svg",
-      "cost": 80,
+      "cost": 40,
       "rarity": "rare"
     },
     {
@@ -97,7 +187,7 @@
       "name": "Rapunzel",
       "description": "Follow Your Dreams",
       "image": "/images/cards/princess-rapunzel.svg",
-      "cost": 100,
+      "cost": 50,
       "rarity": "epic"
     },
     {
@@ -107,7 +197,7 @@
       "name": "Rainbow Button",
       "description": "Colorful rainbow gradient buttons",
       "image": "/images/skins/skin-rainbow.svg",
-      "cost": 100
+      "cost": 50
     },
     {
       "id": "skin-btn-space",
@@ -116,7 +206,7 @@
       "name": "Space Button",
       "description": "Cosmic purple galaxy buttons",
       "image": "/images/skins/skin-space.svg",
-      "cost": 120
+      "cost": 60
     },
     {
       "id": "skin-btn-candy",
@@ -125,7 +215,7 @@
       "name": "Candy Button",
       "description": "Sweet pink candy buttons",
       "image": "/images/skins/skin-candy.svg",
-      "cost": 80
+      "cost": 40
     },
     {
       "id": "skin-bg-ocean",
@@ -134,7 +224,7 @@
       "name": "Ocean Theme",
       "description": "Calm blue ocean background",
       "image": "/images/skins/skin-ocean-bg.svg",
-      "cost": 200
+      "cost": 100
     },
     {
       "id": "skin-bg-forest",
@@ -143,7 +233,7 @@
       "name": "Forest Theme",
       "description": "Green forest background",
       "image": "/images/skins/skin-forest-bg.svg",
-      "cost": 200
+      "cost": 100
     },
     {
       "id": "badge-first-quiz",
