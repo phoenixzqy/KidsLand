@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Button } from './Button';
+import { AppImage } from './AppImage';
 import type { Prize, Rarity } from '../../types';
 
 interface PrizePreviewModalProps {
@@ -112,8 +113,8 @@ export function PrizePreviewModal({
               : 'from-amber-100 to-orange-100'
           }`}
         >
-          <img
-            src={`${import.meta.env.BASE_URL}${prize.image.startsWith('/') ? prize.image.slice(1) : prize.image}`}
+          <AppImage
+            src={prize.image}
             alt={prize.name}
             className="w-full h-full object-contain p-2"
           />

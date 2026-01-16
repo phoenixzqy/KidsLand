@@ -108,7 +108,7 @@ export function QuizSelectPage() {
             </div>
             <div className="flex items-center gap-2">
               <span>🔥</span>
-              <span><strong>Hard:</strong> 5 seconds per question, earn 3 stars per correct answer</span>
+              <span><strong>Hard:</strong> 10 seconds per question, earn 3 stars per correct answer</span>
             </div>
           </div>
         </Card>

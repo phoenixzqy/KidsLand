@@ -106,6 +106,7 @@ export interface EquippedSkins {
   card?: string;
   background?: string;
   header?: string;
+  avatar?: string; // Equipped card as avatar
 }
 
 // Data version for sync

@@ -2,19 +2,33 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { StarCounter } from '../components/ui/StarCounter';
+import { Avatar } from '../components/ui/Avatar';
 import { ThemedBackground, ThemedHeader } from '../components/ui/ThemedBackground';
 import { useUser } from '../contexts/UserContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 export function HomePage() {
   const { stars } = useUser();
+  const { getEquippedAvatar } = useTheme();
+  const avatar = getEquippedAvatar();
 
   return (
     <ThemedBackground className="p-4">
       {/* Header */}
-      <ThemedHeader className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold text-primary-600">
-          🎮 KidsLand
-        </h1>
+      <ThemedHeader className="flex justify-between items-center mb-6">
+        <div className="flex items-center gap-3">
+          <Link to="/collection">
+            <Avatar size="md" />
+          </Link>
+          <div>
+            <h1 className="text-xl font-bold text-primary-600">
+              🎮 KidsLand
+            </h1>
+            {avatar && (
+              <p className="text-xs text-slate-900">{avatar.name} equipped</p>
+            )}
+          </div>
+        </div>
         <StarCounter count={stars} size="md" showAnimation />
       </ThemedHeader>
 

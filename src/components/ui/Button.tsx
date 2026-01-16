@@ -27,14 +27,14 @@ export function Button({
   const { getSkinStyle } = useTheme();
   const skinStyle = noSkin ? {} : getSkinStyle('button');
 
-  // Base styles
-  const baseStyles = 'btn-touch font-bold transition-all duration-200 ease-out rounded-xl';
+  // Base styles - whitespace-nowrap prevents text wrapping
+  const baseStyles = 'btn-touch font-bold transition-all duration-200 ease-out rounded-xl whitespace-nowrap';
 
   // Size variants
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm min-h-[40px]',
-    md: 'px-6 py-3 text-base min-h-[48px]',
-    lg: 'px-8 py-4 text-lg min-h-[56px]'
+    sm: 'px-3 py-2 text-xs min-h-[40px]',
+    md: 'px-5 py-3 text-sm min-h-[48px]',
+    lg: 'px-7 py-4 text-base min-h-[56px]'
   };
 
   // Color variants (only if no skin is applied)
@@ -66,8 +66,14 @@ export function Button({
   ].filter(Boolean).join(' ');
 
   // Merge skin styles with any inline styles from props
+  // Add text stroke for better readability on colorful backgrounds
   const mergedStyle: React.CSSProperties = hasSkin 
-    ? { ...skinStyle, ...props.style }
+    ? { 
+        ...skinStyle, 
+        textShadow: '0 1px 2px rgba(0,0,0,0.5), 0 0 1px rgba(0,0,0,0.8)',
+        WebkitTextStroke: '0.5px rgba(0,0,0,0.3)',
+        ...props.style 
+      }
     : props.style || {};
 
   return (

@@ -13,7 +13,7 @@ import { getWords } from '../db/sync';
 import type { QuizType, DifficultyLevel, Word } from '../types';
 
 const QUESTIONS_PER_QUIZ = 10;
-const HARD_MODE_TIME = 5;
+const HARD_MODE_TIME = 10;
 
 interface QuizQuestion {
   word: Word;

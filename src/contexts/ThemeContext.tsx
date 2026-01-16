@@ -79,8 +79,11 @@ interface ThemeContextType {
   getSkinForTarget: (target: SkinTarget) => Prize | null;
   getBackgroundStyle: () => React.CSSProperties;
   getHeaderStyle: () => React.CSSProperties;
+  getEquippedAvatar: () => Prize | null;
   equipSkin: (prizeId: string, target: SkinTarget) => Promise<void>;
   unequipSkin: (target: SkinTarget) => Promise<void>;
+  equipAvatar: (prizeId: string) => Promise<void>;
+  unequipAvatar: () => Promise<void>;
 }
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
@@ -101,6 +104,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         const prize = getPrizeById(item.prizeId);
         if (prize?.type === 'skin' && prize.target) {
           skins[prize.target] = item.prizeId;
+        }
+        // Handle cards equipped as avatar
+        if (prize?.type === 'card') {
+          skins.avatar = item.prizeId;
         }
       }
       setEquippedSkins(skins);
@@ -183,6 +190,45 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  // Get the equipped avatar card
+  const getEquippedAvatar = (): Prize | null => {
+    const prizeId = equippedSkins.avatar;
+    if (!prizeId) return null;
+    return getPrizeById(prizeId) || null;
+  };
+
+  // Equip a card as avatar
+  const equipAvatar = async (prizeId: string) => {
+    const prize = getPrizeById(prizeId);
+    if (!prize || prize.type !== 'card') return;
+
+    // First, unequip any existing avatar
+    const existingItems = await db.ownedItems.filter(item => item.equipped).toArray();
+    for (const item of existingItems) {
+      const itemPrize = getPrizeById(item.prizeId);
+      if (itemPrize?.type === 'card') {
+        await db.ownedItems.update(item.id, { equipped: false });
+      }
+    }
+
+    // Equip the new avatar
+    const newItem = await db.ownedItems.where('prizeId').equals(prizeId).first();
+    if (newItem) {
+      await db.ownedItems.update(newItem.id, { equipped: true });
+    }
+  };
+
+  // Unequip avatar
+  const unequipAvatar = async () => {
+    const existingItems = await db.ownedItems.filter(item => item.equipped).toArray();
+    for (const item of existingItems) {
+      const prize = getPrizeById(item.prizeId);
+      if (prize?.type === 'card') {
+        await db.ownedItems.update(item.id, { equipped: false });
+      }
+    }
+  };
+
   const value: ThemeContextType = {
     equippedSkins,
     theme: defaultTheme,
@@ -190,8 +236,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     getSkinForTarget,
     getBackgroundStyle,
     getHeaderStyle,
+    getEquippedAvatar,
     equipSkin,
-    unequipSkin
+    unequipSkin,
+    equipAvatar,
+    unequipAvatar
   };
 
   return (

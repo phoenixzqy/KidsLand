@@ -5,6 +5,8 @@ import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
 import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
+import { Avatar } from '../components/ui/Avatar';
+import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { getPrizeById } from '../db/sync';
@@ -13,7 +15,7 @@ import type { Prize, PrizeType, Rarity, SkinTarget } from '../types';
 export function CollectionPage() {
   const navigate = useNavigate();
   const { stars, state } = useUser();
-  const { equipSkin, unequipSkin, equippedSkins } = useTheme();
+  const { equipSkin, unequipSkin, equippedSkins, equipAvatar, unequipAvatar } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState<PrizeType | 'all'>('all');
   const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
 
@@ -35,6 +37,14 @@ export function CollectionPage() {
     } else {
       // Equip
       await equipSkin(prizeId, target);
+    }
+  };
+
+  const handleEquipAvatar = async (prizeId: string) => {
+    if (equippedSkins.avatar === prizeId) {
+      await unequipAvatar();
+    } else {
+      await equipAvatar(prizeId);
     }
   };
 
@@ -94,7 +104,10 @@ export function CollectionPage() {
           <button onClick={() => navigate('/')} className="text-2xl">
             ←
           </button>
-          <h1 className="text-xl font-bold text-slate-800">🎒 My Collection</h1>
+          <div className="flex items-center gap-3">
+            <Avatar size="sm" />
+            <h1 className="text-xl font-bold text-slate-800">🎒 My Collection</h1>
+          </div>
           <StarCounter count={stars} size="sm" />
         </div>
 
@@ -143,13 +156,16 @@ export function CollectionPage() {
             if (!prize) return null;
 
             const isSkin = prize.type === 'skin';
-            const isEquipped =
+            const isCard = prize.type === 'card';
+            const isSkinEquipped =
               isSkin && prize.target && equippedSkins[prize.target] === prize.id;
+            const isAvatarEquipped = isCard && equippedSkins.avatar === prize.id;
+            const isEquipped = isSkinEquipped || isAvatarEquipped;
 
             return (
               <Card
                 key={item.id}
-                className={`relative overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] ${
+                className={`relative overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] flex flex-col ${
                   isEquipped ? 'ring-2 ring-primary-500' : ''
                 }`}
                 padding="none"
@@ -166,8 +182,8 @@ export function CollectionPage() {
 
                 {/* Equipped Badge */}
                 {isEquipped && (
-                  <div className="absolute top-2 right-2 bg-primary-500 text-white px-2 py-0.5 rounded-full text-xs font-bold">
-                    Equipped
+                  <div className="absolute top-2 right-2 bg-primary-500 text-white px-2 py-0.5 rounded-full text-xs font-bold z-10">
+                    {isAvatarEquipped ? 'Avatar' : 'Equipped'}
                   </div>
                 )}
 
@@ -181,34 +197,30 @@ export function CollectionPage() {
                       : 'from-amber-200 to-orange-200'
                   }`}
                 >
-                  <img
-                    src={`${import.meta.env.BASE_URL}${prize.image.startsWith('/') ? prize.image.slice(1) : prize.image}`}
+                  <AppImage
+                    src={prize.image}
                     alt={prize.name}
                     className="w-full h-full object-contain p-1"
-                    onError={(e) => {
-                      // Fallback to icon if image fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.innerHTML = `<span class="text-5xl">${getTypeIcon(prize.type)}</span>`;
-                    }}
+                    fallback={<span className="text-5xl">{getTypeIcon(prize.type)}</span>}
                   />
                 </div>
 
-                {/* Prize Info */}
-                <div className="p-3">
+                {/* Prize Info - flex-grow to fill remaining space */}
+                <div className="p-3 flex flex-col flex-grow">
                   <h3 className="font-bold text-sm text-slate-800 truncate">
                     {prize.name}
                   </h3>
-                  {prize.rarity && (
-                    <p className="text-xs text-slate-500 capitalize">
-                      {prize.rarity}
-                    </p>
-                  )}
+                  <p className="text-xs text-slate-500 capitalize h-4">
+                    {prize.rarity || '\u00A0'}
+                  </p>
 
-                  {/* Equip Button for skins */}
+                  {/* Spacer to push button to bottom */}
+                  <div className="flex-grow" />
+
+                  {/* Equip Button - always shown for skins and cards */}
                   {isSkin && prize.target && (
                     <Button
-                      variant={isEquipped ? 'secondary' : 'primary'}
+                      variant={isSkinEquipped ? 'secondary' : 'primary'}
                       size="sm"
                       fullWidth
                       className="mt-2"
@@ -217,7 +229,22 @@ export function CollectionPage() {
                         handleEquip(prize.id, prize.target as SkinTarget);
                       }}
                     >
-                      {isEquipped ? 'Unequip' : 'Equip'}
+                      {isSkinEquipped ? 'Unequip' : 'Equip'}
+                    </Button>
+                  )}
+
+                  {isCard && (
+                    <Button
+                      variant={isAvatarEquipped ? 'secondary' : 'primary'}
+                      size="sm"
+                      fullWidth
+                      className="mt-2"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleEquipAvatar(prize.id);
+                      }}
+                    >
+                      {isAvatarEquipped ? 'Remove' : 'Set Avatar'}
                     </Button>
                   )}
                 </div>

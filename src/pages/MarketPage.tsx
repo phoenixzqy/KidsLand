@@ -5,6 +5,7 @@ import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
 import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
+import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
 import { getPrizes, getPrizesByType } from '../db/sync';
 import { purchaseItem } from '../db/database';
@@ -176,16 +177,11 @@ export function MarketPage() {
                       : 'from-amber-200 to-orange-200'
                   }`}
                 >
-                  <img
-                    src={`${import.meta.env.BASE_URL}${prize.image.startsWith('/') ? prize.image.slice(1) : prize.image}`}
+                  <AppImage
+                    src={prize.image}
                     alt={prize.name}
                     className="w-full h-full object-contain p-1"
-                    onError={(e) => {
-                      // Fallback to icon if image fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.innerHTML = `<span class="text-5xl">${getTypeIcon(prize.type)}</span>`;
-                    }}
+                    fallback={<span className="text-5xl">{getTypeIcon(prize.type)}</span>}
                   />
                 </div>
 
