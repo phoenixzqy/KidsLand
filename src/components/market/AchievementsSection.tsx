@@ -7,17 +7,19 @@ import {
   allAchievements, 
   wordAchievements, 
   quizAchievements,
+  collectionAchievements,
   getTierColor,
   getTierName,
   type Achievement
 } from '../../data/achievements';
 
-type AchievementFilter = 'all' | 'words' | 'quizzes';
+type AchievementFilter = 'all' | 'words' | 'quizzes' | 'collection';
 
 export function AchievementsSection() {
   const { 
     masteredWordsCount, 
-    quizzesCompleted, 
+    quizzesCompleted,
+    ownedItems,
     claimedAchievements,
     claimAchievement,
     isAchievementClaimed 
@@ -27,12 +29,17 @@ export function AchievementsSection() {
   const [claimingId, setClaimingId] = useState<string | null>(null);
   const [justClaimed, setJustClaimed] = useState<string | null>(null);
 
+  // Get collection count
+  const collectionCount = ownedItems.length;
+
   // Get current progress for an achievement
   const getProgress = (achievement: Achievement): number => {
     if (achievement.category === 'words') {
       return masteredWordsCount;
-    } else {
+    } else if (achievement.category === 'quizzes') {
       return quizzesCompleted;
+    } else {
+      return collectionCount;
     }
   };
 
@@ -67,7 +74,9 @@ export function AchievementsSection() {
     ? allAchievements 
     : filter === 'words' 
       ? wordAchievements 
-      : quizAchievements;
+      : filter === 'quizzes'
+        ? quizAchievements
+        : collectionAchievements;
 
   // Sort: claimable first, then in-progress, then completed
   const sortedAchievements = [...filteredAchievements].sort((a, b) => {
@@ -116,7 +125,7 @@ export function AchievementsSection() {
       </Card>
 
       {/* Current Progress Stats */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-3 gap-3">
         <Card className="text-center py-3" padding="sm">
           <AppImage 
             src="/images/minecraft-renders/special/minecraft-book.png" 
@@ -133,7 +142,16 @@ export function AchievementsSection() {
             className="w-8 h-8 mx-auto mb-1 object-contain" 
           />
           <div className="font-bold text-slate-800">{quizzesCompleted}</div>
-          <div className="text-xs text-slate-500">Quizzes Completed</div>
+          <div className="text-xs text-slate-500">Quizzes Done</div>
+        </Card>
+        <Card className="text-center py-3" padding="sm">
+          <AppImage 
+            src="/images/minecraft-renders/blocks/minecraft-chest.png" 
+            alt="Collection" 
+            className="w-8 h-8 mx-auto mb-1 object-contain" 
+          />
+          <div className="font-bold text-slate-800">{collectionCount}</div>
+          <div className="text-xs text-slate-500">Prizes Collected</div>
         </Card>
       </div>
 
@@ -143,6 +161,7 @@ export function AchievementsSection() {
           { id: 'all' as const, name: 'All', icon: '🏆' },
           { id: 'words' as const, name: 'Words', icon: '📚' },
           { id: 'quizzes' as const, name: 'Quizzes', icon: '✏️' },
+          { id: 'collection' as const, name: 'Collection', icon: '📦' },
         ].map((f) => (
           <button
             key={f.id}

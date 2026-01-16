@@ -6,7 +6,7 @@ export interface Achievement {
   name: string;
   description: string;
   icon: string;
-  category: 'words' | 'quizzes';
+  category: 'words' | 'quizzes' | 'collection';
   requirement: number; // Number needed to unlock
   tier: 1 | 2 | 3 | 4 | 5; // Tier level (bronze, silver, gold, diamond, emerald)
   starsReward: number;
@@ -215,8 +215,92 @@ export const quizAchievements: Achievement[] = [
   },
 ];
 
+// Collection achievements - for collecting prizes from the market
+export const collectionAchievements: Achievement[] = [
+  {
+    id: 'collection-1',
+    name: 'First Prize',
+    description: 'Collect your first prize',
+    icon: '/images/minecraft-renders/blocks/minecraft-chest.png',
+    category: 'collection',
+    requirement: 1,
+    tier: 1,
+    starsReward: 5,
+  },
+  {
+    id: 'collection-5',
+    name: 'Treasure Hunter',
+    description: 'Collect 5 prizes',
+    icon: '/images/minecraft-renders/blocks/minecraft-iron-block.png',
+    category: 'collection',
+    requirement: 5,
+    tier: 1,
+    starsReward: 5,
+  },
+  {
+    id: 'collection-10',
+    name: 'Collector',
+    description: 'Collect 10 prizes',
+    icon: '/images/minecraft-renders/blocks/minecraft-gold-block.png',
+    category: 'collection',
+    requirement: 10,
+    tier: 2,
+    starsReward: 5,
+  },
+  {
+    id: 'collection-25',
+    name: 'Hoarder',
+    description: 'Collect 25 prizes',
+    icon: '/images/minecraft-renders/blocks/minecraft-emerald-block.png',
+    category: 'collection',
+    requirement: 25,
+    tier: 2,
+    starsReward: 5,
+  },
+  {
+    id: 'collection-50',
+    name: 'Treasure Master',
+    description: 'Collect 50 prizes',
+    icon: '/images/minecraft-renders/blocks/minecraft-diamond-ore.png',
+    category: 'collection',
+    requirement: 50,
+    tier: 3,
+    starsReward: 5,
+  },
+  {
+    id: 'collection-75',
+    name: 'Elite Collector',
+    description: 'Collect 75 prizes',
+    icon: '/images/minecraft-renders/blocks/minecraft-ancient-debris.png',
+    category: 'collection',
+    requirement: 75,
+    tier: 3,
+    starsReward: 5,
+  },
+  {
+    id: 'collection-100',
+    name: 'Legendary Collector',
+    description: 'Collect 100 prizes',
+    icon: '/images/minecraft-renders/blocks/minecraft-netherite-block.png',
+    category: 'collection',
+    requirement: 100,
+    tier: 4,
+    starsReward: 5,
+  },
+  {
+    id: 'collection-150',
+    name: 'Ultimate Collector',
+    description: 'Collect 150 prizes',
+    icon: '/images/minecraft-renders/special/minecraft-dragon-egg.png',
+    category: 'collection',
+    requirement: 150,
+    tier: 5,
+    starsReward: 5,
+  },
+];
+
 // All achievements combined
-export const allAchievements: Achievement[] = [...wordAchievements, ...quizAchievements];
+export const allAchievements: Achievement[] = [...wordAchievements, ...quizAchievements, ...collectionAchievements];
 
 // Get achievement by ID
 export function getAchievementById(id: string): Achievement | undefined {
@@ -224,6 +308,6 @@ export function getAchievementById(id: string): Achievement | undefined {
 }
 
 // Get achievements by category
-export function getAchievementsByCategory(category: 'words' | 'quizzes'): Achievement[] {
+export function getAchievementsByCategory(category: 'words' | 'quizzes' | 'collection'): Achievement[] {
   return allAchievements.filter(a => a.category === category);
 }
