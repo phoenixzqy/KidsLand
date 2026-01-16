@@ -1,0 +1,155 @@
+{
+  "prizes": [
+    {
+      "id": "card-ultraman-01",
+      "type": "card",
+      "collection": "ultraman",
+      "name": "Ultraman Tiga",
+      "description": "The legendary warrior of light",
+      "image": "ultraman-tiga",
+      "cost": 50,
+      "rarity": "common"
+    },
+    {
+      "id": "card-ultraman-02",
+      "type": "card",
+      "collection": "ultraman",
+      "name": "Ultraman Zero",
+      "description": "Son of Ultra Seven",
+      "image": "ultraman-zero",
+      "cost": 75,
+      "rarity": "rare"
+    },
+    {
+      "id": "card-ultraman-03",
+      "type": "card",
+      "collection": "ultraman",
+      "name": "Ultraman Decker",
+      "description": "The newest hero",
+      "image": "ultraman-decker",
+      "cost": 100,
+      "rarity": "epic"
+    },
+    {
+      "id": "card-minecraft-01",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Steve",
+      "description": "The iconic miner",
+      "image": "minecraft-steve",
+      "cost": 50,
+      "rarity": "common"
+    },
+    {
+      "id": "card-minecraft-02",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Creeper",
+      "description": "Sssssss... BOOM!",
+      "image": "minecraft-creeper",
+      "cost": 75,
+      "rarity": "rare"
+    },
+    {
+      "id": "card-minecraft-03",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Ender Dragon",
+      "description": "The final boss",
+      "image": "minecraft-ender-dragon",
+      "cost": 150,
+      "rarity": "legendary"
+    },
+    {
+      "id": "card-minecraft-04",
+      "type": "card",
+      "collection": "minecraft",
+      "name": "Diamond Sword",
+      "description": "The best weapon",
+      "image": "minecraft-diamond-sword",
+      "cost": 60,
+      "rarity": "common"
+    },
+    {
+      "id": "skin-btn-rainbow",
+      "type": "skin",
+      "target": "button",
+      "name": "Rainbow Button",
+      "description": "Colorful rainbow gradient buttons",
+      "image": "skin-rainbow",
+      "cost": 100
+    },
+    {
+      "id": "skin-btn-space",
+      "type": "skin",
+      "target": "button",
+      "name": "Space Button",
+      "description": "Cosmic purple galaxy buttons",
+      "image": "skin-space",
+      "cost": 120
+    },
+    {
+      "id": "skin-btn-candy",
+      "type": "skin",
+      "target": "button",
+      "name": "Candy Button",
+      "description": "Sweet pink candy buttons",
+      "image": "skin-candy",
+      "cost": 80
+    },
+    {
+      "id": "skin-bg-ocean",
+      "type": "skin",
+      "target": "background",
+      "name": "Ocean Theme",
+      "description": "Calm blue ocean background",
+      "image": "skin-ocean-bg",
+      "cost": 200
+    },
+    {
+      "id": "skin-bg-forest",
+      "type": "skin",
+      "target": "background",
+      "name": "Forest Theme",
+      "description": "Green forest background",
+      "image": "skin-forest-bg",
+      "cost": 200
+    },
+    {
+      "id": "badge-first-quiz",
+      "type": "badge",
+      "name": "Quiz Starter",
+      "description": "Complete your first quiz",
+      "image": "badge-first-quiz",
+      "cost": 0,
+      "unlockCondition": "complete_first_quiz"
+    },
+    {
+      "id": "badge-10-words",
+      "type": "badge",
+      "name": "Word Explorer",
+      "description": "Learn 10 words",
+      "image": "badge-10-words",
+      "cost": 0,
+      "unlockCondition": "learn_10_words"
+    },
+    {
+      "id": "badge-perfect-quiz",
+      "type": "badge",
+      "name": "Perfect Score",
+      "description": "Get 100% on a quiz",
+      "image": "badge-perfect",
+      "cost": 0,
+      "unlockCondition": "perfect_quiz"
+    },
+    {
+      "id": "badge-100-stars",
+      "type": "badge",
+      "name": "Star Collector",
+      "description": "Earn 100 stars total",
+      "image": "badge-100-stars",
+      "cost": 0,
+      "unlockCondition": "earn_100_stars"
+    }
+  ]
+}

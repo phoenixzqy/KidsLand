@@ -1,0 +1,362 @@
+import { useState, useEffect, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Timer } from '../components/ui/Timer';
+import { StarCounter } from '../components/ui/StarCounter';
+import { ProgressBar } from '../components/ui/ProgressBar';
+import { useUser } from '../contexts/UserContext';
+import { useTimer } from '../hooks/useTimer';
+import { useSpeech } from '../hooks/useSpeech';
+import { useSpeechRecognition, compareWords } from '../hooks/useSpeechRecognition';
+import { getWords } from '../db/sync';
+import type { QuizType, DifficultyLevel, Word } from '../types';
+
+const QUESTIONS_PER_QUIZ = 10;
+const HARD_MODE_TIME = 5;
+
+interface QuizQuestion {
+  word: Word;
+  type: QuizType;
+  sentence?: string;
+  blankWord?: string;
+}
+
+export function QuizPage() {
+  const { type, level } = useParams<{ type: QuizType; level: DifficultyLevel }>();
+  const navigate = useNavigate();
+  const { stars, addStars } = useUser();
+  const { speak } = useSpeech();
+  const { startListening, stopListening, isListening, transcript } = useSpeechRecognition();
+
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answer, setAnswer] = useState('');
+  const [showResult, setShowResult] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [quizComplete, setQuizComplete] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  const isHardMode = level === 'hard';
+  const starsPerQuestion = isHardMode ? 3 : 1;
+
+  // Timer for hard mode
+  const { timeLeft, restart: restartTimer, pause: pauseTimer } = useTimer({
+    initialTime: HARD_MODE_TIME,
+    onTimeUp: () => {
+      if (hasStarted && !showResult && !quizComplete) {
+        handleTimeUp();
+      }
+    },
+    autoStart: false
+  });
+
+  // Generate quiz questions
+  useEffect(() => {
+    const words = getWords();
+    const shuffled = [...words].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, QUESTIONS_PER_QUIZ);
+
+    const generatedQuestions: QuizQuestion[] = selected.map((word) => {
+      const question: QuizQuestion = { word, type: type as QuizType };
+
+      if (type === 'sentence' && word.sentences.length > 0) {
+        const sentence = word.sentences[Math.floor(Math.random() * word.sentences.length)];
+        // Replace the word with blanks
+        const regex = new RegExp(`\\b${word.word}\\b`, 'gi');
+        question.sentence = sentence.text.replace(regex, '_____');
+        question.blankWord = word.word;
+      }
+
+      return question;
+    });
+
+    setQuestions(generatedQuestions);
+  }, [type]);
+
+  const currentQuestion = questions[currentIndex];
+
+  // Handle time up for hard mode
+  const handleTimeUp = useCallback(() => {
+    setIsCorrect(false);
+    setShowResult(true);
+    pauseTimer();
+  }, [pauseTimer]);
+
+  // Start the quiz
+  const handleStart = () => {
+    setHasStarted(true);
+    if (isHardMode) {
+      restartTimer();
+    }
+    // Auto-speak for spelling quiz
+    if (type === 'spelling' && currentQuestion) {
+      speak(currentQuestion.word.word);
+    }
+  };
+
+  // Check answer
+  const checkAnswer = useCallback(() => {
+    if (!currentQuestion || showResult) return;
+
+    let correct = false;
+
+    if (type === 'spelling' || type === 'sentence') {
+      correct = answer.toLowerCase().trim() === currentQuestion.word.word.toLowerCase();
+    } else if (type === 'pronunciation') {
+      const result = compareWords(transcript, currentQuestion.word.word);
+      correct = result.isMatch;
+    }
+
+    setIsCorrect(correct);
+    setShowResult(true);
+    pauseTimer();
+
+    if (correct) {
+      setCorrectCount(prev => prev + 1);
+    }
+  }, [currentQuestion, answer, transcript, type, showResult, pauseTimer]);
+
+  // Handle speech recognition result
+  useEffect(() => {
+    if (type === 'pronunciation' && transcript && hasStarted && !showResult) {
+      stopListening();
+      checkAnswer();
+    }
+  }, [transcript, type, hasStarted, showResult, stopListening, checkAnswer]);
+
+  // Move to next question
+  const nextQuestion = async () => {
+    if (currentIndex + 1 >= questions.length) {
+      // Quiz complete
+      if (isCorrect) {
+        // Add stars for current correct answer
+        await addStars(starsPerQuestion);
+      }
+      setQuizComplete(true);
+    } else {
+      // Award stars for correct answer
+      if (isCorrect) {
+        await addStars(starsPerQuestion);
+      }
+
+      // Move to next
+      setCurrentIndex(prev => prev + 1);
+      setAnswer('');
+      setShowResult(false);
+      setIsCorrect(false);
+
+      if (isHardMode) {
+        restartTimer();
+      }
+
+      // Auto-speak for spelling quiz
+      if (type === 'spelling') {
+        setTimeout(() => {
+          speak(questions[currentIndex + 1].word.word);
+        }, 300);
+      }
+    }
+  };
+
+  // Quiz Complete Screen
+  if (quizComplete) {
+    const totalStars = correctCount * starsPerQuestion;
+    const percentage = (correctCount / questions.length) * 100;
+
+    return (
+      <div className="min-h-screen bg-bg-primary flex items-center justify-center p-4">
+        <Card className="w-full max-w-md text-center py-8">
+          <div className="text-6xl mb-4">
+            {percentage >= 80 ? '🏆' : percentage >= 50 ? '👍' : '💪'}
+          </div>
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">
+            {percentage >= 80 ? 'Amazing!' : percentage >= 50 ? 'Good Job!' : 'Keep Trying!'}
+          </h2>
+          <p className="text-slate-600 mb-6">
+            You got {correctCount} out of {questions.length} correct!
+          </p>
+
+          <div className="bg-star/10 rounded-2xl p-6 mb-6">
+            <div className="text-4xl mb-2">⭐</div>
+            <div className="text-3xl font-bold text-star">+{totalStars}</div>
+            <div className="text-sm text-slate-500">Stars earned!</div>
+          </div>
+
+          <div className="space-y-3">
+            <Button variant="primary" fullWidth onClick={() => navigate('/quiz')}>
+              Try Another Quiz
+            </Button>
+            <Button variant="secondary" fullWidth onClick={() => navigate('/')}>
+              Go Home
+            </Button>
+          </div>
+        </Card>
+      </div>
+    );
+  }
+
+  // Loading state
+  if (!currentQuestion) {
+    return (
+      <div className="min-h-screen bg-bg-primary flex items-center justify-center">
+        <div className="text-2xl">Loading...</div>
+      </div>
+    );
+  }
+
+  // Start screen
+  if (!hasStarted) {
+    return (
+      <div className="min-h-screen bg-bg-primary flex items-center justify-center p-4">
+        <Card className="w-full max-w-md text-center py-8">
+          <div className="text-6xl mb-4">
+            {type === 'spelling' ? '✏️' : type === 'pronunciation' ? '🎤' : '📝'}
+          </div>
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">
+            {type === 'spelling' ? 'Spelling Quiz' : type === 'pronunciation' ? 'Pronunciation Quiz' : 'Sentence Fill-in'}
+          </h2>
+          <p className="text-slate-600 mb-2">
+            {isHardMode ? '🔥 Hard Mode' : '😊 Easy Mode'}
+          </p>
+          <p className="text-sm text-slate-500 mb-6">
+            {QUESTIONS_PER_QUIZ} questions • {starsPerQuestion} star{starsPerQuestion > 1 ? 's' : ''} per correct answer
+            {isHardMode && ` • ${HARD_MODE_TIME}s time limit`}
+          </p>
+
+          <Button variant="primary" size="lg" fullWidth onClick={handleStart}>
+            Start Quiz!
+          </Button>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-bg-primary pb-24">
+      {/* Header */}
+      <header className="sticky top-0 z-10 bg-bg-primary/95 backdrop-blur-sm p-4 border-b border-slate-200">
+        <div className="flex justify-between items-center mb-2">
+          <button onClick={() => navigate('/quiz')} className="text-xl">
+            ✕
+          </button>
+          <span className="text-sm font-medium text-slate-600">
+            Question {currentIndex + 1} of {questions.length}
+          </span>
+          <StarCounter count={stars} size="sm" />
+        </div>
+        <ProgressBar value={currentIndex + 1} max={questions.length} color="primary" />
+      </header>
+
+      <div className="p-4">
+        {/* Timer (hard mode) */}
+        {isHardMode && !showResult && (
+          <div className="flex justify-center mb-4">
+            <Timer timeLeft={timeLeft} totalTime={HARD_MODE_TIME} size="lg" />
+          </div>
+        )}
+
+        {/* Question Card */}
+        <Card className="text-center py-8 mb-6">
+          {type === 'spelling' && (
+            <>
+              <p className="text-slate-600 mb-4">Listen and type the word:</p>
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => speak(currentQuestion.word.word)}
+                className="mb-6"
+              >
+                🔊 Play Sound
+              </Button>
+            </>
+          )}
+
+          {type === 'pronunciation' && (
+            <>
+              <p className="text-slate-600 mb-4">Say this word out loud:</p>
+              <h2 className="text-5xl font-bold text-primary-600 mb-6">
+                {currentQuestion.word.word}
+              </h2>
+            </>
+          )}
+
+          {type === 'sentence' && (
+            <>
+              <p className="text-slate-600 mb-4">Fill in the blank:</p>
+              <h2 className="text-xl font-medium text-slate-800 mb-6 leading-relaxed">
+                {currentQuestion.sentence}
+              </h2>
+            </>
+          )}
+
+          {/* Answer Input */}
+          {(type === 'spelling' || type === 'sentence') && !showResult && (
+            <div className="space-y-4">
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && checkAnswer()}
+                placeholder="Type your answer..."
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200
+                           focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent
+                           text-center text-xl font-bold"
+                autoFocus
+              />
+              <Button
+                variant="primary"
+                fullWidth
+                size="lg"
+                onClick={checkAnswer}
+                disabled={!answer.trim()}
+              >
+                Check Answer
+              </Button>
+            </div>
+          )}
+
+          {/* Microphone for pronunciation */}
+          {type === 'pronunciation' && !showResult && (
+            <Button
+              variant={isListening ? 'danger' : 'primary'}
+              size="lg"
+              onClick={isListening ? stopListening : startListening}
+              className={isListening ? 'animate-pulse' : ''}
+            >
+              {isListening ? '🎤 Listening...' : '🎤 Start Speaking'}
+            </Button>
+          )}
+
+          {/* Result Display */}
+          {showResult && (
+            <div className={`mt-6 p-4 rounded-2xl ${isCorrect ? 'bg-success/10' : 'bg-error/10'}`}>
+              <div className="text-4xl mb-2">{isCorrect ? '✅' : '❌'}</div>
+              <p className={`text-lg font-bold ${isCorrect ? 'text-success' : 'text-error'}`}>
+                {isCorrect ? 'Correct!' : 'Not quite!'}
+              </p>
+              {!isCorrect && (
+                <p className="text-slate-600 mt-2">
+                  The answer was: <strong>{currentQuestion.word.word}</strong>
+                </p>
+              )}
+              {isCorrect && (
+                <p className="text-star font-bold mt-2">+{starsPerQuestion} ⭐</p>
+              )}
+            </div>
+          )}
+        </Card>
+      </div>
+
+      {/* Next Button */}
+      {showResult && (
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-bg-primary/95 backdrop-blur-sm border-t border-slate-200">
+          <Button variant="primary" fullWidth size="lg" onClick={nextQuestion}>
+            {currentIndex + 1 >= questions.length ? 'See Results' : 'Next Question'} →
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+}

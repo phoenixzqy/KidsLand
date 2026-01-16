@@ -1,0 +1,994 @@
+{
+  "words": [
+    {
+      "id": "about",
+      "word": "about",
+      "sentences": [
+        {"text": "Tell me about your favorite toy.", "highlightIndex": 2},
+        {"text": "The book is about a brave knight.", "highlightIndex": 3},
+        {"text": "I think about my friends every day.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "after",
+      "word": "after",
+      "sentences": [
+        {"text": "We play after school.", "highlightIndex": 2},
+        {"text": "I brush my teeth after eating.", "highlightIndex": 4},
+        {"text": "The dog runs after the ball.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "again",
+      "word": "again",
+      "sentences": [
+        {"text": "Can we play again?", "highlightIndex": 3},
+        {"text": "Read the story again, please!", "highlightIndex": 3},
+        {"text": "I want to try again.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "all",
+      "word": "all",
+      "sentences": [
+        {"text": "I ate all my vegetables.", "highlightIndex": 2},
+        {"text": "All the kids love ice cream.", "highlightIndex": 0},
+        {"text": "We played all day long.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "always",
+      "word": "always",
+      "sentences": [
+        {"text": "I always say please and thank you.", "highlightIndex": 1},
+        {"text": "Mom always hugs me goodnight.", "highlightIndex": 1},
+        {"text": "The sun always rises in the morning.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "another",
+      "word": "another",
+      "sentences": [
+        {"text": "Can I have another cookie?", "highlightIndex": 3},
+        {"text": "Let's read another book.", "highlightIndex": 2},
+        {"text": "I made another friend at school.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "and",
+      "word": "and",
+      "sentences": [
+        {"text": "I like apples and bananas.", "highlightIndex": 3},
+        {"text": "Mom and Dad love me.", "highlightIndex": 1},
+        {"text": "The cat and dog are friends.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "are",
+      "word": "are",
+      "sentences": [
+        {"text": "You are my best friend.", "highlightIndex": 1},
+        {"text": "The flowers are pretty.", "highlightIndex": 2},
+        {"text": "We are going to the park.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "away",
+      "word": "away",
+      "sentences": [
+        {"text": "The bird flew away.", "highlightIndex": 3},
+        {"text": "Put your toys away.", "highlightIndex": 3},
+        {"text": "My grandma lives far away.", "highlightIndex": 5}
+      ]
+    },
+    {
+      "id": "because",
+      "word": "because",
+      "sentences": [
+        {"text": "I'm happy because it's sunny.", "highlightIndex": 2},
+        {"text": "I like school because I learn new things.", "highlightIndex": 3},
+        {"text": "The dog is wet because it rained.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "before",
+      "word": "before",
+      "sentences": [
+        {"text": "Wash your hands before eating.", "highlightIndex": 3},
+        {"text": "I read a book before bed.", "highlightIndex": 4},
+        {"text": "Tie your shoes before you run.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "boy",
+      "word": "boy",
+      "sentences": [
+        {"text": "The boy has a red ball.", "highlightIndex": 1},
+        {"text": "A kind boy helped me.", "highlightIndex": 2},
+        {"text": "The boy is playing soccer.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "brown",
+      "word": "brown",
+      "sentences": [
+        {"text": "My dog has brown fur.", "highlightIndex": 3},
+        {"text": "I have brown eyes.", "highlightIndex": 2},
+        {"text": "The bear is brown.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "buy",
+      "word": "buy",
+      "sentences": [
+        {"text": "Let's buy some apples.", "highlightIndex": 1},
+        {"text": "I want to buy a new book.", "highlightIndex": 3},
+        {"text": "Dad will buy ice cream.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "by",
+      "word": "by",
+      "sentences": [
+        {"text": "Sit by me, please.", "highlightIndex": 1},
+        {"text": "The book was written by my teacher.", "highlightIndex": 4},
+        {"text": "We travel by car.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "call",
+      "word": "call",
+      "sentences": [
+        {"text": "I will call my friend.", "highlightIndex": 2},
+        {"text": "Please call me when you arrive.", "highlightIndex": 1},
+        {"text": "They call me Buddy.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "change",
+      "word": "change",
+      "sentences": [
+        {"text": "Let's change into pajamas.", "highlightIndex": 1},
+        {"text": "The seasons change every year.", "highlightIndex": 2},
+        {"text": "Can you change the channel?", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "city",
+      "word": "city",
+      "sentences": [
+        {"text": "The city has tall buildings.", "highlightIndex": 1},
+        {"text": "I live in a big city.", "highlightIndex": 5},
+        {"text": "The city is full of cars.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "come",
+      "word": "come",
+      "sentences": [
+        {"text": "Please come to my party.", "highlightIndex": 1},
+        {"text": "Come here, puppy!", "highlightIndex": 0},
+        {"text": "Will you come with me?", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "could",
+      "word": "could",
+      "sentences": [
+        {"text": "Could you help me, please?", "highlightIndex": 0},
+        {"text": "I wish I could fly.", "highlightIndex": 3},
+        {"text": "She could run very fast.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "country",
+      "word": "country",
+      "sentences": [
+        {"text": "I love my country.", "highlightIndex": 3},
+        {"text": "We visited a new country.", "highlightIndex": 4},
+        {"text": "The country has many farms.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "do",
+      "word": "do",
+      "sentences": [
+        {"text": "What do you want to play?", "highlightIndex": 1},
+        {"text": "I do my homework every day.", "highlightIndex": 1},
+        {"text": "How do you spell that?", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "does",
+      "word": "does",
+      "sentences": [
+        {"text": "She does her best at school.", "highlightIndex": 1},
+        {"text": "What does this word mean?", "highlightIndex": 1},
+        {"text": "He does magic tricks.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "done",
+      "word": "done",
+      "sentences": [
+        {"text": "I am done with my food.", "highlightIndex": 2},
+        {"text": "The painting is done!", "highlightIndex": 3},
+        {"text": "Are you done reading?", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "draw",
+      "word": "draw",
+      "sentences": [
+        {"text": "I like to draw pictures.", "highlightIndex": 3},
+        {"text": "Can you draw a cat?", "highlightIndex": 2},
+        {"text": "Let's draw with crayons.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "earth",
+      "word": "earth",
+      "sentences": [
+        {"text": "The earth is round like a ball.", "highlightIndex": 1},
+        {"text": "We must take care of the earth.", "highlightIndex": 7},
+        {"text": "Plants grow from the earth.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "even",
+      "word": "even",
+      "sentences": [
+        {"text": "I can count even numbers.", "highlightIndex": 3},
+        {"text": "She helps even when tired.", "highlightIndex": 2},
+        {"text": "Even my little brother can do it.", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "every",
+      "word": "every",
+      "sentences": [
+        {"text": "I brush my teeth every day.", "highlightIndex": 4},
+        {"text": "Every child got a prize.", "highlightIndex": 0},
+        {"text": "We have recess every afternoon.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "far",
+      "word": "far",
+      "sentences": [
+        {"text": "The stars are far away.", "highlightIndex": 3},
+        {"text": "Is it far to walk?", "highlightIndex": 2},
+        {"text": "My school is not far from home.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "find",
+      "word": "find",
+      "sentences": [
+        {"text": "Can you find your shoes?", "highlightIndex": 2},
+        {"text": "I will find the treasure.", "highlightIndex": 2},
+        {"text": "Let's find a hiding spot.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "for",
+      "word": "for",
+      "sentences": [
+        {"text": "This gift is for you.", "highlightIndex": 3},
+        {"text": "I am looking for my toy.", "highlightIndex": 3},
+        {"text": "Thank you for helping me.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "four",
+      "word": "four",
+      "sentences": [
+        {"text": "I have four crayons.", "highlightIndex": 2},
+        {"text": "A dog has four legs.", "highlightIndex": 3},
+        {"text": "I am four years old.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "found",
+      "word": "found",
+      "sentences": [
+        {"text": "I found my lost toy!", "highlightIndex": 1},
+        {"text": "She found a pretty shell.", "highlightIndex": 1},
+        {"text": "We found a frog in the garden.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "from",
+      "word": "from",
+      "sentences": [
+        {"text": "I got a letter from Grandma.", "highlightIndex": 4},
+        {"text": "Where are you from?", "highlightIndex": 3},
+        {"text": "The cat jumped from the tree.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "give",
+      "word": "give",
+      "sentences": [
+        {"text": "I will give you a hug.", "highlightIndex": 2},
+        {"text": "Please give me the book.", "highlightIndex": 1},
+        {"text": "Let's give Mom flowers.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "go",
+      "word": "go",
+      "sentences": [
+        {"text": "Let's go to the park.", "highlightIndex": 1},
+        {"text": "I go to school every day.", "highlightIndex": 1},
+        {"text": "Ready, set, go!", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "good",
+      "word": "good",
+      "sentences": [
+        {"text": "You are a good friend.", "highlightIndex": 3},
+        {"text": "This cake tastes good.", "highlightIndex": 3},
+        {"text": "Have a good day!", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "great",
+      "word": "great",
+      "sentences": [
+        {"text": "You did a great job!", "highlightIndex": 3},
+        {"text": "That was a great movie.", "highlightIndex": 3},
+        {"text": "We had a great time.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "have",
+      "word": "have",
+      "sentences": [
+        {"text": "I have a pet cat.", "highlightIndex": 1},
+        {"text": "Do you have a pencil?", "highlightIndex": 2},
+        {"text": "We have homework today.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "her",
+      "word": "her",
+      "sentences": [
+        {"text": "I like her dress.", "highlightIndex": 2},
+        {"text": "Give her the ball.", "highlightIndex": 1},
+        {"text": "Her mom is nice.", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "here",
+      "word": "here",
+      "sentences": [
+        {"text": "Come here, please.", "highlightIndex": 1},
+        {"text": "My house is here.", "highlightIndex": 3},
+        {"text": "Put the book here.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "house",
+      "word": "house",
+      "sentences": [
+        {"text": "My house is blue.", "highlightIndex": 1},
+        {"text": "We built a house with blocks.", "highlightIndex": 3},
+        {"text": "The mouse lives in a house.", "highlightIndex": 5}
+      ]
+    },
+    {
+      "id": "how",
+      "word": "how",
+      "sentences": [
+        {"text": "How are you today?", "highlightIndex": 0},
+        {"text": "How do you play this game?", "highlightIndex": 0},
+        {"text": "I know how to swim.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "hurt",
+      "word": "hurt",
+      "sentences": [
+        {"text": "Did you hurt your knee?", "highlightIndex": 2},
+        {"text": "I hurt my finger.", "highlightIndex": 1},
+        {"text": "Be careful not to get hurt.", "highlightIndex": 5}
+      ]
+    },
+    {
+      "id": "jump",
+      "word": "jump",
+      "sentences": [
+        {"text": "I can jump very high.", "highlightIndex": 2},
+        {"text": "Let's jump over the puddle.", "highlightIndex": 1},
+        {"text": "The frog can jump far.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "know",
+      "word": "know",
+      "sentences": [
+        {"text": "I know the answer!", "highlightIndex": 1},
+        {"text": "Do you know my name?", "highlightIndex": 2},
+        {"text": "I know how to ride a bike.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "large",
+      "word": "large",
+      "sentences": [
+        {"text": "The elephant is large.", "highlightIndex": 3},
+        {"text": "We have a large garden.", "highlightIndex": 3},
+        {"text": "Can I have a large pizza?", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "laugh",
+      "word": "laugh",
+      "sentences": [
+        {"text": "You make me laugh.", "highlightIndex": 3},
+        {"text": "We laugh at funny jokes.", "highlightIndex": 1},
+        {"text": "I love to hear you laugh.", "highlightIndex": 5}
+      ]
+    },
+    {
+      "id": "little",
+      "word": "little",
+      "sentences": [
+        {"text": "I have a little sister.", "highlightIndex": 3},
+        {"text": "The little puppy is cute.", "highlightIndex": 1},
+        {"text": "Wait a little bit.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "live",
+      "word": "live",
+      "sentences": [
+        {"text": "I live in a nice house.", "highlightIndex": 1},
+        {"text": "Where do you live?", "highlightIndex": 3},
+        {"text": "Fish live in the water.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "long",
+      "word": "long",
+      "sentences": [
+        {"text": "The snake is very long.", "highlightIndex": 4},
+        {"text": "She has long hair.", "highlightIndex": 2},
+        {"text": "How long is the movie?", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "look",
+      "word": "look",
+      "sentences": [
+        {"text": "Look at the rainbow!", "highlightIndex": 0},
+        {"text": "I look for my books.", "highlightIndex": 1},
+        {"text": "You look happy today.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "many",
+      "word": "many",
+      "sentences": [
+        {"text": "I have many friends.", "highlightIndex": 2},
+        {"text": "How many apples are there?", "highlightIndex": 1},
+        {"text": "There are many stars in the sky.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "move",
+      "word": "move",
+      "sentences": [
+        {"text": "Please move over.", "highlightIndex": 1},
+        {"text": "The car will move soon.", "highlightIndex": 3},
+        {"text": "Don't move! Stay still.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "my",
+      "word": "my",
+      "sentences": [
+        {"text": "This is my toy.", "highlightIndex": 2},
+        {"text": "I love my family.", "highlightIndex": 2},
+        {"text": "My name is Sam.", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "near",
+      "word": "near",
+      "sentences": [
+        {"text": "The park is near my house.", "highlightIndex": 3},
+        {"text": "Stay near me.", "highlightIndex": 1},
+        {"text": "Is the store near here?", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "no",
+      "word": "no",
+      "sentences": [
+        {"text": "No, thank you.", "highlightIndex": 0},
+        {"text": "There is no milk left.", "highlightIndex": 2},
+        {"text": "I have no homework today.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "now",
+      "word": "now",
+      "sentences": [
+        {"text": "Let's go now!", "highlightIndex": 2},
+        {"text": "I am happy now.", "highlightIndex": 3},
+        {"text": "What time is it now?", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "off",
+      "word": "off",
+      "sentences": [
+        {"text": "Turn off the light.", "highlightIndex": 1},
+        {"text": "The cat jumped off the table.", "highlightIndex": 3},
+        {"text": "Take off your coat.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "old",
+      "word": "old",
+      "sentences": [
+        {"text": "I am five years old.", "highlightIndex": 4},
+        {"text": "That is an old book.", "highlightIndex": 3},
+        {"text": "My grandpa is old but strong.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "on",
+      "word": "on",
+      "sentences": [
+        {"text": "The book is on the table.", "highlightIndex": 3},
+        {"text": "Turn on the TV.", "highlightIndex": 1},
+        {"text": "I put my hat on.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "one",
+      "word": "one",
+      "sentences": [
+        {"text": "I have one apple.", "highlightIndex": 2},
+        {"text": "One day, I will be a star.", "highlightIndex": 0},
+        {"text": "Pick one cookie.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "only",
+      "word": "only",
+      "sentences": [
+        {"text": "I have only one brother.", "highlightIndex": 2},
+        {"text": "This is the only way.", "highlightIndex": 3},
+        {"text": "I can eat only a little more.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "our",
+      "word": "our",
+      "sentences": [
+        {"text": "This is our classroom.", "highlightIndex": 2},
+        {"text": "Our dog is friendly.", "highlightIndex": 0},
+        {"text": "We love our school.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "out",
+      "word": "out",
+      "sentences": [
+        {"text": "Let's go out and play.", "highlightIndex": 2},
+        {"text": "The sun came out.", "highlightIndex": 3},
+        {"text": "Take the trash out.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "over",
+      "word": "over",
+      "sentences": [
+        {"text": "Jump over the rope.", "highlightIndex": 1},
+        {"text": "The game is over.", "highlightIndex": 3},
+        {"text": "Come over to my house.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "people",
+      "word": "people",
+      "sentences": [
+        {"text": "Many people live in the city.", "highlightIndex": 1},
+        {"text": "Kind people help others.", "highlightIndex": 1},
+        {"text": "I like meeting new people.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "play",
+      "word": "play",
+      "sentences": [
+        {"text": "Let's play together!", "highlightIndex": 1},
+        {"text": "I play with my friends.", "highlightIndex": 1},
+        {"text": "Do you want to play a game?", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "put",
+      "word": "put",
+      "sentences": [
+        {"text": "Put your books away.", "highlightIndex": 0},
+        {"text": "I put on my jacket.", "highlightIndex": 1},
+        {"text": "Where did you put the keys?", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "right",
+      "word": "right",
+      "sentences": [
+        {"text": "Turn right at the corner.", "highlightIndex": 1},
+        {"text": "You got the right answer!", "highlightIndex": 3},
+        {"text": "I write with my right hand.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "round",
+      "word": "round",
+      "sentences": [
+        {"text": "The ball is round.", "highlightIndex": 3},
+        {"text": "The earth is round.", "highlightIndex": 3},
+        {"text": "We sit in a round circle.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "said",
+      "word": "said",
+      "sentences": [
+        {"text": "Mom said it's bedtime.", "highlightIndex": 1},
+        {"text": "He said hello to me.", "highlightIndex": 1},
+        {"text": "The teacher said to be quiet.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "saw",
+      "word": "saw",
+      "sentences": [
+        {"text": "I saw a bird in the tree.", "highlightIndex": 1},
+        {"text": "We saw a movie yesterday.", "highlightIndex": 1},
+        {"text": "She saw her friend at the park.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "school",
+      "word": "school",
+      "sentences": [
+        {"text": "I love going to school.", "highlightIndex": 4},
+        {"text": "School starts at 8 o'clock.", "highlightIndex": 0},
+        {"text": "My school has a playground.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "see",
+      "word": "see",
+      "sentences": [
+        {"text": "I can see the moon.", "highlightIndex": 2},
+        {"text": "Let me see your drawing.", "highlightIndex": 2},
+        {"text": "See you tomorrow!", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "she",
+      "word": "she",
+      "sentences": [
+        {"text": "She is my best friend.", "highlightIndex": 0},
+        {"text": "She has a pretty smile.", "highlightIndex": 0},
+        {"text": "I think she likes ice cream.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "small",
+      "word": "small",
+      "sentences": [
+        {"text": "The mouse is small.", "highlightIndex": 3},
+        {"text": "I have a small toy car.", "highlightIndex": 3},
+        {"text": "This shirt is too small for me.", "highlightIndex": 4}
+      ]
+    },
+    {
+      "id": "some",
+      "word": "some",
+      "sentences": [
+        {"text": "Can I have some water?", "highlightIndex": 3},
+        {"text": "Some kids like to run.", "highlightIndex": 0},
+        {"text": "I ate some cookies.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "start",
+      "word": "start",
+      "sentences": [
+        {"text": "Let's start the game!", "highlightIndex": 1},
+        {"text": "The movie will start soon.", "highlightIndex": 3},
+        {"text": "I start my homework after dinner.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "that",
+      "word": "that",
+      "sentences": [
+        {"text": "I like that book.", "highlightIndex": 2},
+        {"text": "What is that?", "highlightIndex": 2},
+        {"text": "That toy is mine.", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "the",
+      "word": "the",
+      "sentences": [
+        {"text": "The sun is bright.", "highlightIndex": 0},
+        {"text": "I see the bird.", "highlightIndex": 2},
+        {"text": "Open the door, please.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "their",
+      "word": "their",
+      "sentences": [
+        {"text": "The kids love their teacher.", "highlightIndex": 3},
+        {"text": "Dogs wag their tails.", "highlightIndex": 2},
+        {"text": "They brought their lunch.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "them",
+      "word": "them",
+      "sentences": [
+        {"text": "I gave them a gift.", "highlightIndex": 2},
+        {"text": "Tell them to come inside.", "highlightIndex": 1},
+        {"text": "Help them carry the box.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "then",
+      "word": "then",
+      "sentences": [
+        {"text": "Eat your dinner, then have dessert.", "highlightIndex": 3},
+        {"text": "First I brush, then I floss.", "highlightIndex": 3},
+        {"text": "We played and then went home.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "there",
+      "word": "there",
+      "sentences": [
+        {"text": "Look over there!", "highlightIndex": 2},
+        {"text": "Is anyone there?", "highlightIndex": 2},
+        {"text": "We went there yesterday.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "these",
+      "word": "these",
+      "sentences": [
+        {"text": "I like these shoes.", "highlightIndex": 2},
+        {"text": "These apples are red.", "highlightIndex": 0},
+        {"text": "Can I have these, please?", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "they",
+      "word": "they",
+      "sentences": [
+        {"text": "They are my friends.", "highlightIndex": 0},
+        {"text": "What are they doing?", "highlightIndex": 2},
+        {"text": "They live next door.", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "this",
+      "word": "this",
+      "sentences": [
+        {"text": "I love this song.", "highlightIndex": 2},
+        {"text": "This is my favorite toy.", "highlightIndex": 0},
+        {"text": "Is this your pencil?", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "through",
+      "word": "through",
+      "sentences": [
+        {"text": "Walk through the door.", "highlightIndex": 1},
+        {"text": "We ran through the park.", "highlightIndex": 2},
+        {"text": "The ball went through the hoop.", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "to",
+      "word": "to",
+      "sentences": [
+        {"text": "I go to school.", "highlightIndex": 2},
+        {"text": "Give this to your sister.", "highlightIndex": 2},
+        {"text": "I want to play.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "try",
+      "word": "try",
+      "sentences": [
+        {"text": "Let's try again!", "highlightIndex": 1},
+        {"text": "I want to try new food.", "highlightIndex": 3},
+        {"text": "Try your best.", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "two",
+      "word": "two",
+      "sentences": [
+        {"text": "I have two hands.", "highlightIndex": 2},
+        {"text": "There are two cats.", "highlightIndex": 2},
+        {"text": "Can I have two cookies?", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "under",
+      "word": "under",
+      "sentences": [
+        {"text": "The cat is under the bed.", "highlightIndex": 3},
+        {"text": "Look under the table.", "highlightIndex": 1},
+        {"text": "I hid under the blanket.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "upon",
+      "word": "upon",
+      "sentences": [
+        {"text": "Once upon a time...", "highlightIndex": 1},
+        {"text": "The book is upon the shelf.", "highlightIndex": 3},
+        {"text": "She sat upon the chair.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "walk",
+      "word": "walk",
+      "sentences": [
+        {"text": "Let's walk to the park.", "highlightIndex": 1},
+        {"text": "I walk my dog every day.", "highlightIndex": 1},
+        {"text": "Can you walk faster?", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "want",
+      "word": "want",
+      "sentences": [
+        {"text": "I want to play outside.", "highlightIndex": 1},
+        {"text": "Do you want some juice?", "highlightIndex": 2},
+        {"text": "What do you want to eat?", "highlightIndex": 3}
+      ]
+    },
+    {
+      "id": "was",
+      "word": "was",
+      "sentences": [
+        {"text": "It was a sunny day.", "highlightIndex": 1},
+        {"text": "She was happy.", "highlightIndex": 1},
+        {"text": "The movie was fun.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "wash",
+      "word": "wash",
+      "sentences": [
+        {"text": "Wash your hands before eating.", "highlightIndex": 0},
+        {"text": "I help wash the dishes.", "highlightIndex": 2},
+        {"text": "We wash the car on weekends.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "went",
+      "word": "went",
+      "sentences": [
+        {"text": "We went to the zoo.", "highlightIndex": 1},
+        {"text": "She went home early.", "highlightIndex": 1},
+        {"text": "I went shopping with Mom.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "were",
+      "word": "were",
+      "sentences": [
+        {"text": "They were at the party.", "highlightIndex": 1},
+        {"text": "The flowers were beautiful.", "highlightIndex": 2},
+        {"text": "We were playing outside.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "what",
+      "word": "what",
+      "sentences": [
+        {"text": "What is your name?", "highlightIndex": 0},
+        {"text": "I don't know what to do.", "highlightIndex": 4},
+        {"text": "What a beautiful day!", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "when",
+      "word": "when",
+      "sentences": [
+        {"text": "When is your birthday?", "highlightIndex": 0},
+        {"text": "I smile when I'm happy.", "highlightIndex": 2},
+        {"text": "Call me when you arrive.", "highlightIndex": 2}
+      ]
+    },
+    {
+      "id": "where",
+      "word": "where",
+      "sentences": [
+        {"text": "Where are my shoes?", "highlightIndex": 0},
+        {"text": "I know where to go.", "highlightIndex": 2},
+        {"text": "Where do you live?", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "which",
+      "word": "which",
+      "sentences": [
+        {"text": "Which color do you like?", "highlightIndex": 0},
+        {"text": "Tell me which one is yours.", "highlightIndex": 2},
+        {"text": "Which book should I read?", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "who",
+      "word": "who",
+      "sentences": [
+        {"text": "Who is your best friend?", "highlightIndex": 0},
+        {"text": "I know who did it.", "highlightIndex": 2},
+        {"text": "Who wants ice cream?", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "why",
+      "word": "why",
+      "sentences": [
+        {"text": "Why is the sky blue?", "highlightIndex": 0},
+        {"text": "Tell me why you are sad.", "highlightIndex": 2},
+        {"text": "Why do birds fly?", "highlightIndex": 0}
+      ]
+    },
+    {
+      "id": "with",
+      "word": "with",
+      "sentences": [
+        {"text": "Come with me.", "highlightIndex": 1},
+        {"text": "I play with my friends.", "highlightIndex": 2},
+        {"text": "Eat with a fork.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "work",
+      "word": "work",
+      "sentences": [
+        {"text": "My parents go to work.", "highlightIndex": 4},
+        {"text": "Let's work together.", "highlightIndex": 1},
+        {"text": "Good work on your homework!", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "year",
+      "word": "year",
+      "sentences": [
+        {"text": "I am six years old.", "highlightIndex": 3},
+        {"text": "Happy New Year!", "highlightIndex": 2},
+        {"text": "This year went by fast.", "highlightIndex": 1}
+      ]
+    },
+    {
+      "id": "you",
+      "word": "you",
+      "sentences": [
+        {"text": "I like you.", "highlightIndex": 2},
+        {"text": "How are you today?", "highlightIndex": 2},
+        {"text": "Thank you for helping.", "highlightIndex": 1}
+      ]
+    }
+  ]
+}
