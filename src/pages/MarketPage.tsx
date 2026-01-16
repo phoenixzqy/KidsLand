@@ -193,7 +193,7 @@ export function MarketPage() {
                 style={{ width: 'fit-content', minWidth: 'fit-content' }}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 ${
                   selectedMobFilter === filter.id
-                    ? 'bg-slate-700 text-white'
+                    ? 'bg-slate-400 text-white'
                     : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
                 }`}
               >
