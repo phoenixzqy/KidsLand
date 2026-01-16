@@ -131,20 +131,20 @@ export function MarketPage() {
   };
 
   const categories: { id: MarketCategory; name: string; icon: string }[] = [
-    { id: 'all', name: 'All', icon: '🛒' },
-    { id: 'mobs', name: 'Mobs', icon: '👾' },
-    { id: 'tools', name: 'Tools', icon: '⛏️' },
-    { id: 'weapons', name: 'Weapons', icon: '⚔️' },
-    { id: 'skins', name: 'Skins', icon: '🎨' }
+    { id: 'all', name: 'All', icon: '/images/minecraft-renders/blocks/minecraft-chest.png' },
+    { id: 'mobs', name: 'Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
+    { id: 'tools', name: 'Tools', icon: '/images/minecraft-renders/tools/minecraft-diamond-pickaxe.png' },
+    { id: 'weapons', name: 'Weapons', icon: '/images/minecraft-renders/weapons/minecraft-diamond-sword.png' },
+    { id: 'skins', name: 'Skins', icon: '/images/minecraft-renders/special/minecraft-totem-of-undying.png' }
   ];
 
   const mobFilters: { id: MobFilter; name: string; icon: string }[] = [
-    { id: 'all', name: 'All Mobs', icon: '👾' },
-    { id: 'bosses', name: 'Bosses', icon: '👑' },
-    { id: 'hostile', name: 'Hostile', icon: '💀' },
-    { id: 'neutral', name: 'Neutral', icon: '🤝' },
-    { id: 'passive', name: 'Passive', icon: '🐾' },
-    { id: 'villagers', name: 'Villagers', icon: '🏠' }
+    { id: 'all', name: 'All Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
+    { id: 'bosses', name: 'Bosses', icon: '/images/minecraft-renders/mobs/bosses/minecraft-ender-dragon.png' },
+    { id: 'hostile', name: 'Hostile', icon: '/images/minecraft-renders/mobs/hostile/minecraft-skeleton.png' },
+    { id: 'neutral', name: 'Neutral', icon: '/images/minecraft-renders/mobs/neutral/minecraft-enderman.png' },
+    { id: 'passive', name: 'Passive', icon: '/images/minecraft-renders/mobs/passive/minecraft-pig.png' },
+    { id: 'villagers', name: 'Villagers', icon: '/images/minecraft-renders/mobs/villagers/minecraft-villager.png' }
   ];
 
   return (
@@ -155,7 +155,10 @@ export function MarketPage() {
           <button onClick={() => navigate('/')} className="text-2xl">
             ←
           </button>
-          <h1 className="text-xl font-bold text-slate-800">🛒 Market</h1>
+          <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+            <AppImage src="/images/minecraft-renders/blocks/minecraft-chest.png" alt="Market" className="w-6 h-6 object-contain" />
+            Market
+          </h1>
           <StarCounter count={stars} size="md" showAnimation />
         </div>
 
@@ -168,13 +171,14 @@ export function MarketPage() {
                 setSelectedCategory(cat.id);
                 setSelectedMobFilter('all');
               }}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 ${
                 selectedCategory === cat.id
                   ? 'bg-primary-500 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              {cat.icon} {cat.name}
+              <AppImage src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain" />
+              {cat.name}
             </button>
           ))}
         </div>
@@ -186,13 +190,14 @@ export function MarketPage() {
               <button
                 key={filter.id}
                 onClick={() => setSelectedMobFilter(filter.id)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1 ${
                   selectedMobFilter === filter.id
                     ? 'bg-slate-700 text-white'
                     : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
                 }`}
               >
-                {filter.icon} {filter.name}
+                <AppImage src={filter.icon} alt={filter.name} className="w-4 h-4 object-contain" />
+                {filter.name}
               </button>
             ))}
           </div>

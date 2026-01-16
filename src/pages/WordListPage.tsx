@@ -5,6 +5,7 @@ import { Button } from '../components/ui/Button';
 import { ProgressBar } from '../components/ui/ProgressBar';
 import { StarCounter } from '../components/ui/StarCounter';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
+import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
 import { getWords } from '../db/sync';
 import type { QuizType, Word } from '../types';
@@ -105,7 +106,10 @@ export function WordListPage() {
           >
             ←
           </button>
-          <h1 className="text-xl font-bold text-slate-800">📚 Words</h1>
+          <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+            <AppImage src="/images/minecraft-renders/special/minecraft-enchanted-book.png" alt="Words" className="w-6 h-6 object-contain" />
+            Words
+          </h1>
           <StarCounter count={stars} size="sm" />
         </div>
 

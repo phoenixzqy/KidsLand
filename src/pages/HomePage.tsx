@@ -4,6 +4,7 @@ import { Card } from '../components/ui/Card';
 import { StarCounter } from '../components/ui/StarCounter';
 import { Avatar } from '../components/ui/Avatar';
 import { ThemedBackground, ThemedHeader } from '../components/ui/ThemedBackground';
+import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -20,9 +21,14 @@ export function HomePage() {
           <Link to="/collection">
             <Avatar size="md" />
           </Link>
-          <div>
+          <div className="flex items-center gap-2">
+            <AppImage 
+              src="/images/minecraft-renders/blocks/minecraft-crafting-table.png" 
+              alt="KidsLand"
+              className="w-6 h-6 object-contain"
+            />
             <h1 className="text-xl font-bold text-primary-600">
-              🎮 KidsLand
+              KidsLand
             </h1>
             {avatar && (
               <p className="text-xs text-slate-900">{avatar.name} equipped</p>
@@ -35,7 +41,13 @@ export function HomePage() {
       {/* Welcome Card */}
       <Card className="mb-6 bg-gradient-to-br from-primary-400 to-primary-600 text-white">
         <div className="text-center py-4">
-          <div className="text-4xl mb-2">👋</div>
+          <div className="flex justify-center mb-2">
+            <AppImage 
+              src="/images/minecraft-renders/blocks/minecraft-grass-block.png" 
+              alt="Welcome"
+              className="w-16 h-16 object-contain"
+            />
+          </div>
           <h2 className="text-xl font-bold mb-1">Welcome, Learner!</h2>
           <p className="text-primary-100">Ready to learn some words today?</p>
         </div>
@@ -49,8 +61,12 @@ export function HomePage() {
             className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-3xl">
-              📚
+            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center p-2">
+              <AppImage 
+                src="/images/minecraft-renders/special/minecraft-enchanted-book.png" 
+                alt="Learn Words"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-bold text-slate-800">Learn Words</h3>
@@ -66,8 +82,12 @@ export function HomePage() {
             className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-success/20 rounded-2xl flex items-center justify-center text-3xl">
-              🎯
+            <div className="w-16 h-16 bg-success/20 rounded-2xl flex items-center justify-center p-2">
+              <AppImage 
+                src="/images/minecraft-renders/materials/minecraft-eye-of-ender.png" 
+                alt="Take a Quiz"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-bold text-slate-800">Take a Quiz</h3>
@@ -83,8 +103,12 @@ export function HomePage() {
             className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-star/20 rounded-2xl flex items-center justify-center text-3xl">
-              🛒
+            <div className="w-16 h-16 bg-star/20 rounded-2xl flex items-center justify-center p-2">
+              <AppImage 
+                src="/images/minecraft-renders/blocks/minecraft-chest.png" 
+                alt="Market"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-bold text-slate-800">Market</h3>
@@ -100,8 +124,12 @@ export function HomePage() {
             className="flex items-center gap-4 hover:shadow-xl transition-shadow mb-2"
             variant="elevated"
           >
-            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-3xl">
-              🎒
+            <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center p-2">
+              <AppImage 
+                src="/images/minecraft-renders/blocks/minecraft-ender-chest.png" 
+                alt="My Collection"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-bold text-slate-800">My Collection</h3>
@@ -134,8 +162,13 @@ export function HomePage() {
       {/* Settings Button */}
       <div className="mt-6 text-center">
         <Link to="/settings">
-          <Button variant="ghost" size="sm">
-            ⚙️ Settings
+          <Button variant="ghost" size="sm" className="flex items-center gap-2 mx-auto">
+            <AppImage 
+              src="/images/minecraft-renders/blocks/minecraft-crafting-table.png" 
+              alt="Settings"
+              className="w-5 h-5 object-contain"
+            />
+            Settings
           </Button>
         </Link>
       </div>

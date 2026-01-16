@@ -139,21 +139,21 @@ export function CollectionPage() {
   };
 
   const categories: { id: CollectionCategory; name: string; icon: string }[] = [
-    { id: 'all', name: 'All', icon: '🎒' },
-    { id: 'mobs', name: 'Mobs', icon: '👾' },
-    { id: 'tools', name: 'Tools', icon: '⛏️' },
-    { id: 'weapons', name: 'Weapons', icon: '⚔️' },
-    { id: 'skins', name: 'Skins', icon: '🎨' },
-    { id: 'badges', name: 'Badges', icon: '🏅' }
+    { id: 'all', name: 'All', icon: '/images/minecraft-renders/blocks/minecraft-ender-chest.png' },
+    { id: 'mobs', name: 'Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
+    { id: 'tools', name: 'Tools', icon: '/images/minecraft-renders/tools/minecraft-diamond-pickaxe.png' },
+    { id: 'weapons', name: 'Weapons', icon: '/images/minecraft-renders/weapons/minecraft-diamond-sword.png' },
+    { id: 'skins', name: 'Skins', icon: '/images/minecraft-renders/special/minecraft-totem-of-undying.png' },
+    { id: 'badges', name: 'Badges', icon: '/images/minecraft-renders/materials/minecraft-diamond.png' }
   ];
 
   const mobFilters: { id: MobFilter; name: string; icon: string }[] = [
-    { id: 'all', name: 'All Mobs', icon: '👾' },
-    { id: 'bosses', name: 'Bosses', icon: '👑' },
-    { id: 'hostile', name: 'Hostile', icon: '💀' },
-    { id: 'neutral', name: 'Neutral', icon: '🤝' },
-    { id: 'passive', name: 'Passive', icon: '🐾' },
-    { id: 'villagers', name: 'Villagers', icon: '🏠' }
+    { id: 'all', name: 'All Mobs', icon: '/images/minecraft-renders/mobs/hostile/minecraft-creeper.png' },
+    { id: 'bosses', name: 'Bosses', icon: '/images/minecraft-renders/mobs/bosses/minecraft-ender-dragon.png' },
+    { id: 'hostile', name: 'Hostile', icon: '/images/minecraft-renders/mobs/hostile/minecraft-skeleton.png' },
+    { id: 'neutral', name: 'Neutral', icon: '/images/minecraft-renders/mobs/neutral/minecraft-enderman.png' },
+    { id: 'passive', name: 'Passive', icon: '/images/minecraft-renders/mobs/passive/minecraft-pig.png' },
+    { id: 'villagers', name: 'Villagers', icon: '/images/minecraft-renders/mobs/villagers/minecraft-villager.png' }
   ];
 
   // Count items by category
@@ -182,7 +182,10 @@ export function CollectionPage() {
           </button>
           <div className="flex items-center gap-3">
             <Avatar size="sm" />
-            <h1 className="text-xl font-bold text-slate-800">🎒 My Collection</h1>
+            <h1 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+              <AppImage src="/images/minecraft-renders/blocks/minecraft-ender-chest.png" alt="Collection" className="w-6 h-6 object-contain" />
+              My Collection
+            </h1>
           </div>
           <StarCounter count={stars} size="sm" />
         </div>
@@ -190,22 +193,22 @@ export function CollectionPage() {
         {/* Stats */}
         <div className="grid grid-cols-4 gap-2 mb-4">
           <Card className="text-center py-2" padding="sm">
-            <div className="text-lg">👾</div>
+            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/mobs/hostile/minecraft-creeper.png" alt="Mobs" className="w-6 h-6 object-contain" /></div>
             <div className="font-bold text-slate-800 text-sm">{getMobCount()}</div>
             <div className="text-xs text-slate-500">Mobs</div>
           </Card>
           <Card className="text-center py-2" padding="sm">
-            <div className="text-lg">⛏️</div>
+            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/tools/minecraft-diamond-pickaxe.png" alt="Tools" className="w-6 h-6 object-contain" /></div>
             <div className="font-bold text-slate-800 text-sm">{getToolCount()}</div>
             <div className="text-xs text-slate-500">Tools</div>
           </Card>
           <Card className="text-center py-2" padding="sm">
-            <div className="text-lg">⚔️</div>
+            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/weapons/minecraft-diamond-sword.png" alt="Weapons" className="w-6 h-6 object-contain" /></div>
             <div className="font-bold text-slate-800 text-sm">{getWeaponCount()}</div>
             <div className="text-xs text-slate-500">Weapons</div>
           </Card>
           <Card className="text-center py-2" padding="sm">
-            <div className="text-lg">🎨</div>
+            <div className="flex justify-center"><AppImage src="/images/minecraft-renders/special/minecraft-totem-of-undying.png" alt="Skins" className="w-6 h-6 object-contain" /></div>
             <div className="font-bold text-slate-800 text-sm">{ownedItems.filter(item => getPrizeById(item.prizeId)?.type === 'skin').length}</div>
             <div className="text-xs text-slate-500">Skins</div>
           </Card>
@@ -220,13 +223,14 @@ export function CollectionPage() {
                 setSelectedCategory(cat.id);
                 setSelectedMobFilter('all');
               }}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 ${
                 selectedCategory === cat.id
                   ? 'bg-primary-500 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              {cat.icon} {cat.name}
+              <AppImage src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain" />
+              {cat.name}
             </button>
           ))}
         </div>
@@ -238,13 +242,14 @@ export function CollectionPage() {
               <button
                 key={filter.id}
                 onClick={() => setSelectedMobFilter(filter.id)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1 ${
                   selectedMobFilter === filter.id
                     ? 'bg-slate-700 text-white'
                     : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
                 }`}
               >
-                {filter.icon} {filter.name}
+                <AppImage src={filter.icon} alt={filter.name} className="w-4 h-4 object-contain" />
+                {filter.name}
               </button>
             ))}
           </div>

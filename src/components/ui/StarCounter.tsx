@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { AppImage } from './AppImage';
 
 interface StarCounterProps {
   count: number;
@@ -55,25 +56,23 @@ export function StarCounter({
   };
 
   const iconSizes = {
-    sm: 'text-base',
-    md: 'text-xl',
-    lg: 'text-3xl'
+    sm: 'w-4 h-4',
+    md: 'w-6 h-6',
+    lg: 'w-8 h-8'
   };
 
   return (
     <div
       className={`inline-flex items-center ${sizeStyles[size]} ${className}`}
     >
-      <span
-        className={`${iconSizes[size]} ${isAnimating ? 'animate-bounce-star' : ''}`}
-        role="img"
-        aria-label="stars"
+      <AppImage
+        src="/images/minecraft-renders/materials/minecraft-emerald.png"
+        alt="emeralds"
+        className={`${iconSizes[size]} object-contain ${isAnimating ? 'animate-bounce-star' : ''}`}
         style={{ 
           filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
         }}
-      >
-        ⭐
-      </span>
+      />
       <span 
         className="font-bold text-star"
         style={{
@@ -96,18 +95,18 @@ interface StarIconProps {
 
 export function StarIcon({ filled = true, size = 'md', onClick }: StarIconProps) {
   const sizeStyles = {
-    sm: 'text-xl',
-    md: 'text-2xl',
-    lg: 'text-4xl'
+    sm: 'w-5 h-5',
+    md: 'w-6 h-6',
+    lg: 'w-10 h-10'
   };
 
   return (
-    <span
-      className={`${sizeStyles[size]} ${onClick ? 'cursor-pointer' : ''} transition-transform hover:scale-110`}
+    <AppImage
+      src="/images/minecraft-renders/materials/minecraft-emerald.png"
+      alt="emerald"
+      className={`${sizeStyles[size]} object-contain ${onClick ? 'cursor-pointer' : ''} transition-transform hover:scale-110`}
       onClick={onClick}
-      role={onClick ? 'button' : undefined}
-    >
-      {filled ? '⭐' : '☆'}
-    </span>
+      style={{ opacity: filled ? 1 : 0.3 }}
+    />
   );
 }
