@@ -202,3 +202,16 @@ export async function equipItem(itemId: string, _target: string): Promise<void> 
 export async function unequipItem(itemId: string): Promise<void> {
   await db.ownedItems.update(itemId, { equipped: false });
 }
+
+// Sell an item (returns stars at 60% of original price)
+export async function sellItem(prizeId: string): Promise<boolean> {
+  // Find the owned item
+  const item = await db.ownedItems.where('prizeId').equals(prizeId).first();
+  if (!item) {
+    return false; // Item not owned
+  }
+
+  // Delete the item from owned items
+  await db.ownedItems.delete(item.id);
+  return true;
+}

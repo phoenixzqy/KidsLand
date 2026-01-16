@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer, type ReactNode } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { db, initializeUser, addStars as dbAddStars, spendStars as dbSpendStars } from '../db/database';
+import { db, initializeUser, addStars as dbAddStars, spendStars as dbSpendStars, sellItem as dbSellItem } from '../db/database';
 import type { UserProfile, WordProgress, OwnedItem } from '../types';
 
 // State type
@@ -53,6 +53,7 @@ interface UserContextType {
   stars: number;
   addStars: (amount: number) => Promise<void>;
   spendStars: (amount: number) => Promise<boolean>;
+  sellItem: (prizeId: string, refundAmount: number) => Promise<boolean>;
   getWordProgress: (wordId: string) => WordProgress | undefined;
   isItemOwned: (prizeId: string) => boolean;
   refreshData: () => void;
@@ -125,6 +126,20 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const sellItem = async (prizeId: string, refundAmount: number): Promise<boolean> => {
+    try {
+      const sold = await dbSellItem(prizeId);
+      if (sold) {
+        await dbAddStars(refundAmount);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('Failed to sell item:', error);
+      return false;
+    }
+  };
+
   const getWordProgress = (wordId: string): WordProgress | undefined => {
     return state.wordProgress.find(wp => wp.wordId === wordId);
   };
@@ -144,6 +159,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
     stars: state.profile?.stars ?? 0,
     addStars,
     spendStars,
+    sellItem,
     getWordProgress,
     isItemOwned,
     refreshData

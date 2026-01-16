@@ -14,7 +14,7 @@ import type { Prize, PrizeType, Rarity, SkinTarget } from '../types';
 
 export function CollectionPage() {
   const navigate = useNavigate();
-  const { stars, state } = useUser();
+  const { stars, state, sellItem } = useUser();
   const { equipSkin, unequipSkin, equippedSkins, equipAvatar, unequipAvatar } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState<PrizeType | 'all'>('all');
   const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
@@ -46,6 +46,30 @@ export function CollectionPage() {
     } else {
       await equipAvatar(prizeId);
     }
+  };
+
+  const handleSell = async (prize: Prize) => {
+    if (!prize.cost) return;
+
+    const sellPrice = Math.floor(prize.cost * 0.75);
+
+    // Unequip if it's currently equipped
+    if (prize.type === 'skin' && prize.target && equippedSkins[prize.target] === prize.id) {
+      await unequipSkin(prize.target);
+    }
+    if (prize.type === 'card' && equippedSkins.avatar === prize.id) {
+      await unequipAvatar();
+    }
+
+    // Sell the item
+    const sold = await sellItem(prize.id, sellPrice);
+    if (sold) {
+      setSelectedPrize(null);
+    }
+  };
+
+  const getSellPrice = (prize: Prize): number => {
+    return Math.floor((prize.cost || 0) * 0.75);
   };
 
   const handleCardClick = (prize: Prize) => {
@@ -99,7 +123,7 @@ export function CollectionPage() {
   return (
     <ThemedBackground className="pb-6">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
+      <header className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
         <div className="flex justify-between items-center mb-4">
           <button onClick={() => navigate('/')} className="text-2xl">
             ←
@@ -275,6 +299,8 @@ export function CollectionPage() {
         isOpen={!!selectedPrize}
         onClose={() => setSelectedPrize(null)}
         isOwned={true}
+        onSell={selectedPrize ? () => handleSell(selectedPrize) : undefined}
+        sellPrice={selectedPrize ? getSellPrice(selectedPrize) : undefined}
       />
     </ThemedBackground>
   );

@@ -36,7 +36,7 @@ export function WordListPage() {
   return (
     <ThemedBackground className="pb-20">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
+      <header className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm p-4 border-b border-slate-200">
         <div className="flex justify-between items-center mb-3">
           <button
             onClick={() => navigate('/')}

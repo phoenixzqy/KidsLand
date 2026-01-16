@@ -11,6 +11,8 @@ interface PrizePreviewModalProps {
   actionLabel?: string;
   actionDisabled?: boolean;
   isOwned?: boolean;
+  onSell?: () => void;
+  sellPrice?: number;
 }
 
 export function PrizePreviewModal({
@@ -20,7 +22,9 @@ export function PrizePreviewModal({
   onAction,
   actionLabel,
   actionDisabled,
-  isOwned
+  isOwned,
+  onSell,
+  sellPrice
 }: PrizePreviewModalProps) {
   // Close on escape key
   useEffect(() => {
@@ -190,6 +194,20 @@ export function PrizePreviewModal({
               disabled={actionDisabled}
             >
               {actionLabel}
+            </Button>
+          )}
+
+          {/* Sell Button - only show for owned items */}
+          {isOwned && onSell && sellPrice !== undefined && (
+            <Button
+              variant="danger"
+              size="md"
+              fullWidth
+              className="mt-2"
+              onClick={onSell}
+              noSkin
+            >
+              Sell for ⭐ {sellPrice}
             </Button>
           )}
         </div>
