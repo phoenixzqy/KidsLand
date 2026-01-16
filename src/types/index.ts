@@ -66,6 +66,14 @@ export interface SyncMeta {
   lastSynced: Date;
 }
 
+// Voice settings
+export interface VoiceSettings {
+  id: 'default';
+  voiceName: string | null; // null means auto-select
+  rate: number;
+  pitch: number;
+}
+
 // Quiz types
 export type QuizType = 'spelling' | 'pronunciation' | 'sentence';
 export type DifficultyLevel = 'easy' | 'hard';

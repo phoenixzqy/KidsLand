@@ -1,4 +1,6 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db, getVoiceSettings } from '../db/database';
 
 interface UseSpeechOptions {
   rate?: number;
@@ -17,15 +19,60 @@ interface UseSpeechReturn {
 export function useSpeech(options: UseSpeechOptions = {}): UseSpeechReturn {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+
+  // Load persisted voice settings from database
+  const voiceSettings = useLiveQuery(() => db.voiceSettings.get('default'));
+
+  // Initialize voice settings
+  useEffect(() => {
+    getVoiceSettings();
+  }, []);
 
   const {
-    rate = 0.9, // Slightly slower for kids
-    pitch = 1.1, // Slightly higher pitch
+    rate = voiceSettings?.rate ?? 0.85, // Use saved rate or default
+    pitch = voiceSettings?.pitch ?? 1.0, // Use saved pitch or default
     volume = 1,
     lang = 'en-US'
   } = options;
 
   const isSupported = typeof window !== 'undefined' && 'speechSynthesis' in window;
+
+  // Load voices
+  useEffect(() => {
+    if (!isSupported) return;
+
+    const loadVoices = () => {
+      setVoices(window.speechSynthesis.getVoices());
+    };
+
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+
+    return () => {
+      window.speechSynthesis.onvoiceschanged = null;
+    };
+  }, [isSupported]);
+
+  // Find the best voice - prioritize Google US English
+  const findBestVoice = useCallback((availableVoices: SpeechSynthesisVoice[]) => {
+    // If user has selected a specific voice, use it
+    if (voiceSettings?.voiceName) {
+      const selectedVoice = availableVoices.find(v => v.name === voiceSettings.voiceName);
+      if (selectedVoice) return selectedVoice;
+    }
+
+    // Default to Google US English
+    const googleUsVoice = availableVoices.find(v => v.name === 'Google US English');
+    if (googleUsVoice) return googleUsVoice;
+
+    // Fallback to any Google English voice
+    const googleVoice = availableVoices.find(v => v.name.startsWith('Google') && v.lang.startsWith('en'));
+    if (googleVoice) return googleVoice;
+
+    // Final fallback to any English voice
+    return availableVoices.find(v => v.lang.startsWith('en'));
+  }, [voiceSettings?.voiceName]);
 
   const speak = useCallback((text: string) => {
     if (!isSupported) {
@@ -37,21 +84,17 @@ export function useSpeech(options: UseSpeechOptions = {}): UseSpeechReturn {
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = rate;
-    utterance.pitch = pitch;
+    // Use saved settings, fallback to options, then defaults
+    utterance.rate = voiceSettings?.rate ?? rate;
+    utterance.pitch = voiceSettings?.pitch ?? pitch;
     utterance.volume = volume;
     utterance.lang = lang;
 
-    // Try to get a good English voice
-    const voices = window.speechSynthesis.getVoices();
-    const englishVoice = voices.find(
-      voice => voice.lang.startsWith('en') && voice.name.includes('Female')
-    ) || voices.find(
-      voice => voice.lang.startsWith('en')
-    );
+    // Get the best available voice
+    const bestVoice = findBestVoice(voices);
 
-    if (englishVoice) {
-      utterance.voice = englishVoice;
+    if (bestVoice) {
+      utterance.voice = bestVoice;
     }
 
     utterance.onstart = () => setIsSpeaking(true);
@@ -60,7 +103,7 @@ export function useSpeech(options: UseSpeechOptions = {}): UseSpeechReturn {
 
     utteranceRef.current = utterance;
     window.speechSynthesis.speak(utterance);
-  }, [isSupported, rate, pitch, volume, lang]);
+  }, [isSupported, rate, pitch, volume, lang, findBestVoice, voices, voiceSettings]);
 
   const stop = useCallback(() => {
     if (isSupported) {

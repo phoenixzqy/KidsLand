@@ -1,5 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie';
-import type { WordProgress, UserProfile, OwnedItem, SyncMeta, QuizType } from '../types';
+import type { WordProgress, UserProfile, OwnedItem, SyncMeta, QuizType, VoiceSettings } from '../types';
 
 // All quiz types that need to be passed to master a word
 const ALL_QUIZ_TYPES: QuizType[] = ['spelling', 'pronunciation', 'sentence'];
@@ -10,6 +10,7 @@ export class KidsLandDB extends Dexie {
   userProfile!: EntityTable<UserProfile, 'id'>;
   ownedItems!: EntityTable<OwnedItem, 'id'>;
   syncMeta!: EntityTable<SyncMeta, 'key'>;
+  voiceSettings!: EntityTable<VoiceSettings, 'id'>;
 
   constructor() {
     super('KidsLandDB');
@@ -20,8 +21,25 @@ export class KidsLandDB extends Dexie {
       ownedItems: 'id, prizeId',
       syncMeta: 'key'
     });
+
+    // Add voice settings table
+    this.version(2).stores({
+      wordProgress: 'wordId',
+      userProfile: 'id',
+      ownedItems: 'id, prizeId',
+      syncMeta: 'key',
+      voiceSettings: 'id'
+    });
   }
 }
+
+// Default voice settings
+const DEFAULT_VOICE_SETTINGS: VoiceSettings = {
+  id: 'default',
+  voiceName: 'Google US English',
+  rate: 0.85,
+  pitch: 1.0
+};
 
 // Create the database instance
 export const db = new KidsLandDB();
@@ -42,6 +60,30 @@ export async function initializeUser(): Promise<UserProfile> {
 
   await db.userProfile.add(newProfile);
   return newProfile;
+}
+
+// Voice settings management
+export async function getVoiceSettings(): Promise<VoiceSettings> {
+  const existing = await db.voiceSettings.get('default');
+  if (existing) {
+    return existing;
+  }
+  // Initialize with defaults
+  await db.voiceSettings.add(DEFAULT_VOICE_SETTINGS);
+  return DEFAULT_VOICE_SETTINGS;
+}
+
+export async function updateVoiceSettings(settings: Partial<Omit<VoiceSettings, 'id'>>): Promise<VoiceSettings> {
+  const existing = await db.voiceSettings.get('default');
+  if (!existing) {
+    const newSettings = { ...DEFAULT_VOICE_SETTINGS, ...settings };
+    await db.voiceSettings.add(newSettings);
+    return newSettings;
+  }
+  
+  const updated = { ...existing, ...settings };
+  await db.voiceSettings.update('default', settings);
+  return updated;
 }
 
 // Star management

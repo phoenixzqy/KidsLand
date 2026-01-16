@@ -3,11 +3,13 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
+import { useVoiceSettings } from '../hooks/useVoiceSettings';
 
 export function SettingsPage() {
   const navigate = useNavigate();
   const { stars, state } = useUser();
   const { equippedSkins } = useTheme();
+  const { settings, availableVoices, updateSettings, testVoice, isLoading } = useVoiceSettings();
 
   const equippedCount = Object.values(equippedSkins).filter(Boolean).length;
 
@@ -81,6 +83,82 @@ export function SettingsPage() {
           >
             Manage Skins
           </Button>
+        </Card>
+
+        {/* Voice Settings */}
+        <Card>
+          <h2 className="font-bold text-slate-700 mb-3">🔊 Voice Settings</h2>
+          {isLoading ? (
+            <p className="text-slate-500 text-sm">Loading voices...</p>
+          ) : (
+            <div className="space-y-4">
+              {/* Voice Selection */}
+              <div>
+                <label className="block text-sm text-slate-600 mb-1">Voice</label>
+                <select
+                  className="w-full p-2 rounded-lg border border-slate-300 bg-white text-slate-700"
+                  value={settings?.voiceName ?? ''}
+                  onChange={(e) => updateSettings({ voiceName: e.target.value || null })}
+                >
+                  <option value="">Auto (Best available)</option>
+                  {availableVoices.map((voice) => (
+                    <option key={voice.name} value={voice.name}>
+                      {voice.name} ({voice.lang})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Speed Slider */}
+              <div>
+                <label className="block text-sm text-slate-600 mb-1">
+                  Speed: {((settings?.rate ?? 0.85) * 100).toFixed(0)}%
+                </label>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="1.5"
+                  step="0.05"
+                  value={settings?.rate ?? 0.85}
+                  onChange={(e) => updateSettings({ rate: parseFloat(e.target.value) })}
+                  className="w-full accent-primary-600"
+                />
+                <div className="flex justify-between text-xs text-slate-400 mt-1">
+                  <span>Slow</span>
+                  <span>Fast</span>
+                </div>
+              </div>
+
+              {/* Pitch Slider */}
+              <div>
+                <label className="block text-sm text-slate-600 mb-1">
+                  Pitch: {((settings?.pitch ?? 1.0) * 100).toFixed(0)}%
+                </label>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="1.5"
+                  step="0.05"
+                  value={settings?.pitch ?? 1.0}
+                  onChange={(e) => updateSettings({ pitch: parseFloat(e.target.value) })}
+                  className="w-full accent-primary-600"
+                />
+                <div className="flex justify-between text-xs text-slate-400 mt-1">
+                  <span>Low</span>
+                  <span>High</span>
+                </div>
+              </div>
+
+              {/* Test Button */}
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => testVoice(settings?.voiceName ?? null)}
+              >
+                🔊 Test Voice
+              </Button>
+            </div>
+          )}
         </Card>
 
         {/* About Section */}
