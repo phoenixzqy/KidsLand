@@ -69,6 +69,72 @@ const SKIN_STYLES: Record<string, {
       background: 'linear-gradient(180deg, rgba(168,216,168,0.9) 0%, rgba(45,90,48,0.8) 100%)',
       backdropFilter: 'blur(10px)',
     }
+  },
+  // Desert Background - Warm golden sand
+  'skin-bg-desert': {
+    background: {
+      background: 'linear-gradient(180deg, #87ceeb 0%, #f4d03f 40%, #e67e22 70%, #d35400 100%)',
+    },
+    header: {
+      background: 'linear-gradient(180deg, rgba(244,208,63,0.9) 0%, rgba(230,126,34,0.8) 100%)',
+      backdropFilter: 'blur(10px)',
+    }
+  },
+  // Sky Background - Bright sunny sky
+  'skin-bg-sky': {
+    background: {
+      background: 'linear-gradient(180deg, #1e90ff 0%, #87ceeb 40%, #b0e0e6 70%, #ffffff 100%)',
+    },
+    header: {
+      background: 'linear-gradient(180deg, rgba(30,144,255,0.9) 0%, rgba(135,206,235,0.8) 100%)',
+      backdropFilter: 'blur(10px)',
+    }
+  },
+  // Snow Background - Winter wonderland
+  'skin-bg-snow': {
+    background: {
+      background: 'linear-gradient(180deg, #a8d8ea 0%, #e8f4f8 30%, #ffffff 60%, #d4e5f7 100%)',
+    },
+    header: {
+      background: 'linear-gradient(180deg, rgba(168,216,234,0.9) 0%, rgba(232,244,248,0.8) 100%)',
+      backdropFilter: 'blur(10px)',
+    }
+  },
+  // Desert Button - Warm sandy gradient
+  'skin-btn-desert': {
+    button: {
+      background: 'linear-gradient(135deg, #f4d03f 0%, #e67e22 50%, #d35400 100%)',
+      border: '2px solid rgba(255,255,255,0.5)',
+      boxShadow: '0 4px 15px rgba(230,126,34,0.4)',
+      color: '#ffffff',
+    }
+  },
+  // Ocean Button - Deep blue ocean
+  'skin-btn-ocean': {
+    button: {
+      background: 'linear-gradient(135deg, #1a5a8a 0%, #2980b9 50%, #3498db 100%)',
+      border: '2px solid rgba(255,255,255,0.4)',
+      boxShadow: '0 4px 15px rgba(41,128,185,0.5)',
+      color: '#ffffff',
+    }
+  },
+  // Sky Button - Bright sky blue
+  'skin-btn-sky': {
+    button: {
+      background: 'linear-gradient(135deg, #87ceeb 0%, #1e90ff 50%, #4169e1 100%)',
+      border: '2px solid rgba(255,255,255,0.5)',
+      boxShadow: '0 4px 15px rgba(30,144,255,0.4)',
+      color: '#ffffff',
+    }
+  },
+  // Snow Button - Frosty white
+  'skin-btn-snow': {
+    button: {
+      background: 'linear-gradient(135deg, #ffffff 0%, #e8f4f8 30%, #a8d8ea 100%)',
+      border: '2px solid rgba(168,216,234,0.8)',
+      boxShadow: '0 4px 15px rgba(168,216,234,0.5)',
+      color: '#2c3e50',
+    }
   }
 };
 

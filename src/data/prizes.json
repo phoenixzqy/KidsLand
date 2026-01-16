@@ -236,6 +236,69 @@
       "cost": 100
     },
     {
+      "id": "skin-bg-desert",
+      "type": "skin",
+      "target": "background",
+      "name": "Desert Theme",
+      "description": "Warm golden desert background",
+      "image": "/images/skins/skin-desert-bg.svg",
+      "cost": 100
+    },
+    {
+      "id": "skin-bg-sky",
+      "type": "skin",
+      "target": "background",
+      "name": "Sky Theme",
+      "description": "Bright sunny sky background",
+      "image": "/images/skins/skin-sky-bg.svg",
+      "cost": 100
+    },
+    {
+      "id": "skin-bg-snow",
+      "type": "skin",
+      "target": "background",
+      "name": "Snow Theme",
+      "description": "Winter wonderland background",
+      "image": "/images/skins/skin-snow-bg.svg",
+      "cost": 100
+    },
+    {
+      "id": "skin-btn-desert",
+      "type": "skin",
+      "target": "button",
+      "name": "Desert Button",
+      "description": "Warm sandy gradient buttons",
+      "image": "/images/skins/skin-desert.svg",
+      "cost": 50
+    },
+    {
+      "id": "skin-btn-ocean",
+      "type": "skin",
+      "target": "button",
+      "name": "Ocean Button",
+      "description": "Deep blue ocean buttons",
+      "image": "/images/skins/skin-ocean.svg",
+      "cost": 50
+    },
+    {
+      "id": "skin-btn-sky",
+      "type": "skin",
+      "target": "button",
+      "name": "Sky Button",
+      "description": "Bright sky blue buttons",
+      "image": "/images/skins/skin-sky.svg",
+      "cost": 50
+    },
+    {
+      "id": "skin-btn-snow",
+      "type": "skin",
+      "target": "button",
+      "name": "Snow Button",
+      "description": "Frosty white snow buttons",
+      "image": "/images/skins/skin-snow.svg",
+      "cost": 50
+    },
+    {
       "id": "badge-first-quiz",
       "type": "badge",
       "name": "Quiz Starter",
