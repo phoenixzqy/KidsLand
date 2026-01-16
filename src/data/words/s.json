@@ -16,7 +16,8 @@
           "text": "The teacher said to be quiet.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Spoke words in the past."
     },
     {
       "id": "same",
@@ -34,7 +35,8 @@
           "text": "Are these two the same?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Exactly alike, not different."
     },
     {
       "id": "saw",
@@ -52,7 +54,8 @@
           "text": "She saw her friend at the park.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Looked at and noticed in the past."
     },
     {
       "id": "say",
@@ -70,7 +73,8 @@
           "text": "I want to say sorry.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To speak words out loud."
     },
     {
       "id": "school",
@@ -88,7 +92,8 @@
           "text": "My school has a playground.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A place where children go to learn."
     },
     {
       "id": "see",
@@ -106,7 +111,8 @@
           "text": "See you tomorrow!",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "To use your eyes to look at something."
     },
     {
       "id": "seven",
@@ -124,7 +130,8 @@
           "text": "I have seven crayons.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The number 7."
     },
     {
       "id": "shall",
@@ -142,7 +149,8 @@
           "text": "Shall I help you?",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Will do something, used to ask or offer."
     },
     {
       "id": "shape",
@@ -160,7 +168,8 @@
           "text": "A circle is a round shape.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "The form or outline of something."
     },
     {
       "id": "she",
@@ -178,7 +187,8 @@
           "text": "I think she likes ice cream.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A word for a girl or woman."
     },
     {
       "id": "short",
@@ -196,7 +206,8 @@
           "text": "This line is very short.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Not tall or long."
     },
     {
       "id": "shorter",
@@ -214,7 +225,8 @@
           "text": "My brother is shorter than me.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Less tall or long than another thing."
     },
     {
       "id": "shortest",
@@ -232,7 +244,8 @@
           "text": "This is the shortest path.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "The least tall or long of all."
     },
     {
       "id": "show",
@@ -250,7 +263,8 @@
           "text": "The show was amazing!",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To let someone see something."
     },
     {
       "id": "side",
@@ -268,7 +282,8 @@
           "text": "How many sides does it have?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The edge or outer part of something."
     },
     {
       "id": "sing",
@@ -286,7 +301,8 @@
           "text": "The bird likes to sing.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "To make music with your voice."
     },
     {
       "id": "sit",
@@ -304,7 +320,8 @@
           "text": "The dog can sit.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To rest on your bottom."
     },
     {
       "id": "six",
@@ -322,7 +339,8 @@
           "text": "I have six books.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The number 6."
     },
     {
       "id": "sleep",
@@ -340,7 +358,8 @@
           "text": "The baby is asleep.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "To rest with your eyes closed."
     },
     {
       "id": "small",
@@ -358,7 +377,8 @@
           "text": "This shirt is too small for me.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Little, not big."
     },
     {
       "id": "smaller",
@@ -376,7 +396,8 @@
           "text": "My toy is smaller than yours.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Less big than another thing."
     },
     {
       "id": "smallest",
@@ -394,7 +415,8 @@
           "text": "The ant is the smallest.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The least big of all."
     },
     {
       "id": "so",
@@ -412,7 +434,8 @@
           "text": "She is so kind.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Very, or for that reason."
     },
     {
       "id": "solve",
@@ -430,7 +453,8 @@
           "text": "Let's solve it together.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To find the answer to a problem."
     },
     {
       "id": "some",
@@ -448,7 +472,8 @@
           "text": "I ate some cookies.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A part of, a few."
     },
     {
       "id": "soon",
@@ -466,7 +491,8 @@
           "text": "Come back soon.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "In a short time, not long from now."
     },
     {
       "id": "sort",
@@ -484,7 +510,8 @@
           "text": "Let's sort them into groups.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To put things into groups."
     },
     {
       "id": "square",
@@ -502,7 +529,8 @@
           "text": "The window is a square.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "A shape with four equal sides and four corners."
     },
     {
       "id": "start",
@@ -520,7 +548,8 @@
           "text": "I start my homework after dinner.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To begin, the beginning."
     },
     {
       "id": "stop",
@@ -538,7 +567,8 @@
           "text": "The bus will stop here.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To not go anymore, to end movement."
     },
     {
       "id": "subtract",
@@ -556,7 +586,8 @@
           "text": "Let's subtract to find the answer.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To take away a number from another number."
     },
     {
       "id": "sum",
@@ -574,7 +605,8 @@
           "text": "The sum is eight.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "The answer when you add numbers together."
     }
   ]
 }

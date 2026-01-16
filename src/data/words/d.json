@@ -16,7 +16,8 @@
           "text": "We played all day.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "The time when the sun is up, 24 hours."
     },
     {
       "id": "did",
@@ -34,7 +35,8 @@
           "text": "She did a great job.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Something that happened in the past."
     },
     {
       "id": "difference",
@@ -52,7 +54,8 @@
           "text": "The difference is three.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "What makes two things not the same."
     },
     {
       "id": "digit",
@@ -70,7 +73,8 @@
           "text": "What is the first digit?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "A single number like 0, 1, 2, 3, 4, 5, 6, 7, 8, or 9."
     },
     {
       "id": "divide",
@@ -88,7 +92,8 @@
           "text": "Let's divide the pizza equally.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To split something into equal parts."
     },
     {
       "id": "do",
@@ -106,7 +111,8 @@
           "text": "How do you spell that?",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To take action, to perform something."
     },
     {
       "id": "does",
@@ -124,7 +130,8 @@
           "text": "He does magic tricks.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A word that asks about actions."
     },
     {
       "id": "dollar",
@@ -142,7 +149,8 @@
           "text": "How many dollars do you need?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A unit of money, 100 cents."
     },
     {
       "id": "done",
@@ -160,7 +168,8 @@
           "text": "Are you done reading?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Finished, completed."
     },
     {
       "id": "double",
@@ -178,7 +187,8 @@
           "text": "I got double the points!",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Two times as much, twice as many."
     },
     {
       "id": "down",
@@ -196,7 +206,8 @@
           "text": "I looked down at my feet.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The opposite of up, toward the ground."
     },
     {
       "id": "draw",
@@ -214,7 +225,8 @@
           "text": "Let's draw with crayons.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To make a picture with a pencil or crayon."
     },
     {
       "id": "drink",
@@ -232,7 +244,8 @@
           "text": "Drink your milk.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "To swallow liquid like water or juice."
     }
   ]
 }

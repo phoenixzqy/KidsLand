@@ -16,7 +16,8 @@
           "text": "Go get your backpack.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To receive or go and bring something."
     },
     {
       "id": "girl",
@@ -34,7 +35,8 @@
           "text": "The girl has a red dress.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A female child."
     },
     {
       "id": "give",
@@ -52,7 +54,8 @@
           "text": "Let's give Mom flowers.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To let someone have something."
     },
     {
       "id": "go",
@@ -70,7 +73,8 @@
           "text": "Ready, set, go!",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To move from one place to another."
     },
     {
       "id": "going",
@@ -88,7 +92,8 @@
           "text": "We are going home.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Moving toward a place, about to do something."
     },
     {
       "id": "good",
@@ -106,7 +111,8 @@
           "text": "Have a good day!",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Nice, helpful, not bad."
     },
     {
       "id": "got",
@@ -124,7 +130,8 @@
           "text": "We got to the park early.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Received or obtained something."
     },
     {
       "id": "great",
@@ -142,7 +149,8 @@
           "text": "We had a great time.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Very good, wonderful, or very large."
     },
     {
       "id": "green",
@@ -160,7 +168,8 @@
           "text": "The frog is green.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A color like grass and leaves."
     },
     {
       "id": "grow",
@@ -178,7 +187,8 @@
           "text": "Watch the flower grow.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To get bigger or taller."
     }
   ]
 }

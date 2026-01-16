@@ -16,7 +16,8 @@
           "text": "We had pizza for lunch.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Owned or held something in the past."
     },
     {
       "id": "half",
@@ -34,7 +35,8 @@
           "text": "Half of ten is five.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "One of two equal parts."
     },
     {
       "id": "happy",
@@ -52,7 +54,8 @@
           "text": "Happy birthday to you!",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Feeling glad and joyful."
     },
     {
       "id": "has",
@@ -70,7 +73,8 @@
           "text": "He has brown hair.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Owns or holds something."
     },
     {
       "id": "have",
@@ -88,7 +92,8 @@
           "text": "We have homework today.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To own or hold something."
     },
     {
       "id": "he",
@@ -106,7 +111,8 @@
           "text": "He likes to read books.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "A word for a boy or man."
     },
     {
       "id": "heavy",
@@ -124,7 +130,8 @@
           "text": "Which one is heavy?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Weighing a lot, hard to lift."
     },
     {
       "id": "heavier",
@@ -142,7 +149,8 @@
           "text": "My backpack is heavier than yours.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "More heavy than another thing."
     },
     {
       "id": "heaviest",
@@ -160,7 +168,8 @@
           "text": "Which one is the heaviest?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The most heavy of all."
     },
     {
       "id": "help",
@@ -178,7 +187,8 @@
           "text": "Please help me clean.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To make things easier for someone."
     },
     {
       "id": "her",
@@ -196,7 +206,8 @@
           "text": "Her mom is nice.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Belonging to a girl or woman."
     },
     {
       "id": "here",
@@ -214,7 +225,8 @@
           "text": "Put the book here.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "In this place, where you are."
     },
     {
       "id": "him",
@@ -232,7 +244,8 @@
           "text": "The dog followed him home.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A word for a boy or man."
     },
     {
       "id": "his",
@@ -250,7 +263,8 @@
           "text": "I like his new shoes.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Belonging to a boy or man."
     },
     {
       "id": "hold",
@@ -268,7 +282,8 @@
           "text": "I will hold the door.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To have something in your hands."
     },
     {
       "id": "hot",
@@ -286,7 +301,8 @@
           "text": "Be careful, it's hot!",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Very warm, the opposite of cold."
     },
     {
       "id": "house",
@@ -304,7 +320,8 @@
           "text": "The mouse lives in a house.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "A building where people live."
     },
     {
       "id": "how",
@@ -322,7 +339,8 @@
           "text": "I know how to swim.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The way something is done."
     },
     {
       "id": "hurt",
@@ -340,7 +358,8 @@
           "text": "Be careful not to get hurt.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "To feel pain, or to cause pain."
     }
   ]
 }

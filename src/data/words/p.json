@@ -16,7 +16,8 @@
           "text": "Find the missing part.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A piece of something bigger."
     },
     {
       "id": "pattern",
@@ -34,7 +35,8 @@
           "text": "Make a pattern with shapes.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Something that repeats in the same order."
     },
     {
       "id": "people",
@@ -52,7 +54,8 @@
           "text": "I like meeting new people.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "More than one person, humans."
     },
     {
       "id": "pick",
@@ -70,7 +73,8 @@
           "text": "Let's pick some flowers.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To choose something, or to take with your fingers."
     },
     {
       "id": "play",
@@ -88,7 +92,8 @@
           "text": "Do you want to play a game?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "To have fun, do games and activities."
     },
     {
       "id": "please",
@@ -106,7 +111,8 @@
           "text": "Please sit down.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "A polite word we use when asking for something."
     },
     {
       "id": "pretty",
@@ -124,7 +130,8 @@
           "text": "What a pretty picture!",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Nice to look at, beautiful."
     },
     {
       "id": "plus",
@@ -142,7 +149,8 @@
           "text": "Use the plus sign to add.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Add together, the symbol +."
     },
     {
       "id": "pull",
@@ -160,7 +168,8 @@
           "text": "I can pull the rope.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To move something toward you."
     },
     {
       "id": "push",
@@ -178,7 +187,8 @@
           "text": "Please push me on the swing.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To move something away from you."
     },
     {
       "id": "put",
@@ -196,7 +206,8 @@
           "text": "Where did you put the keys?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To place something somewhere."
     }
   ]
 }

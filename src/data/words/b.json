@@ -16,7 +16,8 @@
           "text": "Can you be my friend?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To exist or happen."
     },
     {
       "id": "because",
@@ -34,7 +35,8 @@
           "text": "The dog is wet because it rained.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The word that tells us why something happens."
     },
     {
       "id": "been",
@@ -52,7 +54,8 @@
           "text": "We have been waiting.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Something that already happened in the past."
     },
     {
       "id": "before",
@@ -70,7 +73,8 @@
           "text": "Tie your shoes before you run.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Earlier than something else, first."
     },
     {
       "id": "best",
@@ -88,7 +92,8 @@
           "text": "This is the best day ever!",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Better than all the others, the greatest."
     },
     {
       "id": "between",
@@ -106,7 +111,8 @@
           "text": "Share the candy between you two.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "In the middle of two things."
     },
     {
       "id": "big",
@@ -124,7 +130,8 @@
           "text": "That is a big house.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Not small, large in size."
     },
     {
       "id": "bigger",
@@ -142,7 +149,8 @@
           "text": "My pizza is bigger than yours.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "More big, larger than another thing."
     },
     {
       "id": "black",
@@ -160,7 +168,8 @@
           "text": "The night sky is black.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The darkest color, like the night sky."
     },
     {
       "id": "blue",
@@ -178,7 +187,8 @@
           "text": "My favorite color is blue.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "A color like the sky or the ocean."
     },
     {
       "id": "both",
@@ -196,7 +206,8 @@
           "text": "Add both groups together.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "The two together, not just one."
     },
     {
       "id": "boy",
@@ -214,7 +225,8 @@
           "text": "The boy is playing soccer.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A male child."
     },
     {
       "id": "bring",
@@ -232,7 +244,8 @@
           "text": "I will bring my toys.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To carry something to a place."
     },
     {
       "id": "brown",
@@ -250,7 +263,8 @@
           "text": "The bear is brown.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A color like chocolate or tree bark."
     },
     {
       "id": "but",
@@ -268,7 +282,8 @@
           "text": "She is small but strong.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A word that shows something different or opposite."
     },
     {
       "id": "buy",
@@ -286,7 +301,8 @@
           "text": "Dad will buy ice cream.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To pay money to get something."
     },
     {
       "id": "by",
@@ -304,7 +320,8 @@
           "text": "We travel by car.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Near something, or who did something."
     }
   ]
 }

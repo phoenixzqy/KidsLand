@@ -16,7 +16,8 @@
           "text": "Circle the odd numbers.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A number that cannot be divided evenly by 2."
     },
     {
       "id": "off",
@@ -34,7 +35,8 @@
           "text": "Take off your coat.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Away from, not on."
     },
     {
       "id": "old",
@@ -52,7 +54,8 @@
           "text": "My grandpa is old but strong.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Not new, been around for a long time."
     },
     {
       "id": "on",
@@ -70,7 +73,8 @@
           "text": "I put my hat on.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Touching the top of something."
     },
     {
       "id": "once",
@@ -88,7 +92,8 @@
           "text": "Read it once more.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "One time only."
     },
     {
       "id": "one",
@@ -106,7 +111,8 @@
           "text": "Pick one cookie.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "The number 1, a single thing."
     },
     {
       "id": "only",
@@ -124,7 +130,8 @@
           "text": "I can eat only a little more.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Just this one, nothing else."
     },
     {
       "id": "open",
@@ -142,7 +149,8 @@
           "text": "The store is open.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Not closed, or to make not closed."
     },
     {
       "id": "or",
@@ -160,7 +168,8 @@
           "text": "Yes or no?",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A word giving a choice between things."
     },
     {
       "id": "our",
@@ -178,7 +187,8 @@
           "text": "We love our school.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Belonging to us."
     },
     {
       "id": "out",
@@ -196,7 +206,8 @@
           "text": "Take the trash out.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Not inside, the opposite of in."
     },
     {
       "id": "over",
@@ -214,7 +225,8 @@
           "text": "Come over to my house.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Above something, or finished."
     },
     {
       "id": "own",
@@ -232,7 +244,8 @@
           "text": "She has her own pet.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To have something that belongs to you."
     }
   ]
 }

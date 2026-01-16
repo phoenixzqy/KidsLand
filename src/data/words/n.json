@@ -16,7 +16,8 @@
           "text": "Is the store near here?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Close to, not far away."
     },
     {
       "id": "never",
@@ -34,7 +35,8 @@
           "text": "She never forgets her manners.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Not ever, at no time."
     },
     {
       "id": "new",
@@ -52,7 +54,8 @@
           "text": "We met a new friend.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Not old, just made or bought."
     },
     {
       "id": "no",
@@ -70,7 +73,8 @@
           "text": "I have no homework today.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The opposite of yes."
     },
     {
       "id": "not",
@@ -88,7 +92,8 @@
           "text": "It is not fair.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A word that makes something negative."
     },
     {
       "id": "now",
@@ -106,7 +111,8 @@
           "text": "What time is it now?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "At this moment, this time."
     },
     {
       "id": "number",
@@ -124,7 +130,8 @@
           "text": "Pick a number between one and ten.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A symbol like 1, 2, 3 that shows how many."
     },
     {
       "id": "number_bond",
@@ -142,7 +149,8 @@
           "text": "The number bond helps me add.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A way to show how numbers fit together."
     },
     {
       "id": "number_sentence",
@@ -160,7 +168,8 @@
           "text": "Read the number sentence aloud.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A math problem using numbers and symbols."
     }
   ]
 }

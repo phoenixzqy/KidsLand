@@ -16,7 +16,8 @@
           "text": "Let's calculate the total.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To figure out a number using math."
     },
     {
       "id": "call",
@@ -34,7 +35,8 @@
           "text": "They call me Buddy.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To say someone's name loudly, or to phone someone."
     },
     {
       "id": "came",
@@ -52,7 +54,8 @@
           "text": "She came to my birthday party.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Moved to a place in the past."
     },
     {
       "id": "can",
@@ -70,7 +73,8 @@
           "text": "She can sing very well.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To be able to do something."
     },
     {
       "id": "carry",
@@ -88,7 +92,8 @@
           "text": "The ant can carry food.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To hold something and move it somewhere."
     },
     {
       "id": "centimeter",
@@ -106,7 +111,8 @@
           "text": "How many centimeters is this line?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A tiny unit for measuring how long things are."
     },
     {
       "id": "change",
@@ -124,7 +130,8 @@
           "text": "Can you change the channel?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To make something different."
     },
     {
       "id": "circle",
@@ -142,7 +149,8 @@
           "text": "Sit in a circle, everyone.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A round shape with no corners."
     },
     {
       "id": "city",
@@ -160,7 +168,8 @@
           "text": "The city is full of cars.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A very big town where lots of people live."
     },
     {
       "id": "clean",
@@ -178,7 +187,8 @@
           "text": "I like to keep things clean.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "Not dirty, neat and tidy."
     },
     {
       "id": "cold",
@@ -196,7 +206,8 @@
           "text": "Winter is very cold.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Not warm, like ice or winter."
     },
     {
       "id": "come",
@@ -214,7 +225,8 @@
           "text": "Will you come with me?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To move toward something or someone."
     },
     {
       "id": "compare",
@@ -232,7 +244,8 @@
           "text": "Can you compare these shapes?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To look at things to see how they are the same or different."
     },
     {
       "id": "corner",
@@ -250,7 +263,8 @@
           "text": "Count the corners of the shape.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The point where two sides meet."
     },
     {
       "id": "cost",
@@ -268,7 +282,8 @@
           "text": "What is the total cost?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "How much money you need to pay for something."
     },
     {
       "id": "could",
@@ -286,7 +301,8 @@
           "text": "She could run very fast.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Was able to, might be able to."
     },
     {
       "id": "count",
@@ -304,7 +320,8 @@
           "text": "Let's count the stars.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To say numbers in order to find how many."
     },
     {
       "id": "country",
@@ -322,7 +339,8 @@
           "text": "The country has many farms.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A land with its own government, like America or China."
     },
     {
       "id": "cut",
@@ -340,7 +358,8 @@
           "text": "Be careful when you cut paper.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "To use scissors or a knife to divide something."
     }
   ]
 }

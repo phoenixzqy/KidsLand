@@ -16,7 +16,8 @@
           "text": "This year went by fast.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "365 days, or how old you are."
     },
     {
       "id": "yellow",
@@ -34,7 +35,8 @@
           "text": "The banana is yellow.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A bright color like the sun."
     },
     {
       "id": "yes",
@@ -52,7 +54,8 @@
           "text": "Yes, that is my book.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "The opposite of no, agreeing."
     },
     {
       "id": "you",
@@ -70,7 +73,8 @@
           "text": "Thank you for helping.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "The person being talked to."
     },
     {
       "id": "your",
@@ -88,7 +92,8 @@
           "text": "I love your smile.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Belonging to you."
     }
   ]
 }

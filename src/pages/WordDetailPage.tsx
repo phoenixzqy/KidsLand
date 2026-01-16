@@ -153,6 +153,34 @@ export function WordDetailPage() {
           </Button>
         </Card>
 
+        {/* Word Meaning Section */}
+        {word.meaning && (
+          <div className="mb-6">
+            <h2 className="text-lg font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <span>💡</span> What it means
+            </h2>
+            <Card
+              className="cursor-pointer transition-all hover:ring-2 hover:ring-primary-300"
+              onClick={() => handleSpeak(word.meaning!)}
+            >
+              <div className="flex items-start gap-3">
+                <button
+                  className="mt-1 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 shrink-0"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSpeak(word.meaning!);
+                  }}
+                >
+                  🔊
+                </button>
+                <p className="text-slate-700 text-lg leading-relaxed flex-1">
+                  {word.meaning}
+                </p>
+              </div>
+            </Card>
+          </div>
+        )}
+
         {/* Sentences Section */}
         <div className="mb-6">
           <h2 className="text-lg font-bold text-slate-700 mb-3 flex items-center gap-2">

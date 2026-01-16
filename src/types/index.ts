@@ -2,6 +2,7 @@
 export interface Word {
   id: string;
   word: string;
+  meaning?: string; // Kid-friendly explanation of the word
   sentences: Sentence[];
 }
 

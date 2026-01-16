@@ -16,7 +16,8 @@
           "text": "I hid under the blanket.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Below something, beneath."
     },
     {
       "id": "up",
@@ -34,7 +35,8 @@
           "text": "Stand up, please.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Toward a higher place, the opposite of down."
     },
     {
       "id": "upon",
@@ -52,7 +54,8 @@
           "text": "She sat upon the chair.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "On top of something."
     },
     {
       "id": "us",
@@ -70,7 +73,8 @@
           "text": "The teacher helps us learn.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Me and other people together."
     },
     {
       "id": "use",
@@ -88,7 +92,8 @@
           "text": "I know how to use scissors.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "To do something with a tool or object."
     }
   ]
 }

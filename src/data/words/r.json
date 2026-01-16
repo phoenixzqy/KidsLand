@@ -16,7 +16,8 @@
           "text": "She ran home quickly.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Moved fast using your legs in the past."
     },
     {
       "id": "read",
@@ -34,7 +35,8 @@
           "text": "Read me a story.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "To look at words and understand them."
     },
     {
       "id": "red",
@@ -52,7 +54,8 @@
           "text": "Stop at the red light.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A color like fire trucks and apples."
     },
     {
       "id": "ride",
@@ -70,7 +73,8 @@
           "text": "Do you want a ride?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "To sit on something that moves, like a bike or horse."
     },
     {
       "id": "right",
@@ -88,7 +92,8 @@
           "text": "I write with my right hand.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Correct, or the opposite of left."
     },
     {
       "id": "round",
@@ -106,7 +111,8 @@
           "text": "We sit in a round circle.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Shaped like a circle or ball."
     },
     {
       "id": "run",
@@ -124,7 +130,8 @@
           "text": "The dog likes to run.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "To move your legs fast to go quickly."
     }
   ]
 }

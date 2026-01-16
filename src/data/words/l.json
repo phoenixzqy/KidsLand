@@ -16,7 +16,8 @@
           "text": "Can I have a large pizza?",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "Big, not small."
     },
     {
       "id": "largest",
@@ -34,7 +35,8 @@
           "text": "The elephant is the largest animal here.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The biggest of all."
     },
     {
       "id": "laugh",
@@ -52,7 +54,8 @@
           "text": "I love to hear you laugh.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "To make a happy sound when something is funny."
     },
     {
       "id": "left",
@@ -70,7 +73,8 @@
           "text": "How many are left over?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "The opposite of right, or went away."
     },
     {
       "id": "length",
@@ -88,7 +92,8 @@
           "text": "The length is ten centimeters.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "How long something is from end to end."
     },
     {
       "id": "less",
@@ -106,7 +111,8 @@
           "text": "Which box has less toys?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "A smaller amount, not as much."
     },
     {
       "id": "let",
@@ -124,7 +130,8 @@
           "text": "Let the dog out.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "To allow someone to do something."
     },
     {
       "id": "light",
@@ -142,7 +149,8 @@
           "text": "This bag is very light.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "What helps us see, not heavy."
     },
     {
       "id": "lighter",
@@ -160,7 +168,8 @@
           "text": "My bag is lighter than yours.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Less heavy than another thing."
     },
     {
       "id": "like",
@@ -178,7 +187,8 @@
           "text": "She looks like her mom.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To enjoy something, or similar to."
     },
     {
       "id": "little",
@@ -196,7 +206,8 @@
           "text": "Wait a little bit.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Small in size, not big."
     },
     {
       "id": "live",
@@ -214,7 +225,8 @@
           "text": "Fish live in the water.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To be alive, or where you make your home."
     },
     {
       "id": "long",
@@ -232,7 +244,8 @@
           "text": "How long is the rope?",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Not short, taking much time or space."
     },
     {
       "id": "longer",
@@ -250,7 +263,8 @@
           "text": "My arm is longer than yours.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "More long than another thing."
     },
     {
       "id": "longest",
@@ -268,7 +282,8 @@
           "text": "The snake is the longest animal.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The most long of all."
     },
     {
       "id": "look",
@@ -286,7 +301,8 @@
           "text": "You look happy today.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To use your eyes to see something."
     }
   ]
 }

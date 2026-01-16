@@ -16,7 +16,8 @@
           "text": "I will take care of it.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To get and hold something."
     },
     {
       "id": "tall",
@@ -34,7 +35,8 @@
           "text": "That building is so tall.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "High, not short."
     },
     {
       "id": "taller",
@@ -52,7 +54,8 @@
           "text": "The giraffe is taller than the zebra.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "More tall than another thing."
     },
     {
       "id": "tallest",
@@ -70,7 +73,8 @@
           "text": "The giraffe is the tallest animal.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The most tall of all."
     },
     {
       "id": "tell",
@@ -88,7 +92,8 @@
           "text": "I want to tell you something.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To say something to someone."
     },
     {
       "id": "ten",
@@ -106,7 +111,8 @@
           "text": "I have ten toes.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The number 10."
     },
     {
       "id": "thank",
@@ -124,7 +130,8 @@
           "text": "Thank you very much!",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "To tell someone you are grateful."
     },
     {
       "id": "that",
@@ -142,7 +149,8 @@
           "text": "That toy is mine.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Pointing to something specific."
     },
     {
       "id": "the",
@@ -160,7 +168,8 @@
           "text": "Open the door, please.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A word used before nouns."
     },
     {
       "id": "their",
@@ -178,7 +187,8 @@
           "text": "They brought their lunch.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Belonging to them."
     },
     {
       "id": "them",
@@ -196,7 +206,8 @@
           "text": "Help them carry the box.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Those people or things."
     },
     {
       "id": "then",
@@ -214,7 +225,8 @@
           "text": "We played and then went home.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "After that, next."
     },
     {
       "id": "there",
@@ -232,7 +244,8 @@
           "text": "We went there yesterday.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "In that place, not here."
     },
     {
       "id": "these",
@@ -250,7 +263,8 @@
           "text": "Can I have these, please?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "The things close to you."
     },
     {
       "id": "they",
@@ -268,7 +282,8 @@
           "text": "They live next door.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Those people, more than one person."
     },
     {
       "id": "think",
@@ -286,7 +301,8 @@
           "text": "Let me think about it.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To use your brain to have ideas."
     },
     {
       "id": "this",
@@ -304,7 +320,8 @@
           "text": "Is this your pencil?",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "The thing close to you now."
     },
     {
       "id": "three",
@@ -322,7 +339,8 @@
           "text": "I am three years old.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The number 3."
     },
     {
       "id": "through",
@@ -340,7 +358,8 @@
           "text": "The ball went through the hoop.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Going in one side and out the other."
     },
     {
       "id": "times",
@@ -358,7 +377,8 @@
           "text": "I brushed my teeth three times today.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "Multiply, or how many occasions."
     },
     {
       "id": "to",
@@ -376,7 +396,8 @@
           "text": "I want to play.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Toward something, or used with verbs."
     },
     {
       "id": "today",
@@ -394,7 +415,8 @@
           "text": "I am happy today.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "This day, not yesterday or tomorrow."
     },
     {
       "id": "together",
@@ -412,7 +434,8 @@
           "text": "Add them together.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "With each other, not alone."
     },
     {
       "id": "too",
@@ -430,7 +453,8 @@
           "text": "This is too hard.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Also, or more than enough."
     },
     {
       "id": "total",
@@ -448,7 +472,8 @@
           "text": "Find the total number.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The whole amount when added together."
     },
     {
       "id": "triangle",
@@ -466,7 +491,8 @@
           "text": "The pizza slice is a triangle.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "A shape with three sides and three corners."
     },
     {
       "id": "try",
@@ -484,7 +510,8 @@
           "text": "Try your best.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "To make an effort to do something."
     },
     {
       "id": "two",
@@ -502,7 +529,8 @@
           "text": "Can I have two cookies?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "The number 2."
     }
   ]
 }

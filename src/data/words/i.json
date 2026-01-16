@@ -16,7 +16,8 @@
           "text": "See if you can do it.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A word used when something might happen."
     },
     {
       "id": "into",
@@ -34,7 +35,8 @@
           "text": "The cat went into the box.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Moving from outside to inside."
     },
     {
       "id": "is",
@@ -52,7 +54,8 @@
           "text": "Today is Monday.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A word that connects things in a sentence."
     },
     {
       "id": "it",
@@ -70,7 +73,8 @@
           "text": "Give it to me.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A word for a thing."
     }
   ]
 }

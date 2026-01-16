@@ -16,7 +16,8 @@
           "text": "I think about my friends every day.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Tells us what something is connected to or what a story is telling."
     },
     {
       "id": "add",
@@ -34,7 +35,8 @@
           "text": "Let's add more stickers to the page.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To put things together to make more."
     },
     {
       "id": "after",
@@ -52,7 +54,8 @@
           "text": "The dog runs after the ball.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "When something comes later or next."
     },
     {
       "id": "again",
@@ -70,7 +73,8 @@
           "text": "I want to try again.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "One more time, happening another time."
     },
     {
       "id": "all",
@@ -88,7 +92,8 @@
           "text": "We played all day long.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Every single one, the whole thing."
     },
     {
       "id": "altogether",
@@ -106,7 +111,8 @@
           "text": "Count them altogether.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "All together, everything added up."
     },
     {
       "id": "always",
@@ -124,7 +130,8 @@
           "text": "The sun always rises in the morning.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "Every time, forever, without stopping."
     },
     {
       "id": "amount",
@@ -142,7 +149,8 @@
           "text": "The amount of candy is the same.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "How much of something there is."
     },
     {
       "id": "and",
@@ -160,7 +168,8 @@
           "text": "The cat and dog are friends.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A word that joins things together."
     },
     {
       "id": "another",
@@ -178,7 +187,8 @@
           "text": "I made another friend at school.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "One more, a different one."
     },
     {
       "id": "are",
@@ -196,7 +206,8 @@
           "text": "We are going to the park.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A word that tells about more than one thing."
     },
     {
       "id": "ask",
@@ -214,7 +225,8 @@
           "text": "I want to ask you something.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To say a question to someone."
     },
     {
       "id": "ate",
@@ -232,7 +244,8 @@
           "text": "We ate pizza for dinner.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Ate is what you did when you ate food in the past."
     },
     {
       "id": "away",
@@ -250,7 +263,8 @@
           "text": "My grandma lives far away.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "To a different place, not here anymore."
     }
   ]
 }

@@ -16,7 +16,8 @@
           "text": "Each box has five toys.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Every one, one by one."
     },
     {
       "id": "earth",
@@ -34,7 +35,8 @@
           "text": "Plants grow from the earth.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "The planet we live on, or the ground."
     },
     {
       "id": "eat",
@@ -52,7 +54,8 @@
           "text": "We eat lunch at noon.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To put food in your mouth and swallow it."
     },
     {
       "id": "edge",
@@ -70,7 +73,8 @@
           "text": "The edge of the paper is straight.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "The outside line of a shape."
     },
     {
       "id": "eight",
@@ -88,7 +92,8 @@
           "text": "The spider has eight legs.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "The number 8."
     },
     {
       "id": "equal",
@@ -106,7 +111,8 @@
           "text": "Two plus two is equal to four.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "The same amount, neither more nor less."
     },
     {
       "id": "estimate",
@@ -124,7 +130,8 @@
           "text": "Can you estimate the number?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To make a smart guess about a number."
     },
     {
       "id": "even",
@@ -142,7 +149,8 @@
           "text": "Even my little brother can do it.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Flat and smooth, or also."
     },
     {
       "id": "every",
@@ -160,7 +168,8 @@
           "text": "We have recess every afternoon.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "All of them, each one."
     }
   ]
 }

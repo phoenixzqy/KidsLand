@@ -16,7 +16,8 @@
           "text": "Can you walk faster?",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "To move by putting one foot in front of the other."
     },
     {
       "id": "want",
@@ -34,7 +35,8 @@
           "text": "What do you want to eat?",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To wish for something."
     },
     {
       "id": "warm",
@@ -52,7 +54,8 @@
           "text": "I feel warm inside.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A little hot, cozy."
     },
     {
       "id": "was",
@@ -70,7 +73,8 @@
           "text": "The movie was fun.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A form of be in the past."
     },
     {
       "id": "wash",
@@ -88,7 +92,8 @@
           "text": "We wash the car on weekends.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To clean with water."
     },
     {
       "id": "we",
@@ -106,7 +111,8 @@
           "text": "We love to learn.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Me and other people."
     },
     {
       "id": "well",
@@ -124,7 +130,8 @@
           "text": "Get well soon!",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "In a good way, or a hole with water."
     },
     {
       "id": "went",
@@ -142,7 +149,8 @@
           "text": "I went shopping with Mom.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Moved to a place in the past."
     },
     {
       "id": "were",
@@ -160,7 +168,8 @@
           "text": "We were playing outside.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "A form of be in the past for more than one."
     },
     {
       "id": "what",
@@ -178,7 +187,8 @@
           "text": "What a beautiful day!",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Asking about a thing."
     },
     {
       "id": "when",
@@ -196,7 +206,8 @@
           "text": "Call me when you arrive.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "At what time."
     },
     {
       "id": "where",
@@ -214,7 +225,8 @@
           "text": "Where do you live?",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "At what place."
     },
     {
       "id": "which",
@@ -232,7 +244,8 @@
           "text": "Which book should I read?",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "What one, asking about a choice."
     },
     {
       "id": "white",
@@ -250,7 +263,8 @@
           "text": "The clouds are white.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "The lightest color, like snow."
     },
     {
       "id": "who",
@@ -268,7 +282,8 @@
           "text": "Who wants ice cream?",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "What person."
     },
     {
       "id": "why",
@@ -286,7 +301,8 @@
           "text": "Why do birds fly?",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "For what reason."
     },
     {
       "id": "will",
@@ -304,7 +320,8 @@
           "text": "We will go tomorrow.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Going to happen in the future."
     },
     {
       "id": "wish",
@@ -322,7 +339,8 @@
           "text": "I wish I could fly.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To want something to happen."
     },
     {
       "id": "with",
@@ -340,7 +358,8 @@
           "text": "Eat with a fork.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Together, along with."
     },
     {
       "id": "weight",
@@ -358,7 +377,8 @@
           "text": "Measure the weight using a scale.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "How heavy something is."
     },
     {
       "id": "whole",
@@ -376,7 +396,8 @@
           "text": "Two halves make a whole.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "All of something, complete."
     },
     {
       "id": "width",
@@ -394,7 +415,8 @@
           "text": "The width is shorter than the length.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "How wide something is from side to side."
     },
     {
       "id": "work",
@@ -412,7 +434,8 @@
           "text": "Good work on your homework!",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To do a job, or effort to do something."
     },
     {
       "id": "would",
@@ -430,7 +453,8 @@
           "text": "What would you do?",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Might do, used for polite requests."
     },
     {
       "id": "write",
@@ -448,7 +472,8 @@
           "text": "Let's write a story.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To put words on paper or screen."
     }
   ]
 }

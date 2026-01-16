@@ -16,7 +16,8 @@
           "text": "Keep trying your best.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "To hold onto something, to not give away."
     },
     {
       "id": "kind",
@@ -34,7 +35,8 @@
           "text": "That was a kind thing to do.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Nice and caring, or a type of something."
     },
     {
       "id": "know",
@@ -52,7 +54,8 @@
           "text": "I know how to ride a bike.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To have information in your mind about something."
     }
   ]
 }

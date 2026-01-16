@@ -16,7 +16,8 @@
           "text": "The frog can jump far.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To push yourself up into the air with your legs."
     },
     {
       "id": "just",
@@ -34,7 +35,8 @@
           "text": "I just want to play.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Only, exactly, or a moment ago."
     }
   ]
 }

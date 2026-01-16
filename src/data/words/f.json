@@ -16,7 +16,8 @@
           "text": "I love the fall season.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To drop down, or the season after summer."
     },
     {
       "id": "far",
@@ -34,7 +35,8 @@
           "text": "My school is not far from home.",
           "highlightIndex": 4
         }
-      ]
+      ],
+      "meaning": "A long distance away, not close."
     },
     {
       "id": "fast",
@@ -52,7 +54,8 @@
           "text": "The rabbit runs fast.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Moving quickly, not slow."
     },
     {
       "id": "find",
@@ -70,7 +73,8 @@
           "text": "Let's find a hiding spot.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "To discover or look for something."
     },
     {
       "id": "first",
@@ -88,7 +92,8 @@
           "text": "First, wash your hands.",
           "highlightIndex": 0
         }
-      ]
+      ],
+      "meaning": "Before all others, number one."
     },
     {
       "id": "five",
@@ -106,7 +111,8 @@
           "text": "I am five years old.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The number 5."
     },
     {
       "id": "fly",
@@ -124,7 +130,8 @@
           "text": "The airplane will fly.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "To move through the air like a bird or plane."
     },
     {
       "id": "for",
@@ -142,7 +149,8 @@
           "text": "Thank you for helping me.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "A word showing purpose or who receives something."
     },
     {
       "id": "found",
@@ -160,7 +168,8 @@
           "text": "We found a frog in the garden.",
           "highlightIndex": 1
         }
-      ]
+      ],
+      "meaning": "Discovered something that was lost or hidden."
     },
     {
       "id": "four",
@@ -178,7 +187,8 @@
           "text": "I am four years old.",
           "highlightIndex": 2
         }
-      ]
+      ],
+      "meaning": "The number 4."
     },
     {
       "id": "from",
@@ -196,7 +206,8 @@
           "text": "The cat jumped from the tree.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Shows where something started or came."
     },
     {
       "id": "full",
@@ -214,7 +225,8 @@
           "text": "I ate until I was full.",
           "highlightIndex": 5
         }
-      ]
+      ],
+      "meaning": "Having no more room, completely filled."
     },
     {
       "id": "funny",
@@ -232,7 +244,8 @@
           "text": "My friend tells funny stories.",
           "highlightIndex": 3
         }
-      ]
+      ],
+      "meaning": "Something that makes you laugh."
     }
   ]
 }
