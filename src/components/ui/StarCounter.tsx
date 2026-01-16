@@ -68,10 +68,21 @@ export function StarCounter({
         className={`${iconSizes[size]} ${isAnimating ? 'animate-bounce-star' : ''}`}
         role="img"
         aria-label="stars"
+        style={{ 
+          filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+        }}
       >
         ⭐
       </span>
-      <span className="font-bold text-star">{displayCount.toLocaleString()}</span>
+      <span 
+        className="font-bold text-star"
+        style={{
+          textShadow: '0 1px 3px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.8)',
+          WebkitTextStroke: '0.5px rgba(0,0,0,0.2)'
+        }}
+      >
+        {displayCount.toLocaleString()}
+      </span>
     </div>
   );
 }
