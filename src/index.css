@@ -166,9 +166,9 @@ body {
 
 /* Touch-friendly button base */
 .btn-touch {
-  @apply min-h-[var(--spacing-touch)] min-w-[var(--spacing-touch)]
+  @apply min-h-(--spacing-touch) min-w-(--spacing-touch)
          flex items-center justify-center
-         rounded-[var(--radius-kid)]
+         rounded-(--radius-kid)
          font-semibold text-lg
          transition-all duration-200 ease-out
          active:scale-95;
@@ -176,7 +176,7 @@ body {
 
 /* Card base style */
 .card {
-  @apply bg-bg-card rounded-[var(--radius-kid)]
+  @apply bg-bg-card rounded-(--radius-kid)
          shadow-lg shadow-slate-200/50
          p-4;
 }

@@ -3,7 +3,7 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/useTheme';
 import { useVoiceSettings } from '../hooks/useVoiceSettings';
 
 export function SettingsPage() {

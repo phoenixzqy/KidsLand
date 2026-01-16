@@ -18,7 +18,7 @@ import {
   type MobFilter
 } from '../components/market';
 import { useUser } from '../contexts/UserContext';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/useTheme';
 import { getPrizeById } from '../db/sync';
 import type { Prize, SkinTarget } from '../types';
 

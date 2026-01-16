@@ -7,7 +7,7 @@ import { ThemedBackground, ThemedHeader } from '../components/ui/ThemedBackgroun
 import { AppImage } from '../components/ui/AppImage';
 import { HeroCard } from '../components/ui/HeroCard';
 import { useUser } from '../contexts/UserContext';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/useTheme';
 
 export function HomePage() {
   const { stars } = useUser();

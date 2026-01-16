@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
@@ -38,6 +38,8 @@ export function QuizPage() {
   const [correctCount, setCorrectCount] = useState(0);
   const [quizComplete, setQuizComplete] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [celebrationItemIndex, setCelebrationItemIndex] = useState(0);
+  const [animationIndex, setAnimationIndex] = useState(0);
 
   const isHardMode = level === 'hard';
   const starsPerQuestion = isHardMode ? 3 : 1;
@@ -51,19 +53,28 @@ export function QuizPage() {
     'animate-bounce-slow',
   ];
 
-  // Get a random owned item for celebration (re-randomizes each render)
-  const getRandomCelebrationItem = () => {
-    const items = ownedItems
+  // Get celebratable items (cards only, not skins)
+  const celebrationItems = useMemo(() => {
+    return ownedItems
       .map(item => getPrizeById(item.prizeId))
       .filter((prize): prize is Prize => prize !== undefined && prize.type !== 'skin');
-    
-    if (items.length === 0) return null;
-    return items[Math.floor(Math.random() * items.length)];
-  };
+  }, [ownedItems]);
 
-  const getRandomAnimation = () => {
-    return celebrationAnimations[Math.floor(Math.random() * celebrationAnimations.length)];
-  };
+  // Get current celebration item based on stored index
+  const currentCelebrationItem = celebrationItems.length > 0 
+    ? celebrationItems[celebrationItemIndex % celebrationItems.length] 
+    : null;
+
+  // Get current animation based on stored index
+  const currentAnimation = celebrationAnimations[animationIndex % celebrationAnimations.length];
+
+  // Randomize celebration item and animation (called in event handlers, not during render)
+  const randomizeCelebration = useCallback(() => {
+    setCelebrationItemIndex(Math.floor(Math.random() * Math.max(1, celebrationItems.length)));
+    setAnimationIndex(Math.floor(Math.random() * celebrationAnimations.length));
+  // celebrationAnimations is a constant array, its length never changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [celebrationItems.length]);
 
   // Timer for hard mode
   const { timeLeft, restart: restartTimer, pause: pauseTimer } = useTimer({
@@ -76,7 +87,8 @@ export function QuizPage() {
     autoStart: false
   });
 
-  // Generate quiz questions
+  // Generate quiz questions on mount/type change - this is intentionally setting state in effect
+  // to initialize questions when the component mounts or quiz type changes
   useEffect(() => {
     const words = getWords();
     const shuffled = [...words].sort(() => Math.random() - 0.5);
@@ -106,7 +118,8 @@ export function QuizPage() {
     setIsCorrect(false);
     setShowResult(true);
     pauseTimer();
-  }, [pauseTimer]);
+    randomizeCelebration();
+  }, [pauseTimer, randomizeCelebration]);
 
   // Start the quiz
   const handleStart = () => {
@@ -136,13 +149,14 @@ export function QuizPage() {
     setIsCorrect(correct);
     setShowResult(true);
     pauseTimer();
+    randomizeCelebration();
 
     if (correct) {
       setCorrectCount(prev => prev + 1);
     }
-  }, [currentQuestion, answer, transcript, type, showResult, pauseTimer]);
+  }, [currentQuestion, answer, transcript, type, showResult, pauseTimer, randomizeCelebration]);
 
-  // Handle speech recognition result
+  // Handle speech recognition result - this effect responds to external speech recognition events
   useEffect(() => {
     if (type === 'pronunciation' && transcript && hasStarted && !showResult) {
       stopListening();
@@ -190,7 +204,6 @@ export function QuizPage() {
   if (quizComplete) {
     const totalStars = correctCount * starsPerQuestion;
     const percentage = (correctCount / questions.length) * 100;
-    const celebrationItem = getRandomCelebrationItem();
 
     return (
       <div className="min-h-screen bg-bg-primary flex items-center justify-center p-4 overflow-hidden">
@@ -222,14 +235,14 @@ export function QuizPage() {
             </div>
 
             {/* Celebration Item */}
-            {celebrationItem && (
+            {currentCelebrationItem && (
               <div className="mb-5">
                 <p className="text-xs text-slate-500 mb-2">Your collection celebrates with you!</p>
                 <div className="flex justify-center">
-                  <div className={`w-20 h-20 ${getRandomAnimation()}`}>
+                  <div className={`w-20 h-20 ${currentAnimation}`}>
                     <AppImage
-                      src={celebrationItem.image}
-                      alt={celebrationItem.name}
+                      src={currentCelebrationItem.image}
+                      alt={currentCelebrationItem.name}
                       className="w-full h-full object-contain drop-shadow-lg"
                     />
                   </div>
@@ -389,24 +402,19 @@ export function QuizPage() {
               {isCorrect ? (
                 <>
                   {/* Celebration item replaces checkmark */}
-                  {(() => {
-                    const item = getRandomCelebrationItem();
-                    return (
-                      <div className="flex justify-center mb-2">
-                        <div className={`w-20 h-20 ${getRandomAnimation()}`}>
-                          {item ? (
-                            <AppImage
-                              src={item.image}
-                              alt={item.name}
-                              className="w-full h-full object-contain drop-shadow-lg"
-                            />
-                          ) : (
-                            <span className="text-5xl">🎉</span>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })()}
+                  <div className="flex justify-center mb-2">
+                    <div className={`w-20 h-20 ${currentAnimation}`}>
+                      {currentCelebrationItem ? (
+                        <AppImage
+                          src={currentCelebrationItem.image}
+                          alt={currentCelebrationItem.name}
+                          className="w-full h-full object-contain drop-shadow-lg"
+                        />
+                      ) : (
+                        <span className="text-5xl">🎉</span>
+                      )}
+                    </div>
+                  </div>
                   <p className="text-lg font-bold text-success">Correct!</p>
                   <p className="text-emerald-600 font-bold mt-2 flex items-center justify-center gap-1">
                     +{starsPerQuestion}

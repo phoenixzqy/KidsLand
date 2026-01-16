@@ -1,9 +1,10 @@
-import React, { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import React, { useMemo, type ReactNode } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/database';
 import { getPrizeById } from '../db/sync';
 import { normalizeUrl } from '../hooks/useNormalizedUrl';
-import type { EquippedSkins, SkinTarget, Prize } from '../types';
+import { ThemeContext, type EquippedSkins, type ThemeContextType } from './ThemeContextType';
+import type { SkinTarget, Prize } from '../types';
 
 // Default theme colors
 const defaultTheme = {
@@ -200,46 +201,27 @@ const SKIN_STYLES: Record<string, {
   }
 };
 
-interface ThemeContextType {
-  equippedSkins: EquippedSkins;
-  theme: typeof defaultTheme;
-  getSkinStyle: (target: SkinTarget) => React.CSSProperties;
-  getSkinForTarget: (target: SkinTarget) => Prize | null;
-  getBackgroundStyle: () => React.CSSProperties;
-  getHeaderStyle: () => React.CSSProperties;
-  getEquippedAvatar: () => Prize | null;
-  equipSkin: (prizeId: string, target: SkinTarget) => Promise<void>;
-  unequipSkin: (target: SkinTarget) => Promise<void>;
-  equipAvatar: (prizeId: string) => Promise<void>;
-  unequipAvatar: () => Promise<void>;
-}
-
-const ThemeContext = createContext<ThemeContextType | null>(null);
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [equippedSkins, setEquippedSkins] = useState<EquippedSkins>({});
-
   // Live query for equipped items
   const equippedItems = useLiveQuery(
     () => db.ownedItems.filter(item => item.equipped).toArray()
   );
 
-  // Update equipped skins when items change
-  useEffect(() => {
-    if (equippedItems) {
-      const skins: EquippedSkins = {};
-      for (const item of equippedItems) {
-        const prize = getPrizeById(item.prizeId);
-        if (prize?.type === 'skin' && prize.target) {
-          skins[prize.target] = item.prizeId;
-        }
-        // Handle cards equipped as avatar
-        if (prize?.type === 'card') {
-          skins.avatar = item.prizeId;
-        }
+  // Compute equipped skins from items
+  const equippedSkins = useMemo(() => {
+    if (!equippedItems) return {} as EquippedSkins;
+    const skins: EquippedSkins = {};
+    for (const item of equippedItems) {
+      const prize = getPrizeById(item.prizeId);
+      if (prize?.type === 'skin' && prize.target) {
+        skins[prize.target] = item.prizeId;
       }
-      setEquippedSkins(skins);
+      // Handle cards equipped as avatar
+      if (prize?.type === 'card') {
+        skins.avatar = item.prizeId;
+      }
     }
+    return skins;
   }, [equippedItems]);
 
   // Helper to normalize backgroundImage URLs in styles
@@ -392,12 +374,4 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       {children}
     </ThemeContext.Provider>
   );
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
 }

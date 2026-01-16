@@ -179,7 +179,7 @@ export function WordListPage() {
         {Object.keys(groupedWords).sort().map((letter) => (
           <div key={letter} className="mb-6">
             {/* Letter Header */}
-            <div className="sticky top-[120px] z-10 bg-linear-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-lg mb-3 shadow-md">
+            <div className="sticky top-30 z-10 bg-linear-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-lg mb-3 shadow-md">
               <span className="text-lg font-bold">{letter}</span>
               <span className="text-sm ml-2 opacity-80">({groupedWords[letter].length} words)</span>
             </div>

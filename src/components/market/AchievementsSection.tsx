@@ -194,7 +194,7 @@ export function AchievementsSection() {
                     <AppImage 
                       src={achievement.icon} 
                       alt={achievement.name} 
-                      className={`w-10 h-10 object-contain ${completed ? '' : 'grayscale-[30%]'}`}
+                      className={`w-10 h-10 object-contain ${completed ? '' : 'grayscale-30'}`}
                     />
                   </div>
                 </div>
