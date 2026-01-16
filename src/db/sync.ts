@@ -1,5 +1,5 @@
-import { db } from './database';
-import type { DataVersion, Word, Prize } from '../types';
+import { db, addStars } from './database';
+import type { DataVersion, Word, Prize, CardCategory, MobSubcategory } from '../types';
 
 // Import static data - words split by alphabet
 import wordsA from '../data/words/a.json';
@@ -98,7 +98,9 @@ export async function syncDataIfNeeded(): Promise<{
   // Check prizes version
   const prizesSyncMeta = await db.syncMeta.get('prizes');
   if (!prizesSyncMeta || prizesSyncMeta.version < currentVersion.prizes) {
-    // Prizes data has been updated
+    // Prizes data has been updated - handle migration
+    await migratePrizes();
+    
     await db.syncMeta.put({
       key: 'prizes',
       version: currentVersion.prizes,
@@ -109,6 +111,69 @@ export async function syncDataIfNeeded(): Promise<{
   }
 
   return { wordsUpdated, prizesUpdated };
+}
+
+// Migrate prizes: refund stars for removed prizes and remove them from owned items
+async function migratePrizes(): Promise<void> {
+  const currentPrizes = getPrizes();
+  const currentPrizeIds = new Set(currentPrizes.map(p => p.id));
+  
+  // Get all owned items
+  const ownedItems = await db.ownedItems.toArray();
+  
+  let totalRefund = 0;
+  const itemsToRemove: string[] = [];
+  
+  for (const item of ownedItems) {
+    // Check if the prize still exists
+    if (!currentPrizeIds.has(item.prizeId)) {
+      // Prize no longer exists - refund the user
+      // Try to find the old price from a hardcoded map or use a default
+      const refundAmount = getOldPrizeRefundAmount(item.prizeId);
+      totalRefund += refundAmount;
+      itemsToRemove.push(item.id);
+      console.log(`Refunding ${refundAmount} stars for removed prize: ${item.prizeId}`);
+    }
+  }
+  
+  // Remove old items from owned items
+  for (const itemId of itemsToRemove) {
+    await db.ownedItems.delete(itemId);
+  }
+  
+  // Add refunded stars to user
+  if (totalRefund > 0) {
+    await addStars(totalRefund);
+    console.log(`Total refund: ${totalRefund} stars for ${itemsToRemove.length} removed items`);
+  }
+}
+
+// Get refund amount for old prizes that no longer exist
+// This is a hardcoded map of old prize IDs to their costs
+function getOldPrizeRefundAmount(prizeId: string): number {
+  const oldPrices: Record<string, number> = {
+    'card-minecraft-01': 25,
+    'card-minecraft-02': 25,
+    'card-minecraft-03': 38,
+    'card-minecraft-04': 30,
+    'card-minecraft-05': 40,
+    'card-minecraft-06': 75,
+    'card-minecraft-07': 33,
+    'card-minecraft-08': 35,
+    'card-minecraft-09': 50,
+    'card-minecraft-11': 38,
+    'card-minecraft-12': 33,
+    'card-minecraft-13': 43,
+    'card-minecraft-14': 28,
+    'card-minecraft-15': 35,
+    'card-minecraft-16': 40,
+    'card-princess-01': 38,
+    'card-princess-02': 38,
+    'card-princess-03': 40,
+    'card-princess-04': 50,
+  };
+  
+  return oldPrices[prizeId] || 30; // Default refund if price unknown
 }
 
 // Helper to get a single word by ID
@@ -129,4 +194,14 @@ export function getPrizesByType(type: 'card' | 'skin' | 'badge'): Prize[] {
 // Get prizes by collection (for cards)
 export function getPrizesByCollection(collection: string): Prize[] {
   return getPrizes().filter(p => p.type === 'card' && p.collection === collection);
+}
+
+// Get card prizes by category
+export function getCardsByCategory(category: CardCategory): Prize[] {
+  return getPrizes().filter(p => p.type === 'card' && p.category === category);
+}
+
+// Get mob card prizes by subcategory
+export function getMobsBySubcategory(subcategory: MobSubcategory): Prize[] {
+  return getPrizes().filter(p => p.type === 'card' && p.category === 'mobs' && p.subcategory === subcategory);
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
@@ -10,22 +10,58 @@ import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { getPrizeById } from '../db/sync';
-import type { Prize, PrizeType, Rarity, SkinTarget } from '../types';
+import type { Prize, PrizeType, Rarity, SkinTarget, MobSubcategory } from '../types';
+
+// Collection category types
+type CollectionCategory = 'all' | 'mobs' | 'tools' | 'weapons' | 'skins' | 'badges';
+type MobFilter = 'all' | MobSubcategory;
 
 export function CollectionPage() {
   const navigate = useNavigate();
   const { stars, state, sellItem } = useUser();
   const { equipSkin, unequipSkin, equippedSkins, equipAvatar, unequipAvatar } = useTheme();
-  const [selectedCategory, setSelectedCategory] = useState<PrizeType | 'all'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<CollectionCategory>('all');
+  const [selectedMobFilter, setSelectedMobFilter] = useState<MobFilter>('all');
   const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
 
   const ownedItems = state.ownedItems;
 
-  const filteredItems = ownedItems.filter((item) => {
-    if (selectedCategory === 'all') return true;
-    const prize = getPrizeById(item.prizeId);
-    return prize?.type === selectedCategory;
-  });
+  // Filter items based on category and subcategory
+  const filteredItems = useMemo(() => {
+    let filtered = ownedItems;
+    
+    if (selectedCategory === 'all') {
+      return filtered;
+    } else if (selectedCategory === 'skins') {
+      return filtered.filter(item => getPrizeById(item.prizeId)?.type === 'skin');
+    } else if (selectedCategory === 'badges') {
+      return filtered.filter(item => getPrizeById(item.prizeId)?.type === 'badge');
+    } else if (selectedCategory === 'mobs') {
+      filtered = filtered.filter(item => {
+        const prize = getPrizeById(item.prizeId);
+        return prize?.type === 'card' && prize?.category === 'mobs';
+      });
+      if (selectedMobFilter !== 'all') {
+        filtered = filtered.filter(item => {
+          const prize = getPrizeById(item.prizeId);
+          return prize?.subcategory === selectedMobFilter;
+        });
+      }
+      return filtered;
+    } else if (selectedCategory === 'tools') {
+      return filtered.filter(item => {
+        const prize = getPrizeById(item.prizeId);
+        return prize?.type === 'card' && prize?.category === 'tools';
+      });
+    } else if (selectedCategory === 'weapons') {
+      return filtered.filter(item => {
+        const prize = getPrizeById(item.prizeId);
+        return prize?.type === 'card' && prize?.category === 'weapons';
+      });
+    }
+    
+    return filtered;
+  }, [ownedItems, selectedCategory, selectedMobFilter]);
 
   const handleEquip = async (prizeId: string, target: SkinTarget) => {
     const prize = getPrizeById(prizeId);
@@ -102,23 +138,39 @@ export function CollectionPage() {
     }
   };
 
-  const categories: { id: PrizeType | 'all'; name: string; icon: string }[] = [
+  const categories: { id: CollectionCategory; name: string; icon: string }[] = [
     { id: 'all', name: 'All', icon: '🎒' },
-    { id: 'card', name: 'Cards', icon: '🎴' },
-    { id: 'skin', name: 'Skins', icon: '🎨' },
-    { id: 'badge', name: 'Badges', icon: '🏅' }
+    { id: 'mobs', name: 'Mobs', icon: '👾' },
+    { id: 'tools', name: 'Tools', icon: '⛏️' },
+    { id: 'weapons', name: 'Weapons', icon: '⚔️' },
+    { id: 'skins', name: 'Skins', icon: '🎨' },
+    { id: 'badges', name: 'Badges', icon: '🏅' }
   ];
 
-  // Count items by type
-  const cardCount = ownedItems.filter(
-    (item) => getPrizeById(item.prizeId)?.type === 'card'
-  ).length;
-  const skinCount = ownedItems.filter(
-    (item) => getPrizeById(item.prizeId)?.type === 'skin'
-  ).length;
-  const badgeCount = ownedItems.filter(
-    (item) => getPrizeById(item.prizeId)?.type === 'badge'
-  ).length;
+  const mobFilters: { id: MobFilter; name: string; icon: string }[] = [
+    { id: 'all', name: 'All Mobs', icon: '👾' },
+    { id: 'bosses', name: 'Bosses', icon: '👑' },
+    { id: 'hostile', name: 'Hostile', icon: '💀' },
+    { id: 'neutral', name: 'Neutral', icon: '🤝' },
+    { id: 'passive', name: 'Passive', icon: '🐾' },
+    { id: 'villagers', name: 'Villagers', icon: '🏠' }
+  ];
+
+  // Count items by category
+  const getMobCount = () => ownedItems.filter(item => {
+    const prize = getPrizeById(item.prizeId);
+    return prize?.type === 'card' && prize?.category === 'mobs';
+  }).length;
+  
+  const getToolCount = () => ownedItems.filter(item => {
+    const prize = getPrizeById(item.prizeId);
+    return prize?.type === 'card' && prize?.category === 'tools';
+  }).length;
+  
+  const getWeaponCount = () => ownedItems.filter(item => {
+    const prize = getPrizeById(item.prizeId);
+    return prize?.type === 'card' && prize?.category === 'weapons';
+  }).length;
 
   return (
     <ThemedBackground className="pb-6">
@@ -136,21 +188,26 @@ export function CollectionPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="grid grid-cols-4 gap-2 mb-4">
           <Card className="text-center py-2" padding="sm">
-            <div className="text-xl">🎴</div>
-            <div className="font-bold text-slate-800">{cardCount}</div>
-            <div className="text-xs text-slate-500">Cards</div>
+            <div className="text-lg">👾</div>
+            <div className="font-bold text-slate-800 text-sm">{getMobCount()}</div>
+            <div className="text-xs text-slate-500">Mobs</div>
           </Card>
           <Card className="text-center py-2" padding="sm">
-            <div className="text-xl">🎨</div>
-            <div className="font-bold text-slate-800">{skinCount}</div>
+            <div className="text-lg">⛏️</div>
+            <div className="font-bold text-slate-800 text-sm">{getToolCount()}</div>
+            <div className="text-xs text-slate-500">Tools</div>
+          </Card>
+          <Card className="text-center py-2" padding="sm">
+            <div className="text-lg">⚔️</div>
+            <div className="font-bold text-slate-800 text-sm">{getWeaponCount()}</div>
+            <div className="text-xs text-slate-500">Weapons</div>
+          </Card>
+          <Card className="text-center py-2" padding="sm">
+            <div className="text-lg">🎨</div>
+            <div className="font-bold text-slate-800 text-sm">{ownedItems.filter(item => getPrizeById(item.prizeId)?.type === 'skin').length}</div>
             <div className="text-xs text-slate-500">Skins</div>
-          </Card>
-          <Card className="text-center py-2" padding="sm">
-            <div className="text-xl">🏅</div>
-            <div className="font-bold text-slate-800">{badgeCount}</div>
-            <div className="text-xs text-slate-500">Badges</div>
           </Card>
         </div>
 
@@ -159,7 +216,10 @@ export function CollectionPage() {
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
+              onClick={() => {
+                setSelectedCategory(cat.id);
+                setSelectedMobFilter('all');
+              }}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 selectedCategory === cat.id
                   ? 'bg-primary-500 text-white'
@@ -170,6 +230,25 @@ export function CollectionPage() {
             </button>
           ))}
         </div>
+
+        {/* Mob Subcategory Filters */}
+        {selectedCategory === 'mobs' && (
+          <div className="flex gap-2 overflow-x-auto pb-2 mt-2">
+            {mobFilters.map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setSelectedMobFilter(filter.id)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                  selectedMobFilter === filter.id
+                    ? 'bg-slate-700 text-white'
+                    : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
+                }`}
+              >
+                {filter.icon} {filter.name}
+              </button>
+            ))}
+          </div>
+        )}
       </header>
 
       <div className="p-4">
@@ -284,7 +363,7 @@ export function CollectionPage() {
             <p className="text-slate-500 mb-4">
               {selectedCategory === 'all'
                 ? 'Your collection is empty'
-                : `No ${selectedCategory}s in your collection`}
+                : `No ${selectedCategory} in your collection`}
             </p>
             <Button variant="primary" onClick={() => navigate('/market')}>
               Visit Market

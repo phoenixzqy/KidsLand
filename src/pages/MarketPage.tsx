@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
@@ -7,14 +7,19 @@ import { PrizePreviewModal } from '../components/ui/PrizePreviewModal';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { AppImage } from '../components/ui/AppImage';
 import { useUser } from '../contexts/UserContext';
-import { getPrizes, getPrizesByType } from '../db/sync';
+import { getPrizes } from '../db/sync';
 import { purchaseItem } from '../db/database';
-import type { Prize, PrizeType, Rarity } from '../types';
+import type { Prize, PrizeType, Rarity, MobSubcategory } from '../types';
+
+// Category types for the market
+type MarketCategory = 'all' | 'mobs' | 'tools' | 'weapons' | 'skins';
+type MobFilter = 'all' | MobSubcategory;
 
 export function MarketPage() {
   const navigate = useNavigate();
   const { stars, spendStars, isItemOwned, refreshData } = useUser();
-  const [selectedCategory, setSelectedCategory] = useState<PrizeType | 'all'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<MarketCategory>('all');
+  const [selectedMobFilter, setSelectedMobFilter] = useState<MobFilter>('all');
   const [purchasing, setPurchasing] = useState<string | null>(null);
   const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
   const [purchaseMessage, setPurchaseMessage] = useState<{
@@ -24,10 +29,41 @@ export function MarketPage() {
 
   const allPrizes = getPrizes();
 
-  const filteredPrizes =
-    selectedCategory === 'all'
-      ? allPrizes.filter((p) => p.cost > 0)
-      : getPrizesByType(selectedCategory).filter((p) => p.cost > 0);
+  // Filter prizes based on category and subcategory
+  const filteredPrizes = useMemo(() => {
+    let filtered = allPrizes.filter(p => p.cost > 0);
+    
+    if (selectedCategory === 'all') {
+      // Show all purchasable items (cards and skins)
+      filtered = filtered.filter(p => p.type === 'card' || p.type === 'skin');
+    } else if (selectedCategory === 'skins') {
+      filtered = filtered.filter(p => p.type === 'skin');
+    } else if (selectedCategory === 'mobs') {
+      filtered = filtered.filter(p => p.type === 'card' && p.category === 'mobs');
+      if (selectedMobFilter !== 'all') {
+        filtered = filtered.filter(p => p.subcategory === selectedMobFilter);
+      }
+    } else if (selectedCategory === 'tools') {
+      filtered = filtered.filter(p => p.type === 'card' && p.category === 'tools');
+    } else if (selectedCategory === 'weapons') {
+      filtered = filtered.filter(p => p.type === 'card' && p.category === 'weapons');
+    }
+    
+    // Sort by rarity (legendary first) then by cost
+    const rarityOrder: Record<string, number> = {
+      'legendary': 0,
+      'epic': 1,
+      'rare': 2,
+      'common': 3,
+    };
+    
+    return filtered.sort((a, b) => {
+      const rarityA = rarityOrder[a.rarity || 'common'];
+      const rarityB = rarityOrder[b.rarity || 'common'];
+      if (rarityA !== rarityB) return rarityA - rarityB;
+      return b.cost - a.cost;
+    });
+  }, [allPrizes, selectedCategory, selectedMobFilter]);
 
   const handlePurchase = async (prize: Prize) => {
     if (purchasing) return;
@@ -94,10 +130,21 @@ export function MarketPage() {
     }
   };
 
-  const categories: { id: PrizeType | 'all'; name: string; icon: string }[] = [
+  const categories: { id: MarketCategory; name: string; icon: string }[] = [
     { id: 'all', name: 'All', icon: '🛒' },
-    { id: 'card', name: 'Cards', icon: '🎴' },
-    { id: 'skin', name: 'Skins', icon: '🎨' }
+    { id: 'mobs', name: 'Mobs', icon: '👾' },
+    { id: 'tools', name: 'Tools', icon: '⛏️' },
+    { id: 'weapons', name: 'Weapons', icon: '⚔️' },
+    { id: 'skins', name: 'Skins', icon: '🎨' }
+  ];
+
+  const mobFilters: { id: MobFilter; name: string; icon: string }[] = [
+    { id: 'all', name: 'All Mobs', icon: '👾' },
+    { id: 'bosses', name: 'Bosses', icon: '👑' },
+    { id: 'hostile', name: 'Hostile', icon: '💀' },
+    { id: 'neutral', name: 'Neutral', icon: '🤝' },
+    { id: 'passive', name: 'Passive', icon: '🐾' },
+    { id: 'villagers', name: 'Villagers', icon: '🏠' }
   ];
 
   return (
@@ -117,7 +164,10 @@ export function MarketPage() {
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
+              onClick={() => {
+                setSelectedCategory(cat.id);
+                setSelectedMobFilter('all');
+              }}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 selectedCategory === cat.id
                   ? 'bg-primary-500 text-white'
@@ -128,6 +178,25 @@ export function MarketPage() {
             </button>
           ))}
         </div>
+
+        {/* Mob Subcategory Filters */}
+        {selectedCategory === 'mobs' && (
+          <div className="flex gap-2 overflow-x-auto pb-2 mt-2">
+            {mobFilters.map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setSelectedMobFilter(filter.id)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                  selectedMobFilter === filter.id
+                    ? 'bg-slate-700 text-white'
+                    : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
+                }`}
+              >
+                {filter.icon} {filter.name}
+              </button>
+            ))}
+          </div>
+        )}
       </header>
 
       {/* Purchase Message */}

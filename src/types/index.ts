@@ -35,6 +35,10 @@ export type SkinTarget = 'button' | 'card' | 'background' | 'header';
 export type Rarity = 'common' | 'rare' | 'epic' | 'legendary';
 export type CardCollection = 'minecraft' | 'princess';
 
+// Card categories for Minecraft renders
+export type CardCategory = 'mobs' | 'tools' | 'weapons';
+export type MobSubcategory = 'bosses' | 'hostile' | 'neutral' | 'passive' | 'villagers';
+
 export interface Prize {
   id: string;
   type: PrizeType;
@@ -45,6 +49,8 @@ export interface Prize {
   // Card-specific
   collection?: CardCollection;
   rarity?: Rarity;
+  category?: CardCategory;
+  subcategory?: MobSubcategory;
   // Skin-specific
   target?: SkinTarget;
   // Badge-specific
