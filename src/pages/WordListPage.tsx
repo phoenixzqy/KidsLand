@@ -267,7 +267,7 @@ export function WordListPage() {
       </div>
 
       {/* Bottom Action */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-sm border-t border-slate-200">
+      <div className="fixed bottom-0 left-0 right-0 p-4 z-20 bg-white/90 backdrop-blur-sm border-t border-slate-200">
         <Link to="/quiz">
           <Button variant="primary" fullWidth size="lg">
             🎯 Start Quiz

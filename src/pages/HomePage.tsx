@@ -5,6 +5,7 @@ import { StarCounter } from '../components/ui/StarCounter';
 import { Avatar } from '../components/ui/Avatar';
 import { ThemedBackground, ThemedHeader } from '../components/ui/ThemedBackground';
 import { AppImage } from '../components/ui/AppImage';
+import { HeroCard } from '../components/ui/HeroCard';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -39,19 +40,13 @@ export function HomePage() {
       </ThemedHeader>
 
       {/* Welcome Card */}
-      <Card className="mb-6 bg-linear-to-br from-primary-400 to-primary-600 text-white">
-        <div className="text-center py-4">
-          <div className="flex justify-center mb-2">
-            <AppImage 
-              src="/images/minecraft-renders/blocks/minecraft-grass-block.png" 
-              alt="Welcome"
-              className="w-16 h-16 object-contain"
-            />
-          </div>
-          <h2 className="text-xl font-bold mb-1">Welcome, Learner!</h2>
-          <p className="text-primary-100">Ready to learn some words today?</p>
-        </div>
-      </Card>
+      <HeroCard
+        iconSrc="/images/minecraft-renders/blocks/minecraft-grass-block.png"
+        iconAlt="Welcome"
+        title="Welcome, Learner!"
+        subtitle="Ready to learn some words today?"
+        className="mb-6"
+      />
 
       {/* Main Menu */}
       <div className="space-y-4">

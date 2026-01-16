@@ -4,6 +4,7 @@ import { Button } from '../components/ui/Button';
 import { StarCounter } from '../components/ui/StarCounter';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { AppImage } from '../components/ui/AppImage';
+import { HeroCard } from '../components/ui/HeroCard';
 import { useUser } from '../contexts/UserContext';
 
 export function QuizSelectPage() {
@@ -52,15 +53,14 @@ export function QuizSelectPage() {
 
       <div className="p-4">
         {/* Introduction */}
-        <Card className="mb-6 bg-linear-to-br from-primary-400 to-primary-600 text-white">
-          <div className="text-center py-4">
-            <div className="flex justify-center mb-2">
-              <AppImage src="/images/minecraft-renders/materials/minecraft-diamond.png" alt="Quiz" className="w-12 h-12 object-contain" />
-            </div>
-            <h2 className="text-xl font-bold mb-1">Ready to Test Yourself?</h2>
-            <p className="text-primary-100">Choose a quiz type and difficulty</p>
-          </div>
-        </Card>
+        <HeroCard
+          iconSrc="/images/minecraft-renders/materials/minecraft-diamond.png"
+          iconAlt="Quiz"
+          title="Ready to Test Yourself?"
+          subtitle="Choose a quiz type and difficulty"
+          iconSize="sm"
+          className="mb-6"
+        />
 
         {/* Quiz Type Selection */}
         <h2 className="text-lg font-bold text-slate-700 mb-3">Select Quiz Type</h2>

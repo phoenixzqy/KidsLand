@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNormalizedUrl } from '../../hooks/useNormalizedUrl';
 
 interface AppImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /** 
@@ -31,14 +32,7 @@ export function AppImage({
   ...props 
 }: AppImageProps) {
   const [hasError, setHasError] = React.useState(false);
-
-  // Normalize the image path with BASE_URL
-  const normalizedSrc = React.useMemo(() => {
-    const baseUrl = import.meta.env.BASE_URL || '/';
-    // Remove leading slash from src if present, since BASE_URL typically ends with /
-    const cleanPath = src.startsWith('/') ? src.slice(1) : src;
-    return `${baseUrl}${cleanPath}`;
-  }, [src]);
+  const normalizedSrc = useNormalizedUrl(src);
 
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     setHasError(true);
@@ -63,14 +57,4 @@ export function AppImage({
       {...props}
     />
   );
-}
-
-/**
- * Helper function to get the normalized image URL.
- * Use this when you need the URL string directly (e.g., for background-image styles).
- */
-export function getImageUrl(src: string): string {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const cleanPath = src.startsWith('/') ? src.slice(1) : src;
-  return `${baseUrl}${cleanPath}`;
 }
