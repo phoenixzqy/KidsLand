@@ -1,0 +1,346 @@
+{
+  "words": [
+    {
+      "id": "calculate",
+      "word": "calculate",
+      "sentences": [
+        {
+          "text": "Can you calculate the answer?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I will calculate how many there are.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's calculate the total.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "call",
+      "word": "call",
+      "sentences": [
+        {
+          "text": "I will call my friend.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Please call me when you arrive.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "They call me Buddy.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "came",
+      "word": "came",
+      "sentences": [
+        {
+          "text": "My friend came to visit.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The bus came on time.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She came to my birthday party.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "can",
+      "word": "can",
+      "sentences": [
+        {
+          "text": "I can ride a bike.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Can you help me?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "She can sing very well.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "carry",
+      "word": "carry",
+      "sentences": [
+        {
+          "text": "I can carry my bag.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Help me carry these books.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The ant can carry food.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "centimeter",
+      "word": "centimeter",
+      "sentences": [
+        {
+          "text": "The pencil is 10 centimeters long.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Measure in centimeters.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "How many centimeters is this line?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "change",
+      "word": "change",
+      "sentences": [
+        {
+          "text": "Let's change into pajamas.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The seasons change every year.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Can you change the channel?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "circle",
+      "word": "circle",
+      "sentences": [
+        {
+          "text": "Draw a circle on the paper.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The wheel is a circle.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Sit in a circle, everyone.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "city",
+      "word": "city",
+      "sentences": [
+        {
+          "text": "The city has tall buildings.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I live in a big city.",
+          "highlightIndex": 5
+        },
+        {
+          "text": "The city is full of cars.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "clean",
+      "word": "clean",
+      "sentences": [
+        {
+          "text": "My room is clean.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Please clean your desk.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I like to keep things clean.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "cold",
+      "word": "cold",
+      "sentences": [
+        {
+          "text": "The ice cream is cold.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I feel cold today.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Winter is very cold.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "come",
+      "word": "come",
+      "sentences": [
+        {
+          "text": "Please come to my party.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Come here, puppy!",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Will you come with me?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "word": "compare",
+      "sentences": [
+        {
+          "text": "Compare the two numbers.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Let's compare which is longer.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Can you compare these shapes?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "corner",
+      "word": "corner",
+      "sentences": [
+        {
+          "text": "A square has four corners.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Stand in the corner.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Count the corners of the shape.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "cost",
+      "word": "cost",
+      "sentences": [
+        {
+          "text": "How much does it cost?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The toy costs five dollars.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "What is the total cost?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "could",
+      "word": "could",
+      "sentences": [
+        {
+          "text": "Could you help me, please?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I wish I could fly.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "She could run very fast.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "count",
+      "word": "count",
+      "sentences": [
+        {
+          "text": "Count the apples in the basket.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you count to twenty?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's count the stars.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "country",
+      "word": "country",
+      "sentences": [
+        {
+          "text": "I love my country.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We visited a new country.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The country has many farms.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "cut",
+      "word": "cut",
+      "sentences": [
+        {
+          "text": "I can cut with scissors.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Mom cut the cake.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Be careful when you cut paper.",
+          "highlightIndex": 4
+        }
+      ]
+    }
+  ]
+}

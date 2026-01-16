@@ -1,0 +1,94 @@
+{
+  "words": [
+    {
+      "id": "under",
+      "word": "under",
+      "sentences": [
+        {
+          "text": "The cat is under the bed.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Look under the table.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I hid under the blanket.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "up",
+      "word": "up",
+      "sentences": [
+        {
+          "text": "Wake up!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Look up at the sky.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Stand up, please.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "upon",
+      "word": "upon",
+      "sentences": [
+        {
+          "text": "Once upon a time...",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The book is upon the shelf.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "She sat upon the chair.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "us",
+      "word": "us",
+      "sentences": [
+        {
+          "text": "Come with us!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Give it to us.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The teacher helps us learn.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "word": "use",
+      "sentences": [
+        {
+          "text": "Use your words.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can I use this pencil?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I know how to use scissors.",
+          "highlightIndex": 4
+        }
+      ]
+    }
+  ]
+}

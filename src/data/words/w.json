@@ -1,0 +1,454 @@
+{
+  "words": [
+    {
+      "id": "walk",
+      "word": "walk",
+      "sentences": [
+        {
+          "text": "Let's walk to the park.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I walk my dog every day.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Can you walk faster?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "want",
+      "word": "want",
+      "sentences": [
+        {
+          "text": "I want to play outside.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Do you want some juice?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "What do you want to eat?",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "warm",
+      "word": "warm",
+      "sentences": [
+        {
+          "text": "The sun is warm.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Put on a warm coat.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I feel warm inside.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "was",
+      "word": "was",
+      "sentences": [
+        {
+          "text": "It was a sunny day.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She was happy.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The movie was fun.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "wash",
+      "word": "wash",
+      "sentences": [
+        {
+          "text": "Wash your hands before eating.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I help wash the dishes.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We wash the car on weekends.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "we",
+      "word": "we",
+      "sentences": [
+        {
+          "text": "We are friends.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can we play now?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We love to learn.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "well",
+      "word": "well",
+      "sentences": [
+        {
+          "text": "I feel well today.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "You did very well!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Get well soon!",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "went",
+      "word": "went",
+      "sentences": [
+        {
+          "text": "We went to the zoo.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She went home early.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I went shopping with Mom.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "were",
+      "word": "were",
+      "sentences": [
+        {
+          "text": "They were at the party.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The flowers were beautiful.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We were playing outside.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "what",
+      "word": "what",
+      "sentences": [
+        {
+          "text": "What is your name?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I don't know what to do.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "What a beautiful day!",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "when",
+      "word": "when",
+      "sentences": [
+        {
+          "text": "When is your birthday?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I smile when I'm happy.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Call me when you arrive.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "where",
+      "word": "where",
+      "sentences": [
+        {
+          "text": "Where are my shoes?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I know where to go.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Where do you live?",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "which",
+      "word": "which",
+      "sentences": [
+        {
+          "text": "Which color do you like?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Tell me which one is yours.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Which book should I read?",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "white",
+      "word": "white",
+      "sentences": [
+        {
+          "text": "Snow is white.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I have a white rabbit.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The clouds are white.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "who",
+      "word": "who",
+      "sentences": [
+        {
+          "text": "Who is your best friend?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I know who did it.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Who wants ice cream?",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "why",
+      "word": "why",
+      "sentences": [
+        {
+          "text": "Why is the sky blue?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Tell me why you are sad.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Why do birds fly?",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "will",
+      "word": "will",
+      "sentences": [
+        {
+          "text": "I will try my best.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Will you help me?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "We will go tomorrow.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "wish",
+      "word": "wish",
+      "sentences": [
+        {
+          "text": "I wish upon a star.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Make a wish!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I wish I could fly.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "with",
+      "word": "with",
+      "sentences": [
+        {
+          "text": "Come with me.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I play with my friends.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Eat with a fork.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "weight",
+      "word": "weight",
+      "sentences": [
+        {
+          "text": "What is the weight of this box?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Compare the weight of two objects.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Measure the weight using a scale.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "whole",
+      "word": "whole",
+      "sentences": [
+        {
+          "text": "The parts make up the whole.",
+          "highlightIndex": 5
+        },
+        {
+          "text": "I ate the whole apple.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Two halves make a whole.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "width",
+      "word": "width",
+      "sentences": [
+        {
+          "text": "Measure the width of the box.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "What is the width of this rectangle?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The width is shorter than the length.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "word": "work",
+      "sentences": [
+        {
+          "text": "My parents go to work.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Let's work together.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Good work on your homework!",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "would",
+      "word": "would",
+      "sentences": [
+        {
+          "text": "Would you like some cake?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I would love to help.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "What would you do?",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "write",
+      "word": "write",
+      "sentences": [
+        {
+          "text": "I can write my name.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Write neatly please.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Let's write a story.",
+          "highlightIndex": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "words": [
+    {
+      "id": "fall",
+      "word": "fall",
+      "sentences": [
+        {
+          "text": "Leaves fall in autumn.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Be careful not to fall.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I love the fall season.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "far",
+      "word": "far",
+      "sentences": [
+        {
+          "text": "The stars are far away.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Is it far to walk?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "My school is not far from home.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "fast",
+      "word": "fast",
+      "sentences": [
+        {
+          "text": "The car is very fast.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I can run fast.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The rabbit runs fast.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "find",
+      "word": "find",
+      "sentences": [
+        {
+          "text": "Can you find your shoes?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I will find the treasure.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's find a hiding spot.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "first",
+      "word": "first",
+      "sentences": [
+        {
+          "text": "I am in first grade.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "She came in first place.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "First, wash your hands.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "five",
+      "word": "five",
+      "sentences": [
+        {
+          "text": "I have five fingers.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "There are five apples.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I am five years old.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "fly",
+      "word": "fly",
+      "sentences": [
+        {
+          "text": "Birds can fly high.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I wish I could fly.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The airplane will fly.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "for",
+      "word": "for",
+      "sentences": [
+        {
+          "text": "This gift is for you.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I am looking for my toy.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Thank you for helping me.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "found",
+      "word": "found",
+      "sentences": [
+        {
+          "text": "I found my lost toy!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She found a pretty shell.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We found a frog in the garden.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "four",
+      "word": "four",
+      "sentences": [
+        {
+          "text": "I have four crayons.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "A dog has four legs.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I am four years old.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "from",
+      "word": "from",
+      "sentences": [
+        {
+          "text": "I got a letter from Grandma.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Where are you from?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The cat jumped from the tree.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "full",
+      "word": "full",
+      "sentences": [
+        {
+          "text": "My tummy is full.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The glass is full of water.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I ate until I was full.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "funny",
+      "word": "funny",
+      "sentences": [
+        {
+          "text": "The clown is funny.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "That joke was so funny!",
+          "highlightIndex": 4
+        },
+        {
+          "text": "My friend tells funny stories.",
+          "highlightIndex": 3
+        }
+      ]
+    }
+  ]
+}

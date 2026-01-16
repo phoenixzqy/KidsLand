@@ -1,0 +1,238 @@
+{
+  "words": [
+    {
+      "id": "day",
+      "word": "day",
+      "sentences": [
+        {
+          "text": "Today is a sunny day.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Have a good day!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We played all day.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "did",
+      "word": "did",
+      "sentences": [
+        {
+          "text": "What did you do today?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I did my homework.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She did a great job.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "difference",
+      "word": "difference",
+      "sentences": [
+        {
+          "text": "What is the difference between 10 and 7?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Find the difference.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The difference is three.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "digit",
+      "word": "digit",
+      "sentences": [
+        {
+          "text": "The number 25 has two digits.",
+          "highlightIndex": 5
+        },
+        {
+          "text": "Write a two-digit number.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "What is the first digit?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "divide",
+      "word": "divide",
+      "sentences": [
+        {
+          "text": "Divide the cookies into two groups.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you divide ten by two?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's divide the pizza equally.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "do",
+      "word": "do",
+      "sentences": [
+        {
+          "text": "What do you want to play?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I do my homework every day.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "How do you spell that?",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "does",
+      "word": "does",
+      "sentences": [
+        {
+          "text": "She does her best at school.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "What does this word mean?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "He does magic tricks.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "dollar",
+      "word": "dollar",
+      "sentences": [
+        {
+          "text": "The toy costs one dollar.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I have five dollars.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "How many dollars do you need?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "done",
+      "word": "done",
+      "sentences": [
+        {
+          "text": "I am done with my food.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The painting is done!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Are you done reading?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "double",
+      "word": "double",
+      "sentences": [
+        {
+          "text": "Double the number five.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "What is double of four?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I got double the points!",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "down",
+      "word": "down",
+      "sentences": [
+        {
+          "text": "Sit down, please.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The ball rolled down the hill.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I looked down at my feet.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "draw",
+      "word": "draw",
+      "sentences": [
+        {
+          "text": "I like to draw pictures.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Can you draw a cat?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's draw with crayons.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "drink",
+      "word": "drink",
+      "sentences": [
+        {
+          "text": "I drink water every day.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Do you want a drink?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Drink your milk.",
+          "highlightIndex": 0
+        }
+      ]
+    }
+  ]
+}

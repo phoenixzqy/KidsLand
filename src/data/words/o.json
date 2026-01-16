@@ -1,0 +1,238 @@
+{
+  "words": [
+    {
+      "id": "odd",
+      "word": "odd",
+      "sentences": [
+        {
+          "text": "One, three, and five are odd numbers.",
+          "highlightIndex": 6
+        },
+        {
+          "text": "Is seven an odd number?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Circle the odd numbers.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "off",
+      "word": "off",
+      "sentences": [
+        {
+          "text": "Turn off the light.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The cat jumped off the table.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Take off your coat.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "old",
+      "word": "old",
+      "sentences": [
+        {
+          "text": "I am five years old.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "That is an old book.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My grandpa is old but strong.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "on",
+      "word": "on",
+      "sentences": [
+        {
+          "text": "The book is on the table.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Turn on the TV.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I put my hat on.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "once",
+      "word": "once",
+      "sentences": [
+        {
+          "text": "Once upon a time...",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I tried it once.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Read it once more.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "one",
+      "word": "one",
+      "sentences": [
+        {
+          "text": "I have one apple.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "One day, I will be a star.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Pick one cookie.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "only",
+      "word": "only",
+      "sentences": [
+        {
+          "text": "I have only one brother.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "This is the only way.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I can eat only a little more.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "word": "open",
+      "sentences": [
+        {
+          "text": "Open the door, please.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Open your book to page one.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "The store is open.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "or",
+      "word": "or",
+      "sentences": [
+        {
+          "text": "Do you want milk or juice?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Is it big or small?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Yes or no?",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "our",
+      "word": "our",
+      "sentences": [
+        {
+          "text": "This is our classroom.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Our dog is friendly.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "We love our school.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "out",
+      "word": "out",
+      "sentences": [
+        {
+          "text": "Let's go out and play.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The sun came out.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Take the trash out.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "over",
+      "word": "over",
+      "sentences": [
+        {
+          "text": "Jump over the rope.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The game is over.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Come over to my house.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "own",
+      "word": "own",
+      "sentences": [
+        {
+          "text": "I have my own room.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I did it on my own.",
+          "highlightIndex": 5
+        },
+        {
+          "text": "She has her own pet.",
+          "highlightIndex": 3
+        }
+      ]
+    }
+  ]
+}

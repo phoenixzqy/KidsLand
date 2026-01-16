@@ -1,0 +1,76 @@
+{
+  "words": [
+    {
+      "id": "if",
+      "word": "if",
+      "sentences": [
+        {
+          "text": "I wonder if it will rain.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "If you finish, you can play.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "See if you can do it.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "into",
+      "word": "into",
+      "sentences": [
+        {
+          "text": "Jump into the pool!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Go into your room.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The cat went into the box.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "is",
+      "word": "is",
+      "sentences": [
+        {
+          "text": "The apple is red.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She is my friend.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Today is Monday.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "it",
+      "word": "it",
+      "sentences": [
+        {
+          "text": "I found it!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "It is a sunny day.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Give it to me.",
+          "highlightIndex": 1
+        }
+      ]
+    }
+  ]
+}

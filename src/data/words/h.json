@@ -1,0 +1,346 @@
+{
+  "words": [
+    {
+      "id": "had",
+      "word": "had",
+      "sentences": [
+        {
+          "text": "I had fun at the party.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She had a red balloon.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We had pizza for lunch.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "half",
+      "word": "half",
+      "sentences": [
+        {
+          "text": "Cut the pizza in half.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I ate half of my sandwich.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Half of ten is five.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "happy",
+      "word": "happy",
+      "sentences": [
+        {
+          "text": "I am very happy today.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The dog looks happy.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Happy birthday to you!",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "has",
+      "word": "has",
+      "sentences": [
+        {
+          "text": "She has a pet cat.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The book has pictures.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "He has brown hair.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "have",
+      "word": "have",
+      "sentences": [
+        {
+          "text": "I have a pet cat.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Do you have a pencil?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We have homework today.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "he",
+      "word": "he",
+      "sentences": [
+        {
+          "text": "He is my brother.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "He can run fast.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "He likes to read books.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "heavy",
+      "word": "heavy",
+      "sentences": [
+        {
+          "text": "This box is very heavy.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The elephant is heavy.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which one is heavy?",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "heavier",
+      "word": "heavier",
+      "sentences": [
+        {
+          "text": "The rock is heavier than the feather.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which bag is heavier?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My backpack is heavier than yours.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "heaviest",
+      "word": "heaviest",
+      "sentences": [
+        {
+          "text": "Find the heaviest object.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The elephant is the heaviest.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Which one is the heaviest?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "help",
+      "word": "help",
+      "sentences": [
+        {
+          "text": "Can you help me?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I like to help my mom.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Please help me clean.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "her",
+      "word": "her",
+      "sentences": [
+        {
+          "text": "I like her dress.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Give her the ball.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Her mom is nice.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "here",
+      "word": "here",
+      "sentences": [
+        {
+          "text": "Come here, please.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "My house is here.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Put the book here.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "him",
+      "word": "him",
+      "sentences": [
+        {
+          "text": "Give it to him.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I saw him at school.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The dog followed him home.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "his",
+      "word": "his",
+      "sentences": [
+        {
+          "text": "This is his book.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "His name is Tom.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I like his new shoes.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "hold",
+      "word": "hold",
+      "sentences": [
+        {
+          "text": "Hold my hand.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you hold this for me?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I will hold the door.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "hot",
+      "word": "hot",
+      "sentences": [
+        {
+          "text": "The soup is hot.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Summer is very hot.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Be careful, it's hot!",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "house",
+      "word": "house",
+      "sentences": [
+        {
+          "text": "My house is blue.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We built a house with blocks.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The mouse lives in a house.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "how",
+      "word": "how",
+      "sentences": [
+        {
+          "text": "How are you today?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "How do you play this game?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I know how to swim.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "hurt",
+      "word": "hurt",
+      "sentences": [
+        {
+          "text": "Did you hurt your knee?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I hurt my finger.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Be careful not to get hurt.",
+          "highlightIndex": 5
+        }
+      ]
+    }
+  ]
+}

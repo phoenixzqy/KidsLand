@@ -1,0 +1,40 @@
+{
+  "words": [
+    {
+      "id": "jump",
+      "word": "jump",
+      "sentences": [
+        {
+          "text": "I can jump very high.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's jump over the puddle.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The frog can jump far.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "just",
+      "word": "just",
+      "sentences": [
+        {
+          "text": "I just woke up.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Wait just a minute.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I just want to play.",
+          "highlightIndex": 1
+        }
+      ]
+    }
+  ]
+}

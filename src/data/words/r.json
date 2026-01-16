@@ -1,0 +1,130 @@
+{
+  "words": [
+    {
+      "id": "ran",
+      "word": "ran",
+      "sentences": [
+        {
+          "text": "I ran to the park.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The dog ran fast.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She ran home quickly.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "read",
+      "word": "read",
+      "sentences": [
+        {
+          "text": "I love to read books.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Can you read this?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Read me a story.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "red",
+      "word": "red",
+      "sentences": [
+        {
+          "text": "The apple is red.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I have a red shirt.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Stop at the red light.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "ride",
+      "word": "ride",
+      "sentences": [
+        {
+          "text": "I can ride a bike.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's ride on the bus.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Do you want a ride?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "right",
+      "word": "right",
+      "sentences": [
+        {
+          "text": "Turn right at the corner.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "You got the right answer!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I write with my right hand.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "round",
+      "word": "round",
+      "sentences": [
+        {
+          "text": "The ball is round.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The earth is round.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We sit in a round circle.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "run",
+      "word": "run",
+      "sentences": [
+        {
+          "text": "I like to run fast.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Run to the finish line!",
+          "highlightIndex": 0
+        },
+        {
+          "text": "The dog likes to run.",
+          "highlightIndex": 4
+        }
+      ]
+    }
+  ]
+}

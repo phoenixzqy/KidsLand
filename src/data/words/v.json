@@ -1,0 +1,22 @@
+{
+  "words": [
+    {
+      "id": "very",
+      "word": "very",
+      "sentences": [
+        {
+          "text": "I am very happy.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Thank you very much!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "You are very kind.",
+          "highlightIndex": 2
+        }
+      ]
+    }
+  ]
+}

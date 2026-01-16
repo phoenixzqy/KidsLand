@@ -1,0 +1,292 @@
+{
+  "words": [
+    {
+      "id": "made",
+      "word": "made",
+      "sentences": [
+        {
+          "text": "I made a card for you.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Mom made cookies.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We made a sandcastle.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "make",
+      "word": "make",
+      "sentences": [
+        {
+          "text": "Let's make a cake.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I can make my bed.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Make a wish!",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "many",
+      "word": "many",
+      "sentences": [
+        {
+          "text": "I have many friends.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "How many apples are there?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "There are many stars in the sky.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "may",
+      "word": "may",
+      "sentences": [
+        {
+          "text": "May I have some water?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "It may rain today.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "You may go outside.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "me",
+      "word": "me",
+      "sentences": [
+        {
+          "text": "Look at me!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Give it to me.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Come with me.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "measure",
+      "word": "measure",
+      "sentences": [
+        {
+          "text": "Measure the length of the table.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Use a ruler to measure.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I can measure how tall I am.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "meter",
+      "word": "meter",
+      "sentences": [
+        {
+          "text": "The room is five meters long.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "One meter equals 100 centimeters.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "How many meters is the pool?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "minus",
+      "word": "minus",
+      "sentences": [
+        {
+          "text": "Ten minus three equals seven.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "What is five minus two?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Use the minus sign to subtract.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "more",
+      "word": "more",
+      "sentences": [
+        {
+          "text": "I have more apples than you.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Can I have more, please?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which group has more?",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "most",
+      "word": "most",
+      "sentences": [
+        {
+          "text": "Which group has the most?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I got the most points!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Red is my most favorite color.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "move",
+      "word": "move",
+      "sentences": [
+        {
+          "text": "Please move over.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The car will move soon.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Don't move! Stay still.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "much",
+      "word": "much",
+      "sentences": [
+        {
+          "text": "Thank you very much!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I love you so much.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "How much does it cost?",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "multiply",
+      "word": "multiply",
+      "sentences": [
+        {
+          "text": "Multiply two times three.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you multiply these numbers?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's learn to multiply.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "must",
+      "word": "must",
+      "sentences": [
+        {
+          "text": "I must do my homework.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "You must be kind.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We must go now.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "my",
+      "word": "my",
+      "sentences": [
+        {
+          "text": "This is my toy.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I love my family.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "My name is Sam.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "myself",
+      "word": "myself",
+      "sentences": [
+        {
+          "text": "I can do it myself.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I dressed myself today.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I made it all by myself.",
+          "highlightIndex": 5
+        }
+      ]
+    }
+  ]
+}

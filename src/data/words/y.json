@@ -1,0 +1,94 @@
+{
+  "words": [
+    {
+      "id": "year",
+      "word": "year",
+      "sentences": [
+        {
+          "text": "I am six years old.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Happy New Year!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "This year went by fast.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "yellow",
+      "word": "yellow",
+      "sentences": [
+        {
+          "text": "The sun is yellow.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I like yellow flowers.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The banana is yellow.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "yes",
+      "word": "yes",
+      "sentences": [
+        {
+          "text": "Yes, I can do it!",
+          "highlightIndex": 0
+        },
+        {
+          "text": "She said yes to the party.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Yes, that is my book.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "you",
+      "word": "you",
+      "sentences": [
+        {
+          "text": "I like you.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "How are you today?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Thank you for helping.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "your",
+      "word": "your",
+      "sentences": [
+        {
+          "text": "Is this your pencil?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Wash your hands before eating.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I love your smile.",
+          "highlightIndex": 2
+        }
+      ]
+    }
+  ]
+}

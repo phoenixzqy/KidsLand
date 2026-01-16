@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
@@ -7,7 +7,7 @@ import { StarCounter } from '../components/ui/StarCounter';
 import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { useUser } from '../contexts/UserContext';
 import { getWords } from '../db/sync';
-import type { QuizType } from '../types';
+import type { QuizType, Word } from '../types';
 
 // Quiz type icons for progress display
 const QUIZ_TYPE_ICONS: Record<QuizType, string> = {
@@ -18,20 +18,81 @@ const QUIZ_TYPE_ICONS: Record<QuizType, string> = {
 
 const ALL_QUIZ_TYPES: QuizType[] = ['spelling', 'pronunciation', 'sentence'];
 
+// All letters for quick navigation
+const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
 export function WordListPage() {
   const navigate = useNavigate();
   const { stars, getWordProgress, state } = useUser();
   const words = getWords();
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
 
-  // Filter words based on search
-  const filteredWords = words.filter(word =>
-    word.word.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter words based on search and selected letter
+  const filteredWords = useMemo(() => {
+    let result = words;
+    
+    if (searchQuery) {
+      result = result.filter(word =>
+        word.word.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    
+    if (selectedLetter) {
+      result = result.filter(word =>
+        word.word.toUpperCase().startsWith(selectedLetter)
+      );
+    }
+    
+    return result;
+  }, [words, searchQuery, selectedLetter]);
+
+  // Group words by first letter
+  const groupedWords = useMemo(() => {
+    const groups: Record<string, Word[]> = {};
+    
+    filteredWords.forEach(word => {
+      const letter = word.word[0].toUpperCase();
+      if (!groups[letter]) {
+        groups[letter] = [];
+      }
+      groups[letter].push(word);
+    });
+    
+    // Sort words within each group
+    Object.keys(groups).forEach(letter => {
+      groups[letter].sort((a, b) => a.word.localeCompare(b.word));
+    });
+    
+    return groups;
+  }, [filteredWords]);
+
+  // Get letters that have words
+  const availableLetters = useMemo(() => {
+    const letters = new Set<string>();
+    words.forEach(word => letters.add(word.word[0].toUpperCase()));
+    return letters;
+  }, [words]);
 
   // Calculate overall progress
   const learnedCount = state.wordProgress.filter(wp => wp.timesStudied > 0).length;
   const masteredCount = state.wordProgress.filter(wp => wp.mastered).length;
+
+  const handleLetterClick = (letter: string) => {
+    if (selectedLetter === letter) {
+      setSelectedLetter(null);
+    } else {
+      setSelectedLetter(letter);
+      setSearchQuery('');
+      // Scroll to top when selecting a letter
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const clearFilters = () => {
+    setSelectedLetter(null);
+    setSearchQuery('');
+  };
 
   return (
     <ThemedBackground className="pb-20">
@@ -74,69 +135,129 @@ export function WordListPage() {
           </div>
         </Card>
 
-        {/* Word Grid */}
-        <div className="grid grid-cols-3 gap-3">
-          {filteredWords.map((word) => {
-            const progress = getWordProgress(word.id);
-            const isStudied = progress && progress.timesStudied > 0;
-            const isMastered = progress?.mastered;
-
-            return (
-              <Link key={word.id} to={`/words/${word.id}`}>
-                <Card
-                  className={`text-center py-4 relative ${
-                    isMastered
-                      ? 'bg-gradient-to-br from-star/20 to-star/30 border-2 border-star'
-                      : isStudied
-                      ? 'bg-primary-50 border-2 border-primary-200'
-                      : 'bg-white'
-                  }`}
-                  padding="sm"
-                >
-                  {/* Mastered badge */}
-                  {isMastered && (
-                    <div className="absolute -top-1 -right-1 text-lg">⭐</div>
-                  )}
-
-                  <span
-                    className={`font-bold ${
-                      isMastered
-                        ? 'text-star'
-                        : isStudied
-                        ? 'text-primary-600'
-                        : 'text-slate-700'
+        {/* Alphabet Filter */}
+        <div className="mb-4">
+          <div className="flex flex-wrap gap-1 justify-center">
+            {ALPHABET.map((letter) => {
+              const hasWords = availableLetters.has(letter);
+              const isSelected = selectedLetter === letter;
+              return (
+                <button
+                  key={letter}
+                  onClick={() => hasWords && handleLetterClick(letter)}
+                  disabled={!hasWords}
+                  className={`w-8 h-8 rounded-lg font-bold text-sm transition-all
+                    ${isSelected 
+                      ? 'bg-primary-500 text-white shadow-md scale-110' 
+                      : hasWords 
+                        ? 'bg-white text-slate-700 hover:bg-primary-100 border border-slate-200' 
+                        : 'bg-slate-100 text-slate-300 cursor-not-allowed'
                     }`}
-                  >
-                    {word.word}
-                  </span>
-
-                  {/* Progress indicator - show quiz type icons */}
-                  {isStudied && !isMastered && (
-                    <div className="mt-1 flex justify-center gap-0.5 text-xs">
-                      {ALL_QUIZ_TYPES.map((type) => {
-                        const passed = progress?.passedQuizTypes?.includes(type);
-                        return (
-                          <span
-                            key={type}
-                            className={passed ? 'opacity-100' : 'opacity-30 grayscale'}
-                          >
-                            {QUIZ_TYPE_ICONS[type]}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  )}
-                </Card>
-              </Link>
-            );
-          })}
+                >
+                  {letter}
+                </button>
+              );
+            })}
+          </div>
+          {(selectedLetter || searchQuery) && (
+            <div className="text-center mt-3">
+              <button
+                onClick={clearFilters}
+                className="text-sm text-primary-500 hover:text-primary-600 font-medium"
+              >
+                ✕ Clear filters ({filteredWords.length} words shown)
+              </button>
+            </div>
+          )}
         </div>
+
+        {/* Word Sections by Letter */}
+        {Object.keys(groupedWords).sort().map((letter) => (
+          <div key={letter} className="mb-6">
+            {/* Letter Header */}
+            <div className="sticky top-[120px] z-10 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-lg mb-3 shadow-md">
+              <span className="text-lg font-bold">{letter}</span>
+              <span className="text-sm ml-2 opacity-80">({groupedWords[letter].length} words)</span>
+            </div>
+            
+            {/* Word Grid */}
+            <div className="grid grid-cols-3 gap-3">
+              {groupedWords[letter].map((word) => {
+                const progress = getWordProgress(word.id);
+                const isStudied = progress && progress.timesStudied > 0;
+                const isMastered = progress?.mastered;
+
+                return (
+                  <Link key={word.id} to={`/words/${word.id}`}>
+                    <Card
+                      className={`text-center py-4 relative ${
+                        isMastered
+                          ? 'bg-gradient-to-br from-star/20 to-star/30 border-2 border-star'
+                          : isStudied
+                          ? 'bg-primary-50 border-2 border-primary-200'
+                          : 'bg-white'
+                      }`}
+                      padding="sm"
+                    >
+                      {/* Mastered badge */}
+                      {isMastered && (
+                        <div className="absolute -top-1 -right-1 text-lg">⭐</div>
+                      )}
+
+                      <span
+                        className={`font-bold ${
+                          isMastered
+                            ? 'text-star'
+                            : isStudied
+                            ? 'text-primary-600'
+                            : 'text-slate-700'
+                        }`}
+                      >
+                        {word.word}
+                      </span>
+
+                      {/* Progress indicator - show quiz type icons */}
+                      {isStudied && !isMastered && (
+                        <div className="mt-1 flex justify-center gap-0.5 text-xs">
+                          {ALL_QUIZ_TYPES.map((type) => {
+                            const passed = progress?.passedQuizTypes?.includes(type);
+                            return (
+                              <span
+                                key={type}
+                                className={passed ? 'opacity-100' : 'opacity-30 grayscale'}
+                              >
+                                {QUIZ_TYPE_ICONS[type]}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </Card>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
 
         {/* Empty state */}
         {filteredWords.length === 0 && (
           <div className="text-center py-12">
             <div className="text-4xl mb-2">🔍</div>
-            <p className="text-slate-500">No words found for "{searchQuery}"</p>
+            <p className="text-slate-500 mb-2">
+              {searchQuery 
+                ? `No words found for "${searchQuery}"`
+                : selectedLetter
+                ? `No words starting with "${selectedLetter}"`
+                : 'No words found'
+              }
+            </p>
+            <button
+              onClick={clearFilters}
+              className="text-primary-500 hover:text-primary-600 font-medium"
+            >
+              Clear filters
+            </button>
           </div>
         )}
       </div>

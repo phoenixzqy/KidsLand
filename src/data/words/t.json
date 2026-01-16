@@ -1,0 +1,508 @@
+{
+  "words": [
+    {
+      "id": "take",
+      "word": "take",
+      "sentences": [
+        {
+          "text": "Take your lunch to school.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can I take this?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I will take care of it.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "tall",
+      "word": "tall",
+      "sentences": [
+        {
+          "text": "The giraffe is very tall.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "How tall are you?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "That building is so tall.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "taller",
+      "word": "taller",
+      "sentences": [
+        {
+          "text": "She is taller than me.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Which tree is taller?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The giraffe is taller than the zebra.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "tallest",
+      "word": "tallest",
+      "sentences": [
+        {
+          "text": "Who is the tallest in class?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Find the tallest building.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The giraffe is the tallest animal.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "tell",
+      "word": "tell",
+      "sentences": [
+        {
+          "text": "Tell me a story.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you tell the truth?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I want to tell you something.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "ten",
+      "word": "ten",
+      "sentences": [
+        {
+          "text": "I can count to ten.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "There are ten fingers.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I have ten toes.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "thank",
+      "word": "thank",
+      "sentences": [
+        {
+          "text": "Thank you for helping.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I want to thank you.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Thank you very much!",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "that",
+      "word": "that",
+      "sentences": [
+        {
+          "text": "I like that book.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "What is that?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "That toy is mine.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "the",
+      "word": "the",
+      "sentences": [
+        {
+          "text": "The sun is bright.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I see the bird.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Open the door, please.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "their",
+      "word": "their",
+      "sentences": [
+        {
+          "text": "The kids love their teacher.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Dogs wag their tails.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "They brought their lunch.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "them",
+      "word": "them",
+      "sentences": [
+        {
+          "text": "I gave them a gift.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Tell them to come inside.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Help them carry the box.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "then",
+      "word": "then",
+      "sentences": [
+        {
+          "text": "Eat your dinner, then have dessert.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "First I brush, then I floss.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We played and then went home.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "there",
+      "word": "there",
+      "sentences": [
+        {
+          "text": "Look over there!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Is anyone there?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We went there yesterday.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "these",
+      "word": "these",
+      "sentences": [
+        {
+          "text": "I like these shoes.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "These apples are red.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can I have these, please?",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "they",
+      "word": "they",
+      "sentences": [
+        {
+          "text": "They are my friends.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "What are they doing?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "They live next door.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "think",
+      "word": "think",
+      "sentences": [
+        {
+          "text": "I think it will rain.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "What do you think?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Let me think about it.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "this",
+      "word": "this",
+      "sentences": [
+        {
+          "text": "I love this song.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "This is my favorite toy.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Is this your pencil?",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "three",
+      "word": "three",
+      "sentences": [
+        {
+          "text": "I have three books.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "There are three apples.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I am three years old.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "through",
+      "word": "through",
+      "sentences": [
+        {
+          "text": "Walk through the door.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We ran through the park.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The ball went through the hoop.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "times",
+      "word": "times",
+      "sentences": [
+        {
+          "text": "Two times three is six.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "How many times did you try?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I brushed my teeth three times today.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "to",
+      "word": "to",
+      "sentences": [
+        {
+          "text": "I go to school.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Give this to your sister.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I want to play.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "word": "today",
+      "sentences": [
+        {
+          "text": "Today is a great day!",
+          "highlightIndex": 0
+        },
+        {
+          "text": "What are we doing today?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I am happy today.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "together",
+      "word": "together",
+      "sentences": [
+        {
+          "text": "Let's play together!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We are better together.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Add them together.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "too",
+      "word": "too",
+      "sentences": [
+        {
+          "text": "I want to come too!",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Me too!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "This is too hard.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "total",
+      "word": "total",
+      "sentences": [
+        {
+          "text": "What is the total?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The total is fifteen.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Find the total number.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "triangle",
+      "word": "triangle",
+      "sentences": [
+        {
+          "text": "A triangle has three sides.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Draw a triangle.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The pizza slice is a triangle.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "word": "try",
+      "sentences": [
+        {
+          "text": "Let's try again!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I want to try new food.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Try your best.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "two",
+      "word": "two",
+      "sentences": [
+        {
+          "text": "I have two hands.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "There are two cats.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Can I have two cookies?",
+          "highlightIndex": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "words": [
+    {
+      "id": "each",
+      "word": "each",
+      "sentences": [
+        {
+          "text": "Give one cookie to each child.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "How many does each person get?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Each box has five toys.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "earth",
+      "word": "earth",
+      "sentences": [
+        {
+          "text": "The earth is round like a ball.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We must take care of the earth.",
+          "highlightIndex": 7
+        },
+        {
+          "text": "Plants grow from the earth.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "eat",
+      "word": "eat",
+      "sentences": [
+        {
+          "text": "I like to eat apples.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Time to eat dinner!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We eat lunch at noon.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "edge",
+      "word": "edge",
+      "sentences": [
+        {
+          "text": "A cube has twelve edges.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Count the edges of the shape.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The edge of the paper is straight.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "eight",
+      "word": "eight",
+      "sentences": [
+        {
+          "text": "I am eight years old.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "There are eight crayons.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The spider has eight legs.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "equal",
+      "word": "equal",
+      "sentences": [
+        {
+          "text": "Both groups have an equal number.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Divide the pizza into equal parts.",
+          "highlightIndex": 5
+        },
+        {
+          "text": "Two plus two is equal to four.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "estimate",
+      "word": "estimate",
+      "sentences": [
+        {
+          "text": "Estimate how many there are.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "My estimate was close!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Can you estimate the number?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "even",
+      "word": "even",
+      "sentences": [
+        {
+          "text": "I can count even numbers.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Two, four, and six are even numbers.",
+          "highlightIndex": 6
+        },
+        {
+          "text": "Even my little brother can do it.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "every",
+      "word": "every",
+      "sentences": [
+        {
+          "text": "I brush my teeth every day.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Every child got a prize.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "We have recess every afternoon.",
+          "highlightIndex": 3
+        }
+      ]
+    }
+  ]
+}

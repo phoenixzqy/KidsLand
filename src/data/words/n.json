@@ -1,0 +1,166 @@
+{
+  "words": [
+    {
+      "id": "near",
+      "word": "near",
+      "sentences": [
+        {
+          "text": "The park is near my house.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Stay near me.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Is the store near here?",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "never",
+      "word": "never",
+      "sentences": [
+        {
+          "text": "I never give up.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Never talk to strangers.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "She never forgets her manners.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "new",
+      "word": "new",
+      "sentences": [
+        {
+          "text": "I have a new toy.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Look at my new shoes!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We met a new friend.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "no",
+      "word": "no",
+      "sentences": [
+        {
+          "text": "No, thank you.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "There is no milk left.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I have no homework today.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "not",
+      "word": "not",
+      "sentences": [
+        {
+          "text": "I do not like spinach.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She is not here.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "It is not fair.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "now",
+      "word": "now",
+      "sentences": [
+        {
+          "text": "Let's go now!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I am happy now.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "What time is it now?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "number",
+      "word": "number",
+      "sentences": [
+        {
+          "text": "What number comes after five?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Write the number ten.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Pick a number between one and ten.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "number_bond",
+      "word": "number bond",
+      "sentences": [
+        {
+          "text": "A number bond shows parts and whole.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Draw a number bond for ten.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The number bond helps me add.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "number_sentence",
+      "word": "number sentence",
+      "sentences": [
+        {
+          "text": "Write a number sentence for this problem.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The number sentence shows the answer.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Read the number sentence aloud.",
+          "highlightIndex": 2
+        }
+      ]
+    }
+  ]
+}

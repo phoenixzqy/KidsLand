@@ -1,0 +1,58 @@
+{
+  "words": [
+    {
+      "id": "keep",
+      "word": "keep",
+      "sentences": [
+        {
+          "text": "Keep your room clean.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I will keep this secret.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Keep trying your best.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "kind",
+      "word": "kind",
+      "sentences": [
+        {
+          "text": "Be kind to everyone.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She is very kind.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "That was a kind thing to do.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "know",
+      "word": "know",
+      "sentences": [
+        {
+          "text": "I know the answer!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Do you know my name?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I know how to ride a bike.",
+          "highlightIndex": 1
+        }
+      ]
+    }
+  ]
+}

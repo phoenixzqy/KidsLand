@@ -1,0 +1,184 @@
+{
+  "words": [
+    {
+      "id": "get",
+      "word": "get",
+      "sentences": [
+        {
+          "text": "I will get my shoes.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Can I get a cookie?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Go get your backpack.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "girl",
+      "word": "girl",
+      "sentences": [
+        {
+          "text": "The girl is playing.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I am a smart girl.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The girl has a red dress.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "give",
+      "word": "give",
+      "sentences": [
+        {
+          "text": "I will give you a hug.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Please give me the book.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Let's give Mom flowers.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "go",
+      "word": "go",
+      "sentences": [
+        {
+          "text": "Let's go to the park.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I go to school every day.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Ready, set, go!",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "going",
+      "word": "going",
+      "sentences": [
+        {
+          "text": "I am going to school.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Where are you going?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We are going home.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "good",
+      "word": "good",
+      "sentences": [
+        {
+          "text": "You are a good friend.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "This cake tastes good.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Have a good day!",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "got",
+      "word": "got",
+      "sentences": [
+        {
+          "text": "I got a new toy.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She got an A on her test.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We got to the park early.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "great",
+      "word": "great",
+      "sentences": [
+        {
+          "text": "You did a great job!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "That was a great movie.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We had a great time.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "green",
+      "word": "green",
+      "sentences": [
+        {
+          "text": "The grass is green.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I like green apples.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The frog is green.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "grow",
+      "word": "grow",
+      "sentences": [
+        {
+          "text": "Plants grow in the garden.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I want to grow tall.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Watch the flower grow.",
+          "highlightIndex": 3
+        }
+      ]
+    }
+  ]
+}

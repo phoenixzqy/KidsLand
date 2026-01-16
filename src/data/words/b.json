@@ -1,0 +1,310 @@
+{
+  "words": [
+    {
+      "id": "be",
+      "word": "be",
+      "sentences": [
+        {
+          "text": "I want to be a doctor.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Be kind to others.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you be my friend?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "because",
+      "word": "because",
+      "sentences": [
+        {
+          "text": "I'm happy because it's sunny.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I like school because I learn new things.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The dog is wet because it rained.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "been",
+      "word": "been",
+      "sentences": [
+        {
+          "text": "I have been to the zoo.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She has been very helpful.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We have been waiting.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "before",
+      "word": "before",
+      "sentences": [
+        {
+          "text": "Wash your hands before eating.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I read a book before bed.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Tie your shoes before you run.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "best",
+      "word": "best",
+      "sentences": [
+        {
+          "text": "You are my best friend.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I did my best on the test.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "This is the best day ever!",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "between",
+      "word": "between",
+      "sentences": [
+        {
+          "text": "Stand between the two trees.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "What is between five and seven?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Share the candy between you two.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "big",
+      "word": "big",
+      "sentences": [
+        {
+          "text": "The elephant is very big.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I have a big smile.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "That is a big house.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "bigger",
+      "word": "bigger",
+      "sentences": [
+        {
+          "text": "The elephant is bigger than the cat.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which number is bigger?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My pizza is bigger than yours.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "black",
+      "word": "black",
+      "sentences": [
+        {
+          "text": "The cat is black.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I have a black pen.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The night sky is black.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "blue",
+      "word": "blue",
+      "sentences": [
+        {
+          "text": "The sky is blue.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I have blue eyes.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "My favorite color is blue.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "both",
+      "word": "both",
+      "sentences": [
+        {
+          "text": "Both boxes have the same number.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I like both colors.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Add both groups together.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "boy",
+      "word": "boy",
+      "sentences": [
+        {
+          "text": "The boy has a red ball.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "A kind boy helped me.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The boy is playing soccer.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "bring",
+      "word": "bring",
+      "sentences": [
+        {
+          "text": "Bring your lunch to school.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you bring me a book?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I will bring my toys.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "brown",
+      "word": "brown",
+      "sentences": [
+        {
+          "text": "My dog has brown fur.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I have brown eyes.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The bear is brown.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "but",
+      "word": "but",
+      "sentences": [
+        {
+          "text": "I like cake but not cookies.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I tried but it was hard.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She is small but strong.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "buy",
+      "word": "buy",
+      "sentences": [
+        {
+          "text": "Let's buy some apples.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I want to buy a new book.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Dad will buy ice cream.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "by",
+      "word": "by",
+      "sentences": [
+        {
+          "text": "Sit by me, please.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The book was written by my teacher.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "We travel by car.",
+          "highlightIndex": 2
+        }
+      ]
+    }
+  ]
+}

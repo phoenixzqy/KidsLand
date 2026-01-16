@@ -1,0 +1,580 @@
+{
+  "words": [
+    {
+      "id": "said",
+      "word": "said",
+      "sentences": [
+        {
+          "text": "Mom said it's bedtime.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "He said hello to me.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The teacher said to be quiet.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "same",
+      "word": "same",
+      "sentences": [
+        {
+          "text": "Both boxes have the same number.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "We have the same shoes!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Are these two the same?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "saw",
+      "word": "saw",
+      "sentences": [
+        {
+          "text": "I saw a bird in the tree.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "We saw a movie yesterday.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "She saw her friend at the park.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "say",
+      "word": "say",
+      "sentences": [
+        {
+          "text": "What did you say?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Say please and thank you.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I want to say sorry.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "school",
+      "word": "school",
+      "sentences": [
+        {
+          "text": "I love going to school.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "School starts at 8 o'clock.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "My school has a playground.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "see",
+      "word": "see",
+      "sentences": [
+        {
+          "text": "I can see the moon.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let me see your drawing.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "See you tomorrow!",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "seven",
+      "word": "seven",
+      "sentences": [
+        {
+          "text": "I am seven years old.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "There are seven days in a week.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I have seven crayons.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "shall",
+      "word": "shall",
+      "sentences": [
+        {
+          "text": "Shall we go now?",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I shall do my best.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Shall I help you?",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "shape",
+      "word": "shape",
+      "sentences": [
+        {
+          "text": "What shape is this?",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Draw a shape with four sides.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "A circle is a round shape.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "she",
+      "word": "she",
+      "sentences": [
+        {
+          "text": "She is my best friend.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "She has a pretty smile.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I think she likes ice cream.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "word": "short",
+      "sentences": [
+        {
+          "text": "The pencil is short.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I have short hair.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "This line is very short.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "shorter",
+      "word": "shorter",
+      "sentences": [
+        {
+          "text": "This pencil is shorter than that one.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which line is shorter?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My brother is shorter than me.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "shortest",
+      "word": "shortest",
+      "sentences": [
+        {
+          "text": "Find the shortest line.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Which one is the shortest?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "This is the shortest path.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "show",
+      "word": "show",
+      "sentences": [
+        {
+          "text": "Show me your drawing.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I want to show you something.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The show was amazing!",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "side",
+      "word": "side",
+      "sentences": [
+        {
+          "text": "A square has four sides.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Stand on this side.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "How many sides does it have?",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "sing",
+      "word": "sing",
+      "sentences": [
+        {
+          "text": "I love to sing songs.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Can you sing with me?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The bird likes to sing.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "sit",
+      "word": "sit",
+      "sentences": [
+        {
+          "text": "Please sit down.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Sit next to me.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "The dog can sit.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "six",
+      "word": "six",
+      "sentences": [
+        {
+          "text": "I am six years old.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "There are six eggs.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I have six books.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "word": "sleep",
+      "sentences": [
+        {
+          "text": "Time to go to sleep.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "I need more sleep.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The baby is asleep.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "small",
+      "word": "small",
+      "sentences": [
+        {
+          "text": "The mouse is small.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I have a small toy car.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "This shirt is too small for me.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "smaller",
+      "word": "smaller",
+      "sentences": [
+        {
+          "text": "The mouse is smaller than the cat.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which number is smaller?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My toy is smaller than yours.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "smallest",
+      "word": "smallest",
+      "sentences": [
+        {
+          "text": "Find the smallest number.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Which one is the smallest?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The ant is the smallest.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "so",
+      "word": "so",
+      "sentences": [
+        {
+          "text": "I am so happy!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "It was so much fun.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She is so kind.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "solve",
+      "word": "solve",
+      "sentences": [
+        {
+          "text": "Can you solve this problem?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I will solve the puzzle.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's solve it together.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "some",
+      "word": "some",
+      "sentences": [
+        {
+          "text": "Can I have some water?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Some kids like to run.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I ate some cookies.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "soon",
+      "word": "soon",
+      "sentences": [
+        {
+          "text": "See you soon!",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We will be there soon.",
+          "highlightIndex": 5
+        },
+        {
+          "text": "Come back soon.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "sort",
+      "word": "sort",
+      "sentences": [
+        {
+          "text": "Sort the shapes by color.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you sort these buttons?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's sort them into groups.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "square",
+      "word": "square",
+      "sentences": [
+        {
+          "text": "A square has four equal sides.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Draw a square on the paper.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The window is a square.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "start",
+      "word": "start",
+      "sentences": [
+        {
+          "text": "Let's start the game!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The movie will start soon.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I start my homework after dinner.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "stop",
+      "word": "stop",
+      "sentences": [
+        {
+          "text": "Stop at the red light.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Please stop running.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The bus will stop here.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "subtract",
+      "word": "subtract",
+      "sentences": [
+        {
+          "text": "Subtract three from ten.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you subtract these numbers?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's subtract to find the answer.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "sum",
+      "word": "sum",
+      "sentences": [
+        {
+          "text": "What is the sum of five and three?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Find the sum.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The sum is eight.",
+          "highlightIndex": 1
+        }
+      ]
+    }
+  ]
+}

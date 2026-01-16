@@ -1,0 +1,202 @@
+{
+  "words": [
+    {
+      "id": "part",
+      "word": "part",
+      "sentences": [
+        {
+          "text": "This is part of the whole.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Each part is the same size.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Find the missing part.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "pattern",
+      "word": "pattern",
+      "sentences": [
+        {
+          "text": "What comes next in the pattern?",
+          "highlightIndex": 5
+        },
+        {
+          "text": "I see a pattern here.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Make a pattern with shapes.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "word": "people",
+      "sentences": [
+        {
+          "text": "Many people live in the city.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Kind people help others.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I like meeting new people.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "pick",
+      "word": "pick",
+      "sentences": [
+        {
+          "text": "Pick a card!",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I will pick you up.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's pick some flowers.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "play",
+      "word": "play",
+      "sentences": [
+        {
+          "text": "Let's play together!",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I play with my friends.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Do you want to play a game?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "please",
+      "word": "please",
+      "sentences": [
+        {
+          "text": "Please help me.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "May I have some, please?",
+          "highlightIndex": 5
+        },
+        {
+          "text": "Please sit down.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "pretty",
+      "word": "pretty",
+      "sentences": [
+        {
+          "text": "The flowers are pretty.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "You look very pretty.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "What a pretty picture!",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "plus",
+      "word": "plus",
+      "sentences": [
+        {
+          "text": "Two plus three equals five.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "What is five plus four?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Use the plus sign to add.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "pull",
+      "word": "pull",
+      "sentences": [
+        {
+          "text": "Pull the wagon.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Please pull the door open.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I can pull the rope.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "push",
+      "word": "push",
+      "sentences": [
+        {
+          "text": "Push the button.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I can push the cart.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Please push me on the swing.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "put",
+      "word": "put",
+      "sentences": [
+        {
+          "text": "Put your books away.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I put on my jacket.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Where did you put the keys?",
+          "highlightIndex": 3
+        }
+      ]
+    }
+  ]
+}

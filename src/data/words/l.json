@@ -1,0 +1,292 @@
+{
+  "words": [
+    {
+      "id": "large",
+      "word": "large",
+      "sentences": [
+        {
+          "text": "The elephant is large.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We have a large garden.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Can I have a large pizza?",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "largest",
+      "word": "largest",
+      "sentences": [
+        {
+          "text": "Which number is the largest?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Circle the largest shape.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The elephant is the largest animal here.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "laugh",
+      "word": "laugh",
+      "sentences": [
+        {
+          "text": "You make me laugh.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "We laugh at funny jokes.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I love to hear you laugh.",
+          "highlightIndex": 5
+        }
+      ]
+    },
+    {
+      "id": "left",
+      "word": "left",
+      "sentences": [
+        {
+          "text": "Turn left at the corner.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "I write with my left hand.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "How many are left over?",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "length",
+      "word": "length",
+      "sentences": [
+        {
+          "text": "Measure the length of the string.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "What is the length of this line?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The length is ten centimeters.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "less",
+      "word": "less",
+      "sentences": [
+        {
+          "text": "Three is less than five.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I have less candy than you.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Which box has less toys?",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "let",
+      "word": "let",
+      "sentences": [
+        {
+          "text": "Let me try!",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Please let me help.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Let the dog out.",
+          "highlightIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "light",
+      "word": "light",
+      "sentences": [
+        {
+          "text": "Turn on the light.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The sun gives us light.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "This bag is very light.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "lighter",
+      "word": "lighter",
+      "sentences": [
+        {
+          "text": "The feather is lighter than the rock.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which object is lighter?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My bag is lighter than yours.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "like",
+      "word": "like",
+      "sentences": [
+        {
+          "text": "I like ice cream.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Do you like pizza?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "She looks like her mom.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "little",
+      "word": "little",
+      "sentences": [
+        {
+          "text": "I have a little sister.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "The little puppy is cute.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Wait a little bit.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "live",
+      "word": "live",
+      "sentences": [
+        {
+          "text": "I live in a nice house.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Where do you live?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Fish live in the water.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "long",
+      "word": "long",
+      "sentences": [
+        {
+          "text": "The snake is very long.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "She has long hair.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "How long is the rope?",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "longer",
+      "word": "longer",
+      "sentences": [
+        {
+          "text": "This pencil is longer than that one.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Which line is longer?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My arm is longer than yours.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "longest",
+      "word": "longest",
+      "sentences": [
+        {
+          "text": "Find the longest line.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Which one is the longest?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The snake is the longest animal.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "word": "look",
+      "sentences": [
+        {
+          "text": "Look at the rainbow!",
+          "highlightIndex": 0
+        },
+        {
+          "text": "I look for my books.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "You look happy today.",
+          "highlightIndex": 1
+        }
+      ]
+    }
+  ]
+}

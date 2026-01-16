@@ -1,0 +1,256 @@
+{
+  "words": [
+    {
+      "id": "about",
+      "word": "about",
+      "sentences": [
+        {
+          "text": "Tell me about your favorite toy.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The book is about a brave knight.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I think about my friends every day.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "add",
+      "word": "add",
+      "sentences": [
+        {
+          "text": "Add three and two together.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "Can you add these numbers?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "Let's add more stickers to the page.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "after",
+      "word": "after",
+      "sentences": [
+        {
+          "text": "We play after school.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I brush my teeth after eating.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "The dog runs after the ball.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "again",
+      "word": "again",
+      "sentences": [
+        {
+          "text": "Can we play again?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Read the story again, please!",
+          "highlightIndex": 3
+        },
+        {
+          "text": "I want to try again.",
+          "highlightIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "all",
+      "word": "all",
+      "sentences": [
+        {
+          "text": "I ate all my vegetables.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "All the kids love ice cream.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "We played all day long.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "altogether",
+      "word": "altogether",
+      "sentences": [
+        {
+          "text": "How many apples are there altogether?",
+          "highlightIndex": 5
+        },
+        {
+          "text": "There are ten stickers altogether.",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Count them altogether.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "always",
+      "word": "always",
+      "sentences": [
+        {
+          "text": "I always say please and thank you.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "Mom always hugs me goodnight.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The sun always rises in the morning.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "amount",
+      "word": "amount",
+      "sentences": [
+        {
+          "text": "What is the total amount?",
+          "highlightIndex": 4
+        },
+        {
+          "text": "Count the amount of coins.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "The amount of candy is the same.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "and",
+      "word": "and",
+      "sentences": [
+        {
+          "text": "I like apples and bananas.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Mom and Dad love me.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The cat and dog are friends.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "another",
+      "word": "another",
+      "sentences": [
+        {
+          "text": "Can I have another cookie?",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Let's read another book.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I made another friend at school.",
+          "highlightIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "are",
+      "word": "are",
+      "sentences": [
+        {
+          "text": "You are my best friend.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The flowers are pretty.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We are going to the park.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "word": "ask",
+      "sentences": [
+        {
+          "text": "Ask your teacher for help.",
+          "highlightIndex": 0
+        },
+        {
+          "text": "May I ask a question?",
+          "highlightIndex": 2
+        },
+        {
+          "text": "I want to ask you something.",
+          "highlightIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "ate",
+      "word": "ate",
+      "sentences": [
+        {
+          "text": "I ate my breakfast.",
+          "highlightIndex": 1
+        },
+        {
+          "text": "The dog ate the treat.",
+          "highlightIndex": 2
+        },
+        {
+          "text": "We ate pizza for dinner.",
+          "highlightIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "away",
+      "word": "away",
+      "sentences": [
+        {
+          "text": "The bird flew away.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "Put your toys away.",
+          "highlightIndex": 3
+        },
+        {
+          "text": "My grandma lives far away.",
+          "highlightIndex": 5
+        }
+      ]
+    }
+  ]
+}
