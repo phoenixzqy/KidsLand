@@ -103,13 +103,13 @@ export function PrizePreviewModal({
         {/* Rarity Banner */}
         {prize.rarity && (
           <div
-            className={`h-2 bg-gradient-to-r ${getRarityColor(prize.rarity)}`}
+            className={`h-2 bg-linear-to-r ${getRarityColor(prize.rarity)}`}
           />
         )}
 
         {/* Large Image */}
         <div
-          className={`relative h-72 flex items-center justify-center bg-gradient-to-br ${
+          className={`relative h-72 flex items-center justify-center bg-linear-to-br ${
             prize.type === 'card'
               ? getRarityColor(prize.rarity)
               : prize.type === 'skin'
@@ -137,7 +137,7 @@ export function PrizePreviewModal({
             <h2 className="text-xl font-bold text-slate-800">{prize.name}</h2>
             {prize.rarity && (
               <span
-                className={`text-xs font-semibold px-2 py-1 rounded-full bg-gradient-to-r ${getRarityColor(
+                className={`text-xs font-semibold px-2 py-1 rounded-full bg-linear-to-r ${getRarityColor(
                   prize.rarity
                 )} text-white`}
               >

@@ -39,7 +39,7 @@ export function HomePage() {
       </ThemedHeader>
 
       {/* Welcome Card */}
-      <Card className="mb-6 bg-gradient-to-br from-primary-400 to-primary-600 text-white">
+      <Card className="mb-6 bg-linear-to-br from-primary-400 to-primary-600 text-white">
         <div className="text-center py-4">
           <div className="flex justify-center mb-2">
             <AppImage 

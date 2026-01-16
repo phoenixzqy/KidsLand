@@ -102,7 +102,7 @@ export function WordDetailPage() {
 
       <div className="p-4">
         {/* Main Word Card */}
-        <Card className="text-center py-8 mb-6 bg-gradient-to-br from-primary-50 to-primary-100">
+        <Card className="text-center py-8 mb-6 bg-linear-to-br from-primary-50 to-primary-100">
           {/* Mastery status */}
           {progress?.mastered ? (
             <div className="flex justify-center items-center gap-2 mb-4">
@@ -169,7 +169,7 @@ export function WordDetailPage() {
               >
                 <div className="flex items-start gap-3">
                   <button
-                    className="mt-1 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0"
+                    className="mt-1 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 shrink-0"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleSpeak(sentence.text, index);

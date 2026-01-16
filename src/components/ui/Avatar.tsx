@@ -41,7 +41,7 @@ export function Avatar({ size = 'md', className = '', onClick }: AvatarProps) {
   const getBaseStyles = (rarityGradient: string) => `
     rounded-xl overflow-hidden 
     flex items-center justify-center 
-    bg-gradient-to-br ${rarityGradient}
+    bg-linear-to-br ${rarityGradient}
     shadow-lg ring-2 ring-white/50
     transition-transform hover:scale-105
     ${onClick ? 'cursor-pointer' : ''}

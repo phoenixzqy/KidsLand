@@ -90,7 +90,7 @@ export function AchievementsSection() {
   return (
     <div className="space-y-4">
       {/* Stats Header */}
-      <Card className="bg-gradient-to-r from-amber-100 to-orange-100">
+      <Card className="bg-linear-to-r from-amber-100 to-orange-100">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="font-bold text-slate-800 text-lg">🏆 Achievements</h3>
@@ -109,7 +109,7 @@ export function AchievementsSection() {
         {/* Progress bar */}
         <div className="mt-3 bg-white/50 rounded-full h-3 overflow-hidden">
           <div 
-            className="h-full bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-500"
+            className="h-full bg-linear-to-r from-amber-400 to-orange-500 transition-all duration-500"
             style={{ width: `${(completedCount / totalAchievements) * 100}%` }}
           />
         </div>
@@ -173,23 +173,23 @@ export function AchievementsSection() {
               key={achievement.id}
               className={`relative overflow-hidden transition-all ${
                 completed 
-                  ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200' 
+                  ? 'bg-linear-to-r from-green-50 to-emerald-50 border-green-200' 
                   : claimable
-                    ? 'bg-gradient-to-r from-amber-50 to-yellow-50 border-amber-300 ring-2 ring-amber-300 animate-pulse-slow'
+                    ? 'bg-linear-to-r from-amber-50 to-yellow-50 border-amber-300 ring-2 ring-amber-300 animate-pulse-slow'
                     : ''
               } ${wasJustClaimed ? 'animate-bounce-once' : ''}`}
               padding="sm"
             >
               {/* Tier Badge */}
               <div 
-                className={`absolute top-0 right-0 px-2 py-0.5 text-xs font-bold text-white rounded-bl-lg bg-gradient-to-r ${getTierColor(achievement.tier)}`}
+                className={`absolute top-0 right-0 px-2 py-0.5 text-xs font-bold text-white rounded-bl-lg bg-linear-to-r ${getTierColor(achievement.tier)}`}
               >
                 {getTierName(achievement.tier)}
               </div>
 
               <div className="flex items-center gap-3">
                 {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br ${getTierColor(achievement.tier)} p-0.5`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center bg-linear-to-br ${getTierColor(achievement.tier)} p-0.5`}>
                   <div className="w-full h-full rounded-lg bg-white flex items-center justify-center">
                     <AppImage 
                       src={achievement.icon} 
@@ -228,8 +228,8 @@ export function AchievementsSection() {
                         <div 
                           className={`h-full transition-all duration-500 ${
                             claimable 
-                              ? 'bg-gradient-to-r from-amber-400 to-yellow-500' 
-                              : 'bg-gradient-to-r from-blue-400 to-blue-500'
+                              ? 'bg-linear-to-r from-amber-400 to-yellow-500' 
+                              : 'bg-linear-to-r from-blue-400 to-blue-500'
                           }`}
                           style={{ width: `${progressPercent}%` }}
                         />
@@ -252,7 +252,7 @@ export function AchievementsSection() {
                     size="sm"
                     onClick={() => handleClaim(achievement)}
                     disabled={isClaiming}
-                    className="animate-bounce-slow flex-shrink-0"
+                    className="animate-bounce-slow shrink-0"
                   >
                     {isClaiming ? '...' : 'Claim!'}
                   </Button>

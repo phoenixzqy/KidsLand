@@ -52,7 +52,7 @@ export function QuizSelectPage() {
 
       <div className="p-4">
         {/* Introduction */}
-        <Card className="mb-6 bg-gradient-to-br from-primary-400 to-primary-600 text-white">
+        <Card className="mb-6 bg-linear-to-br from-primary-400 to-primary-600 text-white">
           <div className="text-center py-4">
             <div className="flex justify-center mb-2">
               <AppImage src="/images/minecraft-renders/materials/minecraft-diamond.png" alt="Quiz" className="w-12 h-12 object-contain" />
@@ -69,7 +69,7 @@ export function QuizSelectPage() {
             <div key={quiz.id}>
               <Card className="mb-2" variant="elevated">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl bg-gradient-to-br ${quiz.color}`}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl bg-linear-to-br ${quiz.color}`}>
                     {quiz.icon}
                   </div>
                   <div className="flex-1">

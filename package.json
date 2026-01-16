@@ -8,6 +8,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "fix:tailwind": "find src -name '*.tsx' -o -name '*.ts' | xargs sed -i '' 's/bg-gradient-to-/bg-linear-to-/g; s/from-\\[/from-\\[/g; s/to-\\[/to-\\[/g; s/via-\\[/via-\\[/g'",
     "preview": "vite preview"
   },
   "dependencies": {

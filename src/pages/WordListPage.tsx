@@ -179,7 +179,7 @@ export function WordListPage() {
         {Object.keys(groupedWords).sort().map((letter) => (
           <div key={letter} className="mb-6">
             {/* Letter Header */}
-            <div className="sticky top-[120px] z-10 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-lg mb-3 shadow-md">
+            <div className="sticky top-[120px] z-10 bg-linear-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-lg mb-3 shadow-md">
               <span className="text-lg font-bold">{letter}</span>
               <span className="text-sm ml-2 opacity-80">({groupedWords[letter].length} words)</span>
             </div>
@@ -196,7 +196,7 @@ export function WordListPage() {
                     <Card
                       className={`text-center py-4 relative ${
                         isMastered
-                          ? 'bg-gradient-to-br from-star/20 to-star/30 border-2 border-star'
+                          ? 'bg-linear-to-br from-star/20 to-star/30 border-2 border-star'
                           : isStudied
                           ? 'bg-primary-50 border-2 border-primary-200'
                           : 'bg-white'
