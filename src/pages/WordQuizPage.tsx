@@ -10,9 +10,9 @@ import { useUser } from '../contexts/UserContext';
 import { useTimer } from '../hooks/useTimer';
 import { useSpeech } from '../hooks/useSpeech';
 import { useSpeechRecognition, compareWords } from '../hooks/useSpeechRecognition';
-import { getWordById } from '../db/sync';
+import { getWordById, getPrizeById } from '../db/sync';
 import { updateWordQuizProgress, getRemainingQuizTypesForWord } from '../db/database';
-import type { QuizType, DifficultyLevel, Word } from '../types';
+import type { QuizType, DifficultyLevel, Word, Prize } from '../types';
 
 const HARD_MODE_TIME = 5;
 
@@ -47,7 +47,30 @@ export function WordQuizPage() {
   const [searchParams] = useSearchParams();
   const level = (searchParams.get('level') || 'easy') as DifficultyLevel;
   const navigate = useNavigate();
-  const { stars, addStars, refreshData } = useUser();
+  const { stars, addStars, refreshData, ownedItems } = useUser();
+
+  // Fun animations for celebration
+  const celebrationAnimations = [
+    'animate-bounce',
+    'animate-bounce-star',
+    'animate-wiggle',
+    'animate-hop',
+    'animate-bounce-slow',
+  ];
+
+  // Get a random owned item for celebration (re-randomizes each render)
+  const getRandomCelebrationItem = () => {
+    const items = ownedItems
+      .map(item => getPrizeById(item.prizeId))
+      .filter((prize): prize is Prize => prize !== undefined && prize.type !== 'skin');
+    
+    if (items.length === 0) return null;
+    return items[Math.floor(Math.random() * items.length)];
+  };
+
+  const getRandomAnimation = () => {
+    return celebrationAnimations[Math.floor(Math.random() * celebrationAnimations.length)];
+  };
   const { speak } = useSpeech();
   const { startListening, stopListening, isListening, transcript, resetTranscript } = useSpeechRecognition();
 
@@ -445,17 +468,41 @@ export function WordQuizPage() {
           {/* Result Display */}
           {showResult && (
             <div className={`mt-6 p-4 rounded-2xl ${isCorrect ? 'bg-success/10' : 'bg-error/10'}`}>
-              <div className="text-4xl mb-2">{isCorrect ? '✅' : '❌'}</div>
-              <p className={`text-lg font-bold ${isCorrect ? 'text-success' : 'text-error'}`}>
-                {isCorrect ? 'Correct!' : 'Not quite!'}
-              </p>
-              {!isCorrect && (
-                <p className="text-slate-600 mt-2">
-                  The answer was: <strong>{word.word}</strong>
-                </p>
-              )}
-              {isCorrect && (
-                <p className="text-star font-bold mt-2 flex items-center justify-center gap-1">+{starsPerQuestion}<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-5 h-5 inline-block" /></p>
+              {isCorrect ? (
+                <>
+                  {/* Celebration item replaces checkmark */}
+                  {(() => {
+                    const item = getRandomCelebrationItem();
+                    return (
+                      <div className="flex justify-center mb-2">
+                        <div className={`w-20 h-20 ${getRandomAnimation()}`}>
+                          {item ? (
+                            <AppImage
+                              src={item.image}
+                              alt={item.name}
+                              className="w-full h-full object-contain drop-shadow-lg"
+                            />
+                          ) : (
+                            <span className="text-5xl">🎉</span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })()}
+                  <p className="text-lg font-bold text-success">Correct!</p>
+                  <p className="text-emerald-600 font-bold mt-2 flex items-center justify-center gap-1">
+                    +{starsPerQuestion}
+                    <AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-5 h-5 inline-block" />
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="text-4xl mb-2">❌</div>
+                  <p className="text-lg font-bold text-error">Not quite!</p>
+                  <p className="text-slate-600 mt-2">
+                    The answer was: <strong>{word.word}</strong>
+                  </p>
+                </>
               )}
             </div>
           )}

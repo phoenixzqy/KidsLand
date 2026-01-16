@@ -10,8 +10,8 @@ import { useUser } from '../contexts/UserContext';
 import { useTimer } from '../hooks/useTimer';
 import { useSpeech } from '../hooks/useSpeech';
 import { useSpeechRecognition, compareWords } from '../hooks/useSpeechRecognition';
-import { getWords } from '../db/sync';
-import type { QuizType, DifficultyLevel, Word } from '../types';
+import { getWords, getPrizeById } from '../db/sync';
+import type { QuizType, DifficultyLevel, Word, Prize } from '../types';
 
 const QUESTIONS_PER_QUIZ = 10;
 const HARD_MODE_TIME = 10;
@@ -26,7 +26,7 @@ interface QuizQuestion {
 export function QuizPage() {
   const { type, level } = useParams<{ type: QuizType; level: DifficultyLevel }>();
   const navigate = useNavigate();
-  const { stars, addStars } = useUser();
+  const { stars, addStars, ownedItems } = useUser();
   const { speak } = useSpeech();
   const { startListening, stopListening, isListening, transcript } = useSpeechRecognition();
 
@@ -41,6 +41,29 @@ export function QuizPage() {
 
   const isHardMode = level === 'hard';
   const starsPerQuestion = isHardMode ? 3 : 1;
+
+  // Fun animations for celebration
+  const celebrationAnimations = [
+    'animate-bounce',
+    'animate-bounce-star',
+    'animate-wiggle',
+    'animate-hop',
+    'animate-bounce-slow',
+  ];
+
+  // Get a random owned item for celebration (re-randomizes each render)
+  const getRandomCelebrationItem = () => {
+    const items = ownedItems
+      .map(item => getPrizeById(item.prizeId))
+      .filter((prize): prize is Prize => prize !== undefined && prize.type !== 'skin');
+    
+    if (items.length === 0) return null;
+    return items[Math.floor(Math.random() * items.length)];
+  };
+
+  const getRandomAnimation = () => {
+    return celebrationAnimations[Math.floor(Math.random() * celebrationAnimations.length)];
+  };
 
   // Timer for hard mode
   const { timeLeft, restart: restartTimer, pause: pauseTimer } = useTimer({
@@ -165,35 +188,63 @@ export function QuizPage() {
   if (quizComplete) {
     const totalStars = correctCount * starsPerQuestion;
     const percentage = (correctCount / questions.length) * 100;
+    const celebrationItem = getRandomCelebrationItem();
 
     return (
-      <div className="min-h-screen bg-bg-primary flex items-center justify-center p-4">
-        <Card className="w-full max-w-md text-center py-8">
-          <div className="text-6xl mb-4">
-            {percentage >= 80 ? '🏆' : percentage >= 50 ? '👍' : '💪'}
-          </div>
-          <h2 className="text-2xl font-bold text-slate-800 mb-2">
-            {percentage >= 80 ? 'Amazing!' : percentage >= 50 ? 'Good Job!' : 'Keep Trying!'}
-          </h2>
-          <p className="text-slate-600 mb-6">
-            You got {correctCount} out of {questions.length} correct!
-          </p>
+      <div className="min-h-screen bg-bg-primary flex items-center justify-center p-4 overflow-hidden">
+        <div className="w-full max-w-md relative">
+          <Card className="text-center py-8 relative z-10">
+            {/* Trophy/Result Icon */}
+            <div className="text-6xl mb-4">
+              {percentage >= 80 ? '🏆' : percentage >= 50 ? '👍' : '💪'}
+            </div>
+            
+            <h2 className="text-2xl font-bold text-slate-800 mb-2">
+              {percentage >= 80 ? 'Amazing!' : percentage >= 50 ? 'Good Job!' : 'Keep Trying!'}
+            </h2>
+            <p className="text-slate-600 mb-4">
+              You got {correctCount} out of {questions.length} correct!
+            </p>
 
-          <div className="bg-star/10 rounded-2xl p-6 mb-6">
-            <div className="flex justify-center mb-2"><AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-12 h-12 object-contain" /></div>
-            <div className="text-3xl font-bold text-star">+{totalStars}</div>
-            <div className="text-sm text-slate-500">Emeralds earned!</div>
-          </div>
+            {/* Emeralds Earned */}
+            <div className="bg-emerald-50 rounded-2xl p-5 mb-5 border border-emerald-200">
+              <div className="flex justify-center mb-2">
+                <AppImage 
+                  src="/images/minecraft-renders/materials/minecraft-emerald.png" 
+                  alt="emerald" 
+                  className="w-14 h-14 object-contain animate-bounce-star" 
+                />
+              </div>
+              <div className="text-3xl font-bold text-emerald-600">+{totalStars}</div>
+              <div className="text-sm text-emerald-700">Emeralds earned!</div>
+            </div>
 
-          <div className="space-y-3">
-            <Button variant="primary" fullWidth onClick={() => navigate('/quiz')}>
-              Try Another Quiz
-            </Button>
-            <Button variant="secondary" fullWidth onClick={() => navigate('/')}>
-              Go Home
-            </Button>
-          </div>
-        </Card>
+            {/* Celebration Item */}
+            {celebrationItem && (
+              <div className="mb-5">
+                <p className="text-xs text-slate-500 mb-2">Your collection celebrates with you!</p>
+                <div className="flex justify-center">
+                  <div className={`w-20 h-20 ${getRandomAnimation()}`}>
+                    <AppImage
+                      src={celebrationItem.image}
+                      alt={celebrationItem.name}
+                      className="w-full h-full object-contain drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="space-y-3">
+              <Button variant="primary" fullWidth onClick={() => navigate('/quiz')}>
+                Try Another Quiz
+              </Button>
+              <Button variant="secondary" fullWidth onClick={() => navigate('/')}>
+                Go Home
+              </Button>
+            </div>
+          </Card>
+        </div>
       </div>
     );
   }
@@ -333,17 +384,41 @@ export function QuizPage() {
           {/* Result Display */}
           {showResult && (
             <div className={`mt-6 p-4 rounded-2xl ${isCorrect ? 'bg-success/10' : 'bg-error/10'}`}>
-              <div className="text-4xl mb-2">{isCorrect ? '✅' : '❌'}</div>
-              <p className={`text-lg font-bold ${isCorrect ? 'text-success' : 'text-error'}`}>
-                {isCorrect ? 'Correct!' : 'Not quite!'}
-              </p>
-              {!isCorrect && (
-                <p className="text-slate-600 mt-2">
-                  The answer was: <strong>{currentQuestion.word.word}</strong>
-                </p>
-              )}
-              {isCorrect && (
-                <p className="text-star font-bold mt-2 flex items-center justify-center gap-1">+{starsPerQuestion}<AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-5 h-5 inline-block" /></p>
+              {isCorrect ? (
+                <>
+                  {/* Celebration item replaces checkmark */}
+                  {(() => {
+                    const item = getRandomCelebrationItem();
+                    return (
+                      <div className="flex justify-center mb-2">
+                        <div className={`w-20 h-20 ${getRandomAnimation()}`}>
+                          {item ? (
+                            <AppImage
+                              src={item.image}
+                              alt={item.name}
+                              className="w-full h-full object-contain drop-shadow-lg"
+                            />
+                          ) : (
+                            <span className="text-5xl">🎉</span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })()}
+                  <p className="text-lg font-bold text-success">Correct!</p>
+                  <p className="text-emerald-600 font-bold mt-2 flex items-center justify-center gap-1">
+                    +{starsPerQuestion}
+                    <AppImage src="/images/minecraft-renders/materials/minecraft-emerald.png" alt="emerald" className="w-5 h-5 inline-block" />
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="text-4xl mb-2">❌</div>
+                  <p className="text-lg font-bold text-error">Not quite!</p>
+                  <p className="text-slate-600 mt-2">
+                    The answer was: <strong>{currentQuestion.word.word}</strong>
+                  </p>
+                </>
               )}
             </div>
           )}

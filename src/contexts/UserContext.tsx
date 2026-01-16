@@ -51,6 +51,7 @@ function userReducer(state: UserState, action: UserAction): UserState {
 interface UserContextType {
   state: UserState;
   stars: number;
+  ownedItems: OwnedItem[];
   addStars: (amount: number) => Promise<void>;
   spendStars: (amount: number) => Promise<boolean>;
   sellItem: (prizeId: string, refundAmount: number) => Promise<boolean>;
@@ -157,6 +158,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const value: UserContextType = {
     state,
     stars: state.profile?.stars ?? 0,
+    ownedItems: state.ownedItems,
     addStars,
     spendStars,
     sellItem,
