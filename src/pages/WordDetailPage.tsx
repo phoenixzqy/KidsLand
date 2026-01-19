@@ -6,6 +6,7 @@ import { StarCounter } from '../components/ui/StarCounter';
 import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import { useUser } from '../contexts/UserContext';
 import { useSpeech } from '../hooks/useSpeech';
+import { useScrollToTop } from '../hooks/useScrollRestoration';
 import { getWordById, getWords } from '../db/sync';
 import { getRemainingQuizTypesForWord } from '../db/database';
 import type { QuizType } from '../types';
@@ -26,6 +27,9 @@ export function WordDetailPage() {
   const { speak, isSpeaking } = useSpeech();
   const [activeSentence, setActiveSentence] = useState<number | null>(null);
   const [remainingQuizTypes, setRemainingQuizTypes] = useState<QuizType[]>([]);
+
+  // Always scroll to top when navigating to word detail page or changing words
+  useScrollToTop([wordId]);
 
   const word = wordId ? getWordById(wordId) : undefined;
   const words = getWords();

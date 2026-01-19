@@ -8,6 +8,7 @@ import { ThemedBackground } from '../components/ui/ThemedBackground';
 import { AppImage } from '../components/ui/AppImage';
 import { HeaderContainer, PageContainer } from '../components/ui/PageContainer';
 import { useUser } from '../contexts/UserContext';
+import { useWordListScrollRestoration } from '../hooks/useScrollRestoration';
 import { getWords } from '../db/sync';
 import type { QuizType, Word } from '../types';
 
@@ -29,6 +30,14 @@ export function WordListPage() {
   const words = getWords();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
+
+  // Use scroll restoration hook to preserve scroll position and filter state
+  const { clearState } = useWordListScrollRestoration(
+    selectedLetter,
+    searchQuery,
+    setSelectedLetter,
+    setSearchQuery
+  );
 
   // Filter words based on search and selected letter
   const filteredWords = useMemo(() => {
@@ -94,6 +103,7 @@ export function WordListPage() {
   const clearFilters = () => {
     setSelectedLetter(null);
     setSearchQuery('');
+    clearState(); // Clear saved scroll/filter state when filters are manually cleared
   };
 
   return (
