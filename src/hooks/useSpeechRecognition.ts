@@ -183,21 +183,102 @@ export function compareWords(spoken: string, expected: string): {
     return { isMatch: true, similarity: 1 };
   }
 
-  // Check if the spoken text contains the expected word
+  // Check if the spoken text contains the expected word as a whole word
+  const wordBoundaryRegex = new RegExp(`\\b${escapeRegExp(normalizedExpected)}\\b`, 'i');
+  if (wordBoundaryRegex.test(normalizedSpoken)) {
+    return { isMatch: true, similarity: 0.95 };
+  }
+
+  // Check if the spoken text contains the expected word (substring match)
   if (normalizedSpoken.includes(normalizedExpected)) {
     return { isMatch: true, similarity: 0.9 };
   }
 
-  // Calculate Levenshtein distance for fuzzy matching
+  // Split spoken text into words and check each word
+  const spokenWords = normalizedSpoken.split(/\s+/).filter(w => w.length > 0);
+  
+  // Check each spoken word against the expected word
+  for (const word of spokenWords) {
+    // Direct match with any word
+    if (word === normalizedExpected) {
+      return { isMatch: true, similarity: 1 };
+    }
+    
+    // Fuzzy match with individual words
+    const wordDistance = levenshteinDistance(word, normalizedExpected);
+    const wordMaxLen = Math.max(word.length, normalizedExpected.length);
+    const wordSimilarity = wordMaxLen > 0 ? 1 - wordDistance / wordMaxLen : 0;
+    
+    // High similarity for individual words
+    if (wordSimilarity >= 0.75) {
+      return { isMatch: true, similarity: wordSimilarity };
+    }
+  }
+
+  // Check phonetic similarity for single words (common speech recognition mistakes)
+  const phoneticMatch = checkPhoneticSimilarity(normalizedSpoken, normalizedExpected);
+  if (phoneticMatch.isMatch) {
+    return phoneticMatch;
+  }
+
+  // Calculate overall Levenshtein distance for fuzzy matching
   const distance = levenshteinDistance(normalizedSpoken, normalizedExpected);
   const maxLen = Math.max(normalizedSpoken.length, normalizedExpected.length);
   const similarity = maxLen > 0 ? 1 - distance / maxLen : 0;
 
   // Consider it a match if similarity is high enough (allowing for accent/pronunciation variations)
+  // Lower threshold for very short words (they're harder to detect accurately)
+  const threshold = normalizedExpected.length <= 3 ? 0.6 : 0.65;
   return {
-    isMatch: similarity >= 0.7,
+    isMatch: similarity >= threshold,
     similarity
   };
+}
+
+// Escape special regex characters
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Check phonetic similarity for common speech recognition mistakes
+function checkPhoneticSimilarity(spoken: string, expected: string): { isMatch: boolean; similarity: number } {
+  // Common phonetic variations and mishearings
+  const phoneticVariations: Record<string, string[]> = {
+    // Numbers that sound similar
+    'ten': ['tan', 'tin', 'den', 'then', 'pen'],
+    'two': ['to', 'too', 'tu'],
+    'four': ['for', 'fore'],
+    'one': ['won', 'on', 'juan'],
+    'eight': ['ate', 'ait'],
+    // Common words with similar sounds
+    'the': ['da', 'de', 'duh'],
+    'this': ['dis', 'thus'],
+    'that': ['dat', 'tat'],
+    'they': ['day', 'dey'],
+    'there': ['their', 'they\'re', 'dare'],
+    'here': ['hear', 'ear'],
+    'where': ['wear', 'were', 'ware'],
+    'be': ['bee', 'b'],
+    'see': ['sea', 'c'],
+    'are': ['r', 'our'],
+    'you': ['u', 'yu'],
+    'why': ['y', 'wai'],
+  };
+
+  // Check if expected word has known variations
+  const variations = phoneticVariations[expected] || [];
+  if (variations.includes(spoken)) {
+    return { isMatch: true, similarity: 0.85 };
+  }
+
+  // Check reverse - if spoken word is a key and expected is a variation
+  for (const [key, vars] of Object.entries(phoneticVariations)) {
+    if (key === expected && vars.includes(spoken)) {
+      return { isMatch: true, similarity: 0.85 };
+    }
+  }
+
+  return { isMatch: false, similarity: 0 };
 }
 
 // Levenshtein distance algorithm

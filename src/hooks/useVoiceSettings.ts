@@ -29,11 +29,55 @@ export function useVoiceSettings(): UseVoiceSettingsReturn {
       return;
     }
 
+    // Novelty/strange voice patterns to exclude
+    const excludedPatterns = [
+      /grandma/i,
+      /grandpa/i,
+      /grandmother/i,
+      /grandfather/i,
+      /granny/i,
+      /whisper/i,
+      /robot/i,
+      /alien/i,
+      /monster/i,
+      /child/i,
+      /baby/i,
+      /cartoon/i,
+      /funny/i,
+      /novelty/i,
+      /effect/i,
+      /enhanced/i,
+      /bells/i,
+      /organ/i,
+      /wobble/i,
+      /bubbles/i,
+      /jester/i,
+      /bad news/i,
+      /good news/i,
+      /superstar/i,
+      /trinoids/i,
+      /hysterical/i,
+      /junior/i,
+      /princess/i,
+      /prince/i,
+      /zarvox/i,
+      /cellos/i,
+      /pipe organ/i,
+      /boing/i,
+      /deranged/i,
+    ];
+
     const loadVoices = () => {
       const voices = window.speechSynthesis.getVoices();
-      // Filter to Google English voices only
-      const googleVoices = voices.filter(v => v.name.startsWith('Google') && v.lang.startsWith('en'));
-      setAvailableVoices(googleVoices);
+      // Filter to English voices only and exclude novelty/strange voices
+      const englishVoices = voices.filter(v => {
+        // Must be English language
+        if (!v.lang.startsWith('en')) return false;
+        // Exclude novelty/strange voices
+        const isNovelty = excludedPatterns.some(pattern => pattern.test(v.name));
+        return !isNovelty;
+      });
+      setAvailableVoices(englishVoices);
     };
 
     // Try loading immediately

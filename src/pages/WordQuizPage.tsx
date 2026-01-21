@@ -91,6 +91,7 @@ export function WordQuizPage() {
   const [sentenceWithBlank, setSentenceWithBlank] = useState('');
   const [multipleChoiceOptions, setMultipleChoiceOptions] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [canRetry, setCanRetry] = useState(true); // Allow one retry for pronunciation quiz
 
   const isHardMode = level === 'hard';
   const starsPerQuestion = isHardMode ? 3 : 1;
@@ -207,6 +208,19 @@ export function WordQuizPage() {
     pauseTimer();
   }, [pauseTimer]);
 
+  // Handle retry for pronunciation quiz
+  const handleRetry = useCallback(() => {
+    setShowResult(false);
+    setIsCorrect(false);
+    setCanRetry(false); // Only allow one retry
+    if (typeof resetTranscript === 'function') {
+      resetTranscript();
+    }
+    if (isHardMode) {
+      restartTimer();
+    }
+  }, [resetTranscript, isHardMode, restartTimer]);
+
   // Start the current quiz
   const handleStart = () => {
     setHasStarted(true);
@@ -295,6 +309,7 @@ export function WordQuizPage() {
       setShowResult(false);
       setIsCorrect(false);
       setHasStarted(false);
+      setCanRetry(true); // Reset retry for next pronunciation quiz
       if (typeof resetTranscript === 'function') {
         resetTranscript();
       }
@@ -597,6 +612,17 @@ export function WordQuizPage() {
                   <p className="text-slate-600 mt-2">
                     The answer was: <strong>{word.word}</strong>
                   </p>
+                  {/* Retry button for pronunciation quiz */}
+                  {quizState.currentQuizType === 'pronunciation' && canRetry && (
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="mt-4"
+                      onClick={handleRetry}
+                    >
+                      🔄 Try Again
+                    </Button>
+                  )}
                 </>
               )}
             </div>
