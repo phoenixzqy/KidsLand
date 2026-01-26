@@ -91,7 +91,7 @@ export function WordQuizPage() {
   const [sentenceWithBlank, setSentenceWithBlank] = useState('');
   const [multipleChoiceOptions, setMultipleChoiceOptions] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [canRetry, setCanRetry] = useState(true); // Allow one retry for pronunciation quiz
+  // Removed canRetry state - allow unlimited retries for pronunciation quiz until user skips
 
   const isHardMode = level === 'hard';
   const starsPerQuestion = isHardMode ? 3 : 1;
@@ -208,11 +208,10 @@ export function WordQuizPage() {
     pauseTimer();
   }, [pauseTimer]);
 
-  // Handle retry for pronunciation quiz
+  // Handle retry for pronunciation quiz - unlimited retries until user skips
   const handleRetry = useCallback(() => {
     setShowResult(false);
     setIsCorrect(false);
-    setCanRetry(false); // Only allow one retry
     if (typeof resetTranscript === 'function') {
       resetTranscript();
     }
@@ -220,6 +219,40 @@ export function WordQuizPage() {
       restartTimer();
     }
   }, [resetTranscript, isHardMode, restartTimer]);
+
+  // Handle skip for pronunciation quiz - move to next quiz without penalty
+  const handleSkip = useCallback(async () => {
+    // Track completion but don't mark as passed
+    if (wordId && quizState.currentQuizType) {
+      await updateWordQuizProgress(wordId, quizState.currentQuizType, false);
+    }
+
+    // Move to next quiz
+    await incrementQuizzesCompleted();
+
+    if (quizState.remainingTypes.length === 0) {
+      setQuizComplete(true);
+      refreshData();
+    } else {
+      const nextType = quizState.remainingTypes[0];
+      setQuizState(prev => ({
+        ...prev,
+        currentQuizType: nextType,
+        remainingTypes: prev.remainingTypes.slice(1),
+        completedTypes: [...prev.completedTypes, prev.currentQuizType!]
+      }));
+
+      // Reset for next quiz
+      setAnswer('');
+      setSelectedOption(null);
+      setShowResult(false);
+      setIsCorrect(false);
+      setHasStarted(false);
+      if (typeof resetTranscript === 'function') {
+        resetTranscript();
+      }
+    }
+  }, [wordId, quizState, incrementQuizzesCompleted, refreshData, resetTranscript]);
 
   // Start the current quiz
   const handleStart = () => {
@@ -288,7 +321,7 @@ export function WordQuizPage() {
   const nextQuiz = async () => {
     // Track each completed quiz type for achievements
     await incrementQuizzesCompleted();
-    
+
     if (quizState.remainingTypes.length === 0) {
       // All quizzes complete
       setQuizComplete(true);
@@ -309,7 +342,6 @@ export function WordQuizPage() {
       setShowResult(false);
       setIsCorrect(false);
       setHasStarted(false);
-      setCanRetry(true); // Reset retry for next pronunciation quiz
       if (typeof resetTranscript === 'function') {
         resetTranscript();
       }
@@ -612,16 +644,24 @@ export function WordQuizPage() {
                   <p className="text-slate-600 mt-2">
                     The answer was: <strong>{word.word}</strong>
                   </p>
-                  {/* Retry button for pronunciation quiz */}
-                  {quizState.currentQuizType === 'pronunciation' && canRetry && (
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="mt-4"
-                      onClick={handleRetry}
-                    >
-                      🔄 Try Again
-                    </Button>
+                  {/* Retry and Skip buttons for pronunciation quiz - unlimited retries */}
+                  {quizState.currentQuizType === 'pronunciation' && (
+                    <div className="flex gap-3 mt-4 justify-center">
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={handleRetry}
+                      >
+                        🔄 Try Again
+                      </Button>
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        onClick={handleSkip}
+                      >
+                        ⏭️ Skip
+                      </Button>
+                    </div>
                   )}
                 </>
               )}
